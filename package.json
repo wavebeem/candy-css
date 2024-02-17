@@ -1,0 +1,46 @@
+{
+  "name": "candy.css",
+  "type": "module",
+  "version": "0.6.0",
+  "description": "A CSS library inspired by the Game Boy Color, for making 2-bit (4 color) interfaces",
+  "browser": "dist/candy.css",
+  "files": [
+    "dist/candy.css",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "upgrade": "npm-check -u",
+    "start": "serve src",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node bin/build.js",
+    "prepack": "npm run build",
+    "favicon": "node bin/favicon.js",
+    "postversion": "git push --follow-tags origin HEAD && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wavebeem/candy-css.git"
+  },
+  "keywords": [
+    "css",
+    "front-end",
+    "frontend",
+    "front end",
+    "design system",
+    "design",
+    "ui",
+    "ui library"
+  ],
+  "author": "Sage Fennel <sage@wavebeem.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wavebeem/candy-css/issues"
+  },
+  "homepage": "https://github.com/wavebeem/candy-css#readme",
+  "devDependencies": {
+    "npm-check": "^6.0.1",
+    "prettier": "^3.2.5",
+    "serve": "^14.2.1",
+    "shelljs": "^0.8.5"
+  }
+}

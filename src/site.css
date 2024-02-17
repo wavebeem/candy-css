@@ -1,0 +1,241 @@
+:root {
+  box-sizing: border-box;
+  padding: 1rem;
+  line-height: 1.5;
+  overflow-y: scroll;
+  --site-font-monospace: "JetBrains Mono", "Cascadia Code", "Menlo", "Consolas",
+    monospace;
+  --site-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  font-family: var(--site-font-sans);
+  color-scheme: light dark;
+}
+
+body {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+footer {
+  margin-top: 1rem;
+  text-decoration-line: none;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: var(--site-font-monospace);
+  font-variant-ligatures: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.site-property-editor {
+  margin: 1rem 0;
+}
+
+.site-property-editor-grid {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  font-family: var(--site-font-monospace);
+}
+
+.site-property-editor-title {
+  font-family: var(--site-font-sans);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.site-columns-auto {
+  --gap: 1rem;
+  --grid-min: 10rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+  gap: var(--gap);
+}
+
+.site-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.25rem;
+}
+
+.site-theme-container {
+  flex: auto;
+  display: grid;
+  border: 1px solid black;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 25%);
+  border-radius: var(--bit-border-radius);
+}
+
+.site-link-header {
+  color: inherit;
+  text-decoration-line: none;
+}
+
+.site-link-header:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+
+.site-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.site-table-music > table > thead > tr > th:nth-of-type(2) {
+  min-width: 300px;
+}
+
+.site-nav-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.site-nav-menu a {
+  display: block;
+}
+
+.site-flex-row-wrap {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.site-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-gap {
+  gap: 1rem;
+}
+
+.site-spacer {
+  padding: 0.5rem;
+}
+
+.site-example-heading {
+  margin-top: 0;
+}
+
+theme-switchers,
+custom-properties-editor,
+inject-example,
+site-toc {
+  display: block;
+}
+
+site-theme-loader {
+  display: none;
+}
+
+site-nav,
+site-footer,
+site-example-css {
+  display: contents;
+}
+
+.site-nav-menu,
+.site-toc {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+footer .bit-link,
+.site-nav-menu a,
+.site-toc a {
+  text-decoration-line: none;
+}
+
+.site-toc {
+  margin-top: 1rem;
+}
+
+.site-toc a {
+  display: block;
+}
+
+.site-list {
+  padding-left: 1rem;
+}
+
+.site-example {
+  --site-example-offset: 1rem;
+  border-left: 1px solid var(--bit-color-shadow);
+  padding-left: var(--site-example-offset);
+  margin-left: calc(-1 * var(--site-example-offset));
+}
+
+.site-theme-button {
+  line-height: 2rem;
+  text-align: left;
+  font-weight: bold;
+}
+
+.site-palette-orb {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1rem;
+  margin-bottom: 0.25rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: var(--bit-color-accent);
+  border: 4px solid var(--bit-color-shadow);
+  border-left-color: var(--bit-color-fg);
+  border-right-color: var(--bit-color-fg);
+  background-clip: content-box;
+  padding: 2px;
+}
+
+@media (min-width: 900px) {
+  :root {
+    padding: 2rem;
+    background: var(--bit-color-shadow);
+  }
+
+  body {
+    padding: 2rem;
+    border: 1px solid var(--bit-color-fg);
+    box-shadow: 0 1px 0 var(--bit-color-fg);
+    background: var(--bit-color-bg);
+    border-radius: var(--bit-border-radius);
+  }
+
+  .site-property-editor-grid {
+    grid-template-columns: max-content max-content;
+  }
+
+  .site-nav-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .site-toc {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .site-nav-menu a {
+    display: inline;
+  }
+
+  .site-toc {
+    float: right;
+    margin: 1rem;
+    margin-right: 0;
+  }
+}

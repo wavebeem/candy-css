@@ -1,0 +1,8 @@
+.DS_Store
+.vscode
+*.bak
+*~
+*.tgz
+
+dist
+node_modules

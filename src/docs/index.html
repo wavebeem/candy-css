@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en" class="bit-root bit-scrollbar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation | candy-css</title>
+    <link rel="icon" sizes="16x16" href="/favicon-16.png" />
+    <link rel="icon" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/candy.css" />
+    <link rel="stylesheet" href="/site.css" />
+    <script type="module" src="/index.js"></script>
+    <script type="module" src="docs.js"></script>
+    <script
+      async
+      defer
+      data-domain="candy.wavebeem.com"
+      src="https://plausible.io/js/plausible.js"
+    ></script>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@wavebeem" />
+    <meta name="twitter:creator" content="@wavebeem" />
+    <meta name="og:title" content="candy-css" />
+    <meta
+      name="og:description"
+      content="A CSS library for 2-bit inspired design"
+    />
+    <meta
+      name="og:image"
+      content="https://candy.wavebeem.com/favicon-512.png"
+    />
+  </head>
+  <body>
+    <site-theme-loader></site-theme-loader>
+
+    <h1><span class="bit-code">candy-css</span></h1>
+
+    <site-nav></site-nav>
+
+    <site-toc></site-toc>
+
+    <h2>Introduction</h2>
+
+    <p>
+      This page demonstrates some of the ways candy-css can be used, as well as
+      code for its examples.
+    </p>
+
+    <h2 id="basics">Basics</h2>
+    <p>
+      All CSS classes from candy-css start with
+      <code class="bit-code">bit-</code>. This way you'll always know when
+      you're using candy-css CSS.
+    </p>
+
+    <p>
+      Change the custom properties to try different values. Refresh the page to
+      reset it.
+    </p>
+
+    <custom-properties-editor
+      data-properties="
+        --bit-color-bg
+        --bit-color-fg
+        --bit-color-shadow
+        --bit-color-accent
+        --bit-border-radius
+        --bit-border-radius-sharp
+        --bit-underline-thickness
+      "
+    ></custom-properties-editor>
+
+    <h2 id="links">Links</h2>
+
+    <p>
+      The thickly underlined links make them easy to see within a large amount
+      of text.
+    </p>
+
+    <inject-example data-example="link"></inject-example>
+
+    <h2 id="selects">Selects</h2>
+    <inject-example
+      data-properties="
+        --bit-select-padding-horizontal
+        --bit-select-padding-vertical
+      "
+      data-example="select"
+    ></inject-example>
+
+    <h2 id="buttons">Buttons</h2>
+    <inject-example
+      data-properties="
+        --bit-button-padding-horizontal
+        --bit-button-padding-vertical
+      "
+      data-example="buttons"
+    ></inject-example>
+
+    <h2 id="inputs">Text Inputs</h2>
+    <inject-example
+      data-properties="
+        --bit-input-padding-horizontal
+        --bit-input-padding-vertical
+      "
+      data-example="inputs"
+    ></inject-example>
+
+    <h2 id="radios">Radio Buttons</h2>
+    <p>
+      For proper accessibility and appearance, wrap all radio buttons inside a
+      <code class="bit-code">bit-field</code> and put a
+      <code class="bit-code">label</code> after it with correct
+      <code class="bit-code">id</code> and
+      <code class="bit-code">for</code> attributes (or nest the radio button
+      inside a label)
+    </p>
+    <inject-example
+      data-properties="
+        --bit-radiocheckbox-size
+        --bit-radiocheckbox-margin-horizontal
+        --bit-radiocheckbox-margin-vertical
+      "
+      data-example="radios"
+    ></inject-example>
+
+    <h2 id="checkboxes">Checkboxes</h2>
+    <p>
+      For proper accessibility and appearance, wrap all checkboxes inside a
+      <code class="bit-code">bit-field</code> and put a
+      <code class="bit-code">label</code> after it with correct
+      <code class="bit-code">id</code> and
+      <code class="bit-code">for</code> attributes (or nest the checkbox inside
+      a label)
+    </p>
+    <inject-example
+      data-properties="
+        --bit-radiocheckbox-size
+        --bit-radiocheckbox-margin-horizontal
+        --bit-radiocheckbox-margin-vertical
+      "
+      data-example="checkboxes"
+    ></inject-example>
+
+    <h2 id="inline">Inline Tags</h2>
+    <inject-example
+      class="site-example"
+      data-example="inlineTags"
+    ></inject-example>
+
+    <h2 id="tables">Tables</h2>
+    <p>A basic table.</p>
+    <inject-example
+      data-properties="
+        --bit-table-padding-horizontal
+        --bit-table-padding-vertical
+      "
+      data-example="tableBasic"
+    ></inject-example>
+
+    <p>A table with row headers.</p>
+    <inject-example
+      data-properties="
+        --bit-table-padding-horizontal
+        --bit-table-padding-vertical
+      "
+      data-example="tableRowHeaders"
+    ></inject-example>
+
+    <p>A table with a footer.</p>
+    <inject-example
+      data-properties="
+        --bit-table-padding-horizontal
+        --bit-table-padding-vertical
+      "
+      data-example="tableTfoot"
+    ></inject-example>
+
+    <h2 id="cards">Cards</h2>
+    <inject-example
+      data-properties="
+        --bit-card-padding-horizontal
+        --bit-card-padding-vertical
+      "
+      data-example="card"
+    ></inject-example>
+
+    <h2 id="box">Box</h2>
+    <inject-example
+      data-properties="
+        --bit-box-padding-horizontal
+        --bit-box-padding-vertical
+      "
+      data-example="box"
+    ></inject-example>
+
+    <h2 id="fieldsets">Fieldsets</h2>
+    <inject-example
+      data-properties="
+        --bit-fieldset-padding-horizontal
+        --bit-fieldset-padding-vertical
+        --bit-legend-padding-horizontal
+        --bit-legend-padding-vertical
+      "
+      data-example="fieldsetLegend"
+    ></inject-example>
+
+    <h2 id="svg">Inline SVG</h2>
+    <p>
+      Using the CSS class <code class="bit-code">bit-svg</code> will set the
+      <code class="bit-code">fill</code> property to
+      <code class="bit-code">currentcolor</code>, causing inline SVGs to
+      automatically match your candy-css theme.
+    </p>
+    <inject-example data-example="inlineSVG"></inject-example>
+
+    <h2 id="hr">Horizontal Rule</h2>
+    <inject-example data-example="horizontalRule"></inject-example>
+
+    <h2 id="pre">Code</h2>
+    <p>
+      The class <code class="bit-code">bit-pre</code> can be used for multiline
+      code blocks.
+    </p>
+    <inject-example
+      data-properties="
+        --bit-pre-padding-horizontal
+        --bit-pre-padding-vertical
+      "
+      data-example="pre"
+    ></inject-example>
+
+    <h2 id="scrollbars">Scrollbars</h2>
+    <p>
+      Firefox has the ability to put custom colors on your scrollbars! Don't
+      forget to put <code class="bit-code">bit-scrollbar</code> on your
+      <code class="bit-code">&lt;html&gt;</code> element if you'd like to opt-in
+      to this feature. You can also put it on only specific elements that you'd
+      like to opt-in to this behavior. Hopefully in the future more browsers
+      besides Firefox will implement this feature.
+    </p>
+    <p>
+      You can also use the nonstandard WebKit scrollbar properties to color
+      scrollbars if you'd like. This is not included in candy.css itself.
+    </p>
+    <pre class="bit-pre">
+::-webkit-scrollbar {
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--bit-color-bg);
+}
+
+::-webkit-scrollbar:vertical {
+  border-left: 1px solid var(--bit-color-shadow);
+}
+
+::-webkit-scrollbar:horizontal {
+  border-top: 1px solid var(--bit-color-shadow);
+}
+
+::-webkit-scrollbar-track {
+  padding: 2px;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--bit-color-shadow);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bit-color-fg);
+  background-clip: content-box;
+  box-shadow: inset 0 0 0 3px var(--bit-color-bg);
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  border-left: 1px solid var(--bit-color-shadow);
+  min-height: 1rem;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  border-top: 1px solid var(--bit-color-shadow);
+  min-width: 1rem;
+}</pre
+    >
+
+    <h2 id="dark">Dark Mode</h2>
+    <p>
+      You can use the
+      <code class="bit-code">prefers-color-scheme: dark</code> CSS media query
+      to set the <code class="bit-code">--bit-color-*</code> variables, allowing
+      your visitors to automatically get dark mode with a single block of CSS
+    </p>
+    <pre class="bit-pre">
+.bit-auto,
+.bit-root {
+  --bit-color-bg: #fff;
+  --bit-color-fg: #333;
+  --bit-color-shadow: #666;
+  --bit-color-accent: #c00;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bit-auto,
+  .bit-root {
+    --bit-color-bg: #333;
+    --bit-color-fg: #ccc;
+    --bit-color-shadow: #666;
+    --bit-color-accent: #0dd;
+  }
+}</pre
+    >
+
+    <h2 id="rounded-corners">Rounded Corners</h2>
+    <p>
+      Sharp edges not your thing? You can customize that. CSS Custom Properties
+      are inherited, so you can apply this to your whole page by setting
+      <code class="bit-code">--bit-border-radius</code> on any element you want
+      through CSS or even inline styles.
+    </p>
+    <inject-example
+      class="site-example"
+      data-example="rounded-corners"
+    ></inject-example>
+
+    <h2 id="auto-mode">Auto Mode</h2>
+
+    <p>
+      The suggested way to use <code class="bit-code">candy-css</code> is
+      exclusively by adding CSS classes to elements you want to style. But
+      sometimes your HTML is constrained to be entirely
+      <code class="bit-code">class</code> free.
+    </p>
+
+    <p>
+      In order to use auto mode, put the class
+      <code class="bit-code">bit-auto</code> on whichever tag you want class
+      free markup inside of (e.g. on the main element of your blog post, or even
+      the entire document if you want to work quicker, or use Markdown or
+      something).
+    </p>
+
+    <inject-example data-example="auto"></inject-example>
+
+    <site-footer></site-footer>
+
+    <template id="template-auto">
+      <div class="bit-auto">
+        <button type="button">Button</button>
+        <br />
+        <br />
+        <hr />
+        <br />
+        <label>
+          <div>Input</div>
+          <input type="text" value="Example text here" />
+        </label>
+        <br />
+        <label>
+          <div>Text area</div>
+          <textarea>Example text here</textarea>
+        </label>
+        <br />
+        <hr />
+        <br />
+        <fieldset>
+          <legend>Fieldset &amp; legend</legend>
+          <label>
+            <input type="checkbox" />
+            <span>Pineapple</span>
+          </label>
+          <label>
+            <input type="checkbox" />
+            <span>Mushroom</span>
+          </label>
+          <label>
+            <input type="checkbox" />
+            <span>Olives</span>
+          </label>
+          <label>
+            <input type="checkbox" disabled />
+            <span>Disabled</span>
+          </label>
+        </fieldset>
+        <br />
+        <br />
+        <hr />
+        <br />
+        <table>
+          <thead>
+            <tr>
+              <th>Column 1</th>
+              <th>Column 2</th>
+              <th>Column 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>11</td>
+              <td>21</td>
+              <td>31</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>22</td>
+              <td>32</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>23</td>
+              <td>33</td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <hr />
+        <br />
+        <label>
+          <span>Select</span>
+          <select style="min-width: 20ch">
+            <option disabled selected>&ndash;</option>
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+          </select>
+        </label>
+        <br />
+        <hr />
+        <br />
+        <div>
+          <label>
+            <input type="checkbox" checked />
+            <span>Checked checkbox</span>
+          </label>
+          <label>
+            <input type="checkbox" />
+            <span>Unchecked checkbox</span>
+          </label>
+          <label>
+            <input type="checkbox" />
+            <span
+              >Checkbox with<br />line that wraps<br />because it's long</span
+            >
+          </label>
+          <label>
+            <input type="checkbox" />
+            <span
+              >Checkbox with<br />line that wraps<br />because it's long<br />and
+              no HMTL ID</span
+            >
+          </label>
+          <div>
+            <input type="checkbox" id="checkbox__2022-12-18__11.42.40" />
+            <label for="checkbox__2022-12-18__11.42.40"
+              >Checkbox label sibling</label
+            >
+          </div>
+          <label>
+            <input type="checkbox" disabled />
+            <span>Disabled checkbox</span>
+          </label>
+          <br />
+          <hr />
+          <br />
+          <label>
+            <input type="radio" checked name="auto-b" value="auto-b1" />
+            <span>Checked radio button</span>
+          </label>
+          <label>
+            <input type="radio" name="auto-b" value="auto-b2" />
+            <span>Unchecked radio button</span>
+          </label>
+          <label>
+            <input type="radio" disabled name="auto-b" value="auto-b3" />
+            <span>Disabled radio button</span>
+          </label>
+          <br />
+          <hr />
+          <br />
+          <pre>
+// JavaScript example
+console.log("Hello, world!");</pre
+          >
+        </div>
+      </div>
+    </template>
+
+    <template id="template-link">
+      <p>
+        This is an
+        <a href="#" class="bit-link">example link</a>
+        within a sentence.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet,
+        <a href="#" class="bit-link">consectetur</a> adipiscing elit. Nunc
+        finibus est ac velit faucibus volutpat. Nullam aliquet sollicitudin
+        accumsan. Nulla pretium et
+        <a href="#" class="bit-link">augue vel scelerisque</a>. Donec sit amet
+        semper sapien, at facilisis velit. Quisque vitae egestas justo,
+        facilisis vulputate felis.
+        <a href="#" class="bit-link">Phasellus</a> sit amet rhoncus nisi. Nullam
+        quis dignissim tellus, vitae
+        <a href="#" class="bit-link">tincidunt ex</a>. Maecenas tempus mi arcu,
+        at gravida orci lobortis sed. In laoreet blandit eros non fermentum.
+        Donec iaculis varius viverra.
+      </p>
+    </template>
+
+    <template id="template-rounded-corners">
+      <div class="site-flex-column site-gap">
+        <div
+          style="--bit-border-radius: 0px"
+          class="bit-card site-columns-auto"
+        >
+          <button class="bit-button">OK</button>
+          <button class="bit-button">Cancel</button>
+          <input class="bit-input" placeholder="Input" />
+          <select class="bit-select">
+            <option selected disabled>&ndash;</option>
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+          </select>
+        </div>
+
+        <div
+          style="--bit-border-radius: 8px"
+          class="bit-card site-columns-auto"
+        >
+          <button class="bit-button">OK</button>
+          <button class="bit-button">Cancel</button>
+          <input class="bit-input" placeholder="Input" />
+          <select class="bit-select">
+            <option selected disabled>&ndash;</option>
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+          </select>
+        </div>
+
+        <div
+          style="--bit-border-radius: 32px"
+          class="bit-card site-columns-auto"
+        >
+          <button class="bit-button">OK</button>
+          <button class="bit-button">Cancel</button>
+          <input class="bit-input" placeholder="Input" />
+          <select class="bit-select">
+            <option selected disabled>&ndash;</option>
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+          </select>
+        </div>
+      </div>
+    </template>
+
+    <template id="template-buttons">
+      <div class="site-flex-row-wrap">
+        <button type="button" class="bit-button bit-primary">Primary</button>
+        <button type="button" class="bit-button">Save</button>
+        <button type="button" class="bit-button">Delete</button>
+        <button type="button" class="bit-button">&minus;</button>
+        <button type="button" class="bit-button">+</button>
+        <button type="button" class="bit-button bit-primary" disabled>
+          Primary
+        </button>
+        <button type="button" class="bit-button" disabled>Save</button>
+        <button type="button" class="bit-button" disabled>Delete</button>
+        <button type="button" class="bit-button" disabled>+</button>
+        <button type="button" class="bit-button" disabled>&minus;</button>
+        <button type="button" class="bit-button">
+          Create from template...
+        </button>
+        <button type="button" class="bit-button" disabled>
+          Create from template...
+        </button>
+      </div>
+    </template>
+
+    <template id="template-checkboxes">
+      <div class="site-flex-column">
+        <div class="bit-field">
+          <input
+            class="bit-checkbox"
+            type="checkbox"
+            id="toppings-pineapple"
+            name="toppings"
+            value="pineapple"
+            checked
+          />
+          <label for="toppings-pineapple">Pineapple</label>
+        </div>
+        <div class="bit-field">
+          <input
+            class="bit-checkbox"
+            type="checkbox"
+            id="toppings-mushrooms"
+            name="toppings"
+            value="mushrooms"
+          />
+          <label for="toppings-mushrooms">Mushrooms</label>
+        </div>
+        <div class="bit-field">
+          <input
+            class="bit-checkbox"
+            type="checkbox"
+            id="toppings-olives"
+            name="toppings"
+            value="olives"
+          />
+          <label for="toppings-olives">Olives</label>
+        </div>
+        <div class="bit-field">
+          <input
+            class="bit-checkbox"
+            type="checkbox"
+            id="toppings-multiline"
+            name="toppings"
+            value="multiline"
+          />
+          <label for="toppings-multiline">Multiline<br />text</label>
+        </div>
+        <label class="bit-field">
+          <input class="bit-checkbox" type="checkbox" name="toppings" />
+          Checkbox wrapped in a label
+        </label>
+        <label class="bit-field">
+          <input class="bit-checkbox" type="checkbox" name="toppings" />
+          Multiline checkbox<br />
+          wrapped in a label
+        </label>
+        <div class="bit-field">
+          <input
+            class="bit-checkbox"
+            type="checkbox"
+            id="toppings-disabled"
+            name="toppings"
+            value="disabled"
+            disabled
+          />
+          <label for="toppings-disabled">Disabled</label>
+        </div>
+      </div>
+    </template>
+
+    <template id="template-radios">
+      <div class="site-flex-column">
+        <div class="bit-field">
+          <input
+            class="bit-radio"
+            type="radio"
+            id="color-red"
+            name="color"
+            value="red"
+            checked
+          />
+          <label for="color-red">Red</label>
+        </div>
+        <div class="bit-field">
+          <input
+            class="bit-radio"
+            type="radio"
+            id="color-green"
+            name="color"
+            value="green"
+          />
+          <label for="color-green">Green</label>
+        </div>
+        <div class="bit-field">
+          <input
+            class="bit-radio"
+            type="radio"
+            id="color-blue"
+            name="color"
+            value="blue"
+          />
+          <label for="color-blue">Blue</label>
+        </div>
+        <div class="bit-field">
+          <input
+            class="bit-radio"
+            type="radio"
+            id="color-multiline"
+            name="color"
+            value="multiline"
+          />
+          <label for="color-blue">Multiline<br />text</label>
+        </div>
+        <div class="bit-field">
+          <input
+            class="bit-radio"
+            type="radio"
+            id="color-disabled"
+            name="color"
+            value="disabled"
+            disabled
+          />
+          <label for="color-disabled">Disabled</label>
+        </div>
+      </div>
+    </template>
+
+    <template id="template-inputs">
+      <div class="site-columns-auto">
+        <div class="site-flex-column">
+          <label for="field-name">Name</label>
+          <input class="bit-input" id="field-name" />
+        </div>
+        <div class="site-flex-column">
+          <label for="field-url">URL</label>
+          <input
+            class="bit-input"
+            placeholder="https://example.com"
+            id="field-url"
+          />
+        </div>
+        <div class="site-flex-column">
+          <label for="field-disabled-1">Disabled</label>
+          <input class="bit-input" id="field-disabled-1" disabled />
+        </div>
+      </div>
+      <br />
+      <div class="site-columns-auto">
+        <div class="site-flex-column">
+          <label for="field-description">Description</label>
+          <textarea
+            rows="4"
+            class="bit-input"
+            id="field-description"
+            spellcheck="false"
+          >
+A textarea is used for multi-line text input.</textarea
+          >
+        </div>
+        <div class="site-flex-column">
+          <label for="field-disabled-2">Disabled</label>
+          <textarea rows="4" class="bit-input" id="field-disabled-2" disabled>
+Disabled.</textarea
+          >
+        </div>
+      </div>
+    </template>
+
+    <template id="template-inlineTags">
+      <p>
+        Leverage <b>agile</b> frameworks to provide a robust synopsis for high
+        level overviews.
+        <a href="#" class="bit-link">Iterative approaches</a> to corporate
+        strategy foster collaborative thinking to further the
+        <i>overall</i> value proposition. Organically grow the
+        <code class="bit-code">holistic world</code> view of disruptive
+        innovation via workplace diversity and empowerment.
+      </p>
+    </template>
+    <!-- prettier-ignore -->
+    <template id="template-pre">
+<pre class="bit-pre">function sayHello() {
+  console.log("Hello!");
+}</pre>
+    </template>
+
+    <template id="template-select">
+      <div class="site-flex-row-wrap">
+        <select class="bit-select">
+          <option selected disabled>Choose a country...</option>
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </select>
+
+        <select class="bit-select">
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </select>
+
+        <select class="bit-select">
+          <option selected disabled>&ndash;</option>
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </select>
+
+        <select class="bit-select" disabled>
+          <option selected disabled>Choose a country...</option>
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </select>
+
+        <select class="bit-select" disabled>
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </select>
+
+        <select class="bit-select" disabled>
+          <option selected disabled>&ndash;</option>
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </select>
+      </div>
+    </template>
+
+    <template id="template-tableBasic">
+      <p>
+        A regular table with a responsive wrapper added. The responsive wrapper
+        is not part of candy.css.
+      </p>
+      <div class="site-table-responsive site-table-music">
+        <table class="bit-table" style="width: 100%">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Time</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Pretelethal</td>
+              <td>3:21</td>
+              <td>&starf;&starf;&starf;&starf;&star;</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Key Entity Extraction V: Sentry the Defiant</td>
+              <td>5:45</td>
+              <td>&starf;&starf;&starf;&starf;&starf;</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>The Hard Sell</td>
+              <td>5:10</td>
+              <td>&starf;&starf;&star;&star;&star;</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Number City</td>
+              <td>3:49</td>
+              <td>&starf;&starf;&starf;&star;&star;</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Gravity's Union</td>
+              <td>6:46</td>
+              <td>&starf;&starf;&starf;&starf;&starf;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Table inside a box</p>
+      <div class="site-table-responsive site-table-music bit-box">
+        <table class="bit-table" style="width: 100%">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Time</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Pretelethal</td>
+              <td>3:21</td>
+              <td>&starf;&starf;&starf;&starf;&star;</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Key Entity Extraction V: Sentry the Defiant</td>
+              <td>5:45</td>
+              <td>&starf;&starf;&starf;&starf;&starf;</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>The Hard Sell</td>
+              <td>5:10</td>
+              <td>&starf;&starf;&star;&star;&star;</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Number City</td>
+              <td>3:49</td>
+              <td>&starf;&starf;&starf;&star;&star;</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Gravity's Union</td>
+              <td>6:46</td>
+              <td>&starf;&starf;&starf;&starf;&starf;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Table inside a card</p>
+      <div class="site-table-responsive site-table-music bit-card">
+        <table class="bit-table" style="width: 100%">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Time</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Pretelethal</td>
+              <td>3:21</td>
+              <td>&starf;&starf;&starf;&starf;&star;</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Key Entity Extraction V: Sentry the Defiant</td>
+              <td>5:45</td>
+              <td>&starf;&starf;&starf;&starf;&starf;</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>The Hard Sell</td>
+              <td>5:10</td>
+              <td>&starf;&starf;&star;&star;&star;</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Number City</td>
+              <td>3:49</td>
+              <td>&starf;&starf;&starf;&star;&star;</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Gravity's Union</td>
+              <td>6:46</td>
+              <td>&starf;&starf;&starf;&starf;&starf;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </template>
+
+    <template id="template-horizontalRule">
+      <hr class="bit-hr" />
+    </template>
+
+    <template id="template-getCreative">
+      <style>
+        .site-palette-white {
+          --bit-color-fg: black;
+          --bit-color-bg: white;
+          --bit-color-shadow: whitesmoke;
+          --bit-color-accent: blue;
+        }
+
+        .site-palette-blue {
+          --bit-color-fg: hsl(200 100% 20%);
+          --bit-color-bg: hsl(200 100% 90%);
+          --bit-color-shadow: hsl(200 100% 80%);
+          --bit-color-accent: hsl(200 100 30%);
+        }
+
+        .site-palette-red {
+          --bit-color-fg: hsl(0, 100%, 20%);
+          --bit-color-bg: hsl(0, 100%, 90%);
+          --bit-color-shadow: hsl(0 100% 80%);
+          --bit-color-accent: hsl(0 100% 30%);
+        }
+      </style>
+      <div class="bit-card site-columns-auto site-palette-white">
+        <button type="button" class="bit-button site-palette-blue">Blue</button>
+        <button type="button" class="bit-button site-palette-red">Red</button>
+        <button
+          type="button"
+          class="bit-button"
+          style="
+            --bit-color-fg: #222;
+            --bit-color-bg: #eee;
+            --bit-color-shadow: #ddd;
+            --bit-color-accent: #00f;
+          "
+        >
+          Inline Styles
+        </button>
+        <button type="button" class="bit-button">Default</button>
+      </div>
+    </template>
+
+    <template id="template-inlineSVG">
+      <div class="site-flex-column site-gap">
+        <div class="site-flex-row-wrap">
+          <svg
+            class="bit-svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="48"
+            height="48"
+          >
+            <path
+              d="M16,10c-.41,7.68-12,7.75-12,0s11.59-7.69,12,0c.1,1.92,3.1,1.93,3,0-.26-4.88-3.91-9-9-9a9.1,9.1,0,0,0-9,9,9.08,9.08,0,0,0,8.59,9c5.25.23,9.14-3.93,9.41-9C19.1,8.07,16.1,8.08,16,10Z"
+            />
+            <path
+              d="M14.44,16.56l5,5a1.5,1.5,0,0,0,2.12-2.12l-5-5a1.5,1.5,0,0,0-2.12,2.12Z"
+            />
+          </svg>
+          <svg
+            class="bit-svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="48"
+            height="48"
+          >
+            <path
+              d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm2.94,16.56L12,14.25,9.06,17.56c-1.28,1.45-3.4-.68-2.12-2.12L10,12,6.94,8.56C5.66,7.12,7.78,5,9.06,6.44L12,9.75l2.94-3.31c1.28-1.45,3.4.68,2.12,2.12L14,12l3.06,3.44C18.34,16.88,16.23,19,14.94,17.56Z"
+            />
+          </svg>
+        </div>
+        <div class="site-flex-row-wrap">
+          <button class="bit-button bit-primary">
+            <svg
+              class="bit-svg"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="48"
+              height="48"
+              style="width: 1em; height: 1em; vertical-align: sub;"
+            >
+              <path
+                d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm2.94,16.56L12,14.25,9.06,17.56c-1.28,1.45-3.4-.68-2.12-2.12L10,12,6.94,8.56C5.66,7.12,7.78,5,9.06,6.44L12,9.75l2.94-3.31c1.28-1.45,3.4.68,2.12,2.12L14,12l3.06,3.44C18.34,16.88,16.23,19,14.94,17.56Z"
+              />
+            </svg>
+            Delete
+          </button>
+          <button class="bit-button">
+            <svg
+              class="bit-svg"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="48"
+              height="48"
+              style="width: 1em; height: 1em; vertical-align: sub;"
+            >
+              <path
+                d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm2.94,16.56L12,14.25,9.06,17.56c-1.28,1.45-3.4-.68-2.12-2.12L10,12,6.94,8.56C5.66,7.12,7.78,5,9.06,6.44L12,9.75l2.94-3.31c1.28-1.45,3.4.68,2.12,2.12L14,12l3.06,3.44C18.34,16.88,16.23,19,14.94,17.56Z"
+              />
+            </svg>
+            Delete
+          </button>
+        </div>
+      </div>
+    </template>
+
+    <template id="template-tableRowHeaders">
+      <div class="site-table-responsive">
+        <table class="bit-table">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>Rock</th>
+              <th>Paper</th>
+              <th>Scissors</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Rock vs...</th>
+              <td>=</td>
+              <td>&minus;</td>
+              <td>+</td>
+            </tr>
+            <tr>
+              <th>Paper vs...</th>
+              <td>+</td>
+              <td>=</td>
+              <td>&minus;</td>
+            </tr>
+            <tr>
+              <th>Scissors vs...</th>
+              <td>-</td>
+              <td>+</td>
+              <td>&minus;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </template>
+
+    <template id="template-tableTfoot">
+      <div class="site-table-responsive">
+        <table class="bit-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Qty</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sandwich</td>
+              <td>1</td>
+              <td>$9.00</td>
+            </tr>
+            <tr>
+              <td>Iced Tea</td>
+              <td>1</td>
+              <td>$2.00</td>
+            </tr>
+            <tr>
+              <td>French Fries</td>
+              <td>1</td>
+              <td>$4.00</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="2">Total</th>
+              <td>$100.00</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </template>
+
+    <template id="template-fieldsetLegend">
+      <fieldset class="bit-fieldset">
+        <legend class="bit-legend">Pizza Toppings</legend>
+        <div class="bit-field">
+          <input
+            checked
+            type="checkbox"
+            class="bit-checkbox"
+            name="small-pizza"
+            value="cat"
+            id="small-pizza-pineapple"
+          />
+          <label for="small-pizza-pineapple">Pineapple</label>
+        </div>
+        <div class="bit-field">
+          <input
+            type="checkbox"
+            class="bit-checkbox"
+            name="small-pizza"
+            value="dog"
+            id="small-pizza-mushroom"
+          />
+          <label for="small-pizza-mushroom">Mushroom</label>
+        </div>
+        <div class="bit-field">
+          <input
+            type="checkbox"
+            class="bit-checkbox"
+            name="small-pizza"
+            value="Other"
+            id="small-pizza-olives"
+          />
+          <label for="small-pizza-olives">Olives</label>
+        </div>
+        <div class="bit-field">
+          <input
+            type="checkbox"
+            class="bit-checkbox"
+            name="small-pizza"
+            value="Disabled"
+            id="small-pizza-disabled"
+            disabled
+          />
+          <label for="small-pizza-disabled">Disabled</label>
+        </div>
+      </fieldset>
+    </template>
+
+    <template id="template-card">
+      <div class="site-flex-column site-gap">
+        <div class="site-flex-row-wrap">
+          <div class="bit-card">
+            <div style="width: 50px; height: 50px; background: red"></div>
+          </div>
+          <div class="bit-card">
+            <div style="width: 50px; height: 50px; background: blue"></div>
+          </div>
+          <div class="bit-card">
+            <div style="width: 50px; height: 50px; background: green"></div>
+          </div>
+          <div class="bit-card">
+            <div style="width: 50px; height: 50px; background: magenta"></div>
+          </div>
+        </div>
+
+        <div class="site-columns-auto">
+          <div class="bit-card">
+            This is a candy-css Card. It has a border and comfortable padding to
+            frame your content.
+          </div>
+          <div class="bit-card">
+            This is a candy-css Card. It has a border and comfortable padding to
+            frame your content.
+          </div>
+          <div class="bit-card">
+            This is a candy-css Card. It has a border and comfortable padding to
+            frame your content.
+          </div>
+          <div class="bit-card">
+            This is a candy-css Card. It has a border and comfortable padding to
+            frame your content.
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <template id="template-box">
+      <div class="site-flex-column site-gap">
+        <div class="site-flex-row-wrap">
+          <div class="bit-box">
+            <div style="width: 50px; height: 50px; background: red"></div>
+          </div>
+          <div class="bit-box">
+            <div style="width: 50px; height: 50px; background: blue"></div>
+          </div>
+          <div class="bit-box">
+            <div style="width: 50px; height: 50px; background: green"></div>
+          </div>
+          <div class="bit-box">
+            <div style="width: 50px; height: 50px; background: magenta"></div>
+          </div>
+        </div>
+        <div class="site-columns-auto">
+          <div class="bit-box">
+            This is a candy-css Box. It has a simple border and minimal padding.
+          </div>
+          <div class="bit-box">
+            This is a candy-css Box. It has a simple border and minimal padding.
+          </div>
+        </div>
+      </div>
+    </template>
+  </body>
+</html>
