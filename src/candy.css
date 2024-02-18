@@ -33,16 +33,6 @@
   --candy-card-padding-horizontal: 1rem;
   --candy-card-padding-vertical: 1rem;
 
-  /* Box */
-  --candy-box-padding-horizontal: 1px;
-  --candy-box-padding-vertical: 1px;
-
-  /* Fieldset & legend */
-  --candy-fieldset-padding-horizontal: 0.5rem;
-  --candy-fieldset-padding-vertical: 0.5rem;
-  --candy-legend-padding-horizontal: 0.5rem;
-  --candy-legend-padding-vertical: 0rem;
-
   /* Pre */
   --candy-pre-padding-horizontal: 1rem;
   --candy-pre-padding-vertical: 1rem;
@@ -51,12 +41,18 @@
   --candy-radiocheckbox-size: 1.5em;
   --candy-radiocheckbox-margin-horizontal: 4px;
   --candy-radiocheckbox-margin-vertical: 4px;
+  --candy-radiocheckbox-color-background: hsl(80 35% 98%);
+  --candy-radiocheckbox-color-shadow: hsl(80 35% 50% / 30%);
+  --candy-radiocheckbox-color-border: hsl(80 35% 40%);
+  --candy-radiocheckbox-color-accent: hsl(260 100% 40%);
+  --candy-radiocheckbox-color-accent-border: hsl(260 100% 30%);
+  --candy-radiocheckbox-radius: 2px;
 
   --candy-button-color-background1: hsl(80 35% 98%);
   --candy-button-color-background2: hsl(80 35% 93%);
   --candy-button-color-shadow: hsl(80 35% 50% / 30%);
   --candy-button-color-text: hsl(80 35% 20%);
-  --candy-button-color-border: hsl(80 35% 45%);
+  --candy-button-color-border: hsl(80 35% 40%);
   --candy-button-padding-vertical: 0.5rem;
   --candy-button-padding-horizontal: 1rem;
   --candy-button-radius: 4px;
@@ -65,17 +61,17 @@
   --candy-select-color-background2: hsl(80 35% 93%);
   --candy-select-color-shadow: hsl(80 35% 50% / 30%);
   --candy-select-color-text: hsl(80 35% 20%);
-  --candy-select-color-border: hsl(80 35% 45%);
+  --candy-select-color-border: hsl(80 35% 40%);
   --candy-select-padding-vertical: 0.5rem;
   --candy-select-padding-horizontal: 1rem;
   --candy-select-radius: 4px;
 
   --candy-input-color-background: hsl(80 35% 99%);
   --candy-input-color-text: hsl(80 35% 20%);
-  --candy-input-color-border: hsl(80 35% 45%);
+  --candy-input-color-border: hsl(80 35% 40%);
   --candy-input-color-shadow: hsl(80 35% 50% / 30%);
   --candy-input-padding-vertical: 0.5rem;
-  --candy-input-padding-horizontal: 1rem;
+  --candy-input-padding-horizontal: 0.5rem;
   --candy-input-radius: 2px;
 
   --candy-card-color-background: hsl(80 35% 95%);
@@ -86,12 +82,22 @@
   --candy-card-padding-horizontal: 1rem;
   --candy-card-radius: 6px;
 
+  --candy-fieldset-padding-horizontal: 0.5rem;
+  --candy-fieldset-padding-vertical: 0.5rem;
+  --candy-fieldset-color-border: hsl(80 35% 70%);
+  --candy-fieldset-radius: 6px;
+
+  --candy-legend-padding-horizontal: 0.5rem;
+  --candy-legend-padding-vertical: 0rem;
+
   --candy-table-color-body-background: hsl(80 35% 98%);
   --candy-table-color-body-border: hsl(80 35% 80%);
-  --candy-table-color-header-background1: hsl(80 35% 92%);
-  --candy-table-color-header-background2: hsl(80 35% 88%);
-  --candy-table-color-header-border: hsl(80 35% 60%);
+  --candy-table-color-header-background1: hsl(80 35% 90%);
+  --candy-table-color-header-background2: hsl(80 35% 86%);
+  --candy-table-color-header-border: hsl(80 35% 70%);
   --candy-table-color-text: hsl(80 35% 20%);
+
+  --candy-box-color-border: hsl(80 35% 70%);
 
   --candy-texture-striped-color-stripe: hsl(80 35% 98%);
   --candy-texture-striped-color-background1: hsl(80 35% 90%);
@@ -111,14 +117,6 @@
 
   background: var(--candy-color-background);
   color: var(--candy-color-text);
-}
-
-.candy-primary {
-  --candy-button-color-background1: hsl(80 100% 33%);
-  --candy-button-color-background2: hsl(80 100% 30%);
-  --candy-button-color-shadow: hsl(80 50% 50% / 30%);
-  --candy-button-color-text: hsl(80 100% 95%);
-  --candy-button-color-border: hsl(80 50% 25%);
 }
 
 /* Checkbox / Radio Button Field Container */
@@ -185,44 +183,43 @@
   font: inherit;
   width: var(--candy-radiocheckbox-size);
   height: var(--candy-radiocheckbox-size);
-  margin-left: var(--candy-radiocheckbox-margin-horizontal);
-  margin-right: var(--candy-radiocheckbox-margin-horizontal);
-  margin-top: var(--candy-radiocheckbox-margin-vertical);
-  margin-bottom: var(--candy-radiocheckbox-margin-vertical);
+  margin: var(--candy-radiocheckbox-margin-vertical)
+    var(--candy-radiocheckbox-margin-horizontal);
   background: var(--candy-radiocheckbox-color-background);
   background-clip: padding-box;
   padding: 2px;
-  color: var(--candy-color-text);
-  border: 1px solid var(--candy-color-text);
-  box-shadow: inset 0 2px 0 var(--candy-color-shadow);
+  color: var(--candy-radiocheckbox-color-border);
+  border: 1px solid var(--candy-radiocheckbox-color-border);
+  box-shadow: inset 0 2px 2px var(--candy-radiocheckbox-color-shadow);
 }
 
 .candy-auto :where(input[type="checkbox"], input[type="radio"]):focus,
 .candy-checkbox:focus,
 .candy-radio:focus {
   box-shadow: none;
-  outline: 3px solid var(--candy-color-accent);
+  outline: 3px solid var(--candy-radiocheckbox-color-accent);
   outline-offset: -2px;
 }
 
 .candy-auto :where(input[type="checkbox"], input[type="radio"]):checked,
 .candy-checkbox:checked,
 .candy-radio:checked {
-  background: var(--candy-color-accent);
-  box-shadow: inset 0 0 0 6px var(--candy-color-accent);
+  background: var(--candy-radiocheckbox-color-accent);
+  box-shadow: inset 0 0 0 6px var(--candy-radiocheckbox-color-accent);
 }
 
 .candy-auto :where(input[type="radio"]):checked,
 .candy-radio:checked {
   --_candy-radio-blur: 0.25px;
   box-shadow: none;
-  background-color: var(--candy-color-accent);
-  border-color: var(--candy-color-accent);
+  background-color: var(--candy-radiocheckbox-color-accent);
+  border-color: var(--candy-radiocheckbox-color-accent-border);
   background-image: radial-gradient(
-    var(--candy-color-background),
-    var(--candy-color-background) calc(25% - var(--_candy-radio-blur)),
-    var(--candy-color-accent) calc(25% + var(--_candy-radio-blur)),
-    var(--candy-color-accent)
+    var(--candy-radiocheckbox-color-background),
+    var(--candy-radiocheckbox-color-background)
+      calc(25% - var(--_candy-radio-blur)),
+    var(--candy-radiocheckbox-color-accent) calc(25% + var(--_candy-radio-blur)),
+    var(--candy-radiocheckbox-color-accent)
   );
 }
 
@@ -234,15 +231,15 @@
   --_candy-checkbox-end: calc(
     var(--_candy-checkbox-start) + var(--_candy-checkbox-size)
   );
-  border-color: var(--candy-color-accent);
-  background-color: var(--candy-color-accent);
+  border-color: var(--candy-radiocheckbox-color-accent-border);
+  background-color: var(--candy-radiocheckbox-color-accent);
   background-image: linear-gradient(
       45deg,
       transparent,
       transparent
         calc(var(--_candy-checkbox-start) - var(--_candy-checkbox-blur)),
-      var(--candy-color-background) var(--_candy-checkbox-start),
-      var(--candy-color-background) var(--_candy-checkbox-end),
+      var(--candy-radiocheckbox-color-background) var(--_candy-checkbox-start),
+      var(--candy-radiocheckbox-color-background) var(--_candy-checkbox-end),
       transparent calc(var(--_candy-checkbox-end) + var(--_candy-checkbox-blur)),
       transparent
     ),
@@ -251,12 +248,12 @@
       transparent,
       transparent
         calc(var(--_candy-checkbox-start) - var(--_candy-checkbox-blur)),
-      var(--candy-color-background) var(--_candy-checkbox-start),
-      var(--candy-color-background) var(--_candy-checkbox-end),
+      var(--candy-radiocheckbox-color-background) var(--_candy-checkbox-start),
+      var(--candy-radiocheckbox-color-background) var(--_candy-checkbox-end),
       transparent calc(var(--_candy-checkbox-end) + var(--_candy-checkbox-blur)),
       transparent
     );
-  box-shadow: inset 0 0 0 6px var(--candy-color-accent);
+  box-shadow: inset 0 0 0 6px var(--candy-radiocheckbox-color-accent);
 }
 
 .candy-auto :where(input[type="checkbox"], input[type="radio"]):checked:focus,
@@ -264,8 +261,8 @@
 .candy-radio:checked:focus {
   box-shadow:
     inset 0 0 0 2px var(--candy-color-background),
-    inset 0 0 0 6px var(--candy-color-accent);
-  outline: 3px solid var(--candy-color-accent);
+    inset 0 0 0 6px var(--candy-radiocheckbox-color-accent);
+  outline: 3px solid var(--candy-radiocheckbox-color-accent);
   outline-offset: -2px;
 }
 
@@ -304,8 +301,8 @@
 .candy-table thead th {
   background: linear-gradient(
     to bottom,
-    var(--candy-table-color-header-background1) 0 50%,
-    var(--candy-table-color-header-background2) 50%
+    var(--candy-table-color-header-background1),
+    var(--candy-table-color-header-background2)
   );
   color: var(--candy-table-color-text);
   padding: var(--candy-table-padding-vertical)
@@ -357,14 +354,16 @@
   border-radius: var(--candy-button-radius);
 }
 
-.candy-auto
-  :where(
-    button,
-    input[type="button"],
-    input[type="submit"],
-    input[type="color"]
-  ):active,
-.candy-button:active {
+:is(
+    .candy-auto
+      :where(
+        button,
+        input[type="button"],
+        input[type="submit"],
+        input[type="color"]
+      ):active,
+    .candy-button:active
+  ):where(:not(:disabled)) {
   translate: 0 1px;
   scale: 0.99;
 }
@@ -398,6 +397,18 @@
   border-style: solid;
 }
 
+.candy-primary {
+  font-weight: bold;
+}
+
+.candy-primary:where(:not(:disabled)) {
+  --candy-button-color-background1: hsl(80 100% 30%);
+  --candy-button-color-background2: hsl(80 100% 27%);
+  --candy-button-color-shadow: hsl(80 50% 50% / 30%);
+  --candy-button-color-text: hsl(80 100% 95%);
+  --candy-button-color-border: hsl(80 50% 20%);
+}
+
 /* Select */
 
 .candy-auto :where(select),
@@ -407,49 +418,45 @@
   --_candy-select-handle-width: 1.5rem;
   --_candy-select-handle-fg: var(--candy-select-color-text);
   --_candy-select-handle-bg: var(--candy-select-color-background1);
+  --_candy-select-arrow: linear-gradient(
+        -45deg,
+        transparent 50%,
+        var(--_candy-select-handle-bg) calc(50% + var(--_candy-select-blur))
+      )
+      calc(100% - 1rem) calc(50% - var(--_candy-select-handle-thickness)) /
+      0.5rem 0.5rem no-repeat,
+    linear-gradient(
+        45deg,
+        transparent 50%,
+        var(--_candy-select-handle-bg) calc(50% + var(--_candy-select-blur))
+      )
+      calc(100% - 1.5rem) calc(50% - var(--_candy-select-handle-thickness)) /
+      0.5rem 0.5rem no-repeat,
+    linear-gradient(
+        -45deg,
+        transparent 50%,
+        var(--_candy-select-handle-fg) calc(50% + var(--_candy-select-blur))
+      )
+      calc(100% - 1rem) 50% / 0.5rem 0.5rem no-repeat,
+    linear-gradient(
+        45deg,
+        transparent 50%,
+        var(--_candy-select-handle-fg) calc(50% + var(--_candy-select-blur))
+      )
+      calc(100% - 1.5rem) 50% / 0.5rem 0.5rem no-repeat;
   box-sizing: border-box;
   -webkit-appearance: none;
   appearance: none;
   color: var(--candy-select-color-text);
   background-color: var(--candy-select-color-background1);
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
-  background-image: linear-gradient(
-      -45deg,
-      transparent 50%,
-      var(--_candy-select-handle-bg) calc(50% + var(--_candy-select-blur))
-    ),
+  background:
+    var(--_candy-select-arrow),
     linear-gradient(
-      45deg,
-      transparent 50%,
-      var(--_candy-select-handle-bg) calc(50% + var(--_candy-select-blur))
-    ),
-    linear-gradient(
-      -45deg,
-      transparent 50%,
-      var(--_candy-select-handle-fg) calc(50% + var(--_candy-select-blur))
-    ),
-    linear-gradient(
-      45deg,
-      transparent 50%,
-      var(--_candy-select-handle-fg) calc(50% + var(--_candy-select-blur))
-    ),
-    linear-gradient(
-      to bottom,
-      var(--candy-select-color-background1) 0 50%,
-      var(--candy-select-color-background2) 50%
-    );
-  background-position:
-    calc(100% - 1rem) calc(50% - var(--_candy-select-handle-thickness)),
-    calc(100% - 1.5rem) calc(50% - var(--_candy-select-handle-thickness)),
-    calc(100% - 1rem) 50%,
-    calc(100% - 1.5rem) 50%,
-    0 0;
-  background-size:
-    0.5rem 0.5rem,
-    0.5rem 0.5rem,
-    0.5rem 0.5rem,
-    0.5rem 0.5rem,
-    100% 100%;
+        to bottom,
+        var(--candy-select-color-background1) 0 50%,
+        var(--candy-select-color-background2) 50%
+      )
+      0 0 / 100% 100% repeat var(--candy-select-color-background1);
   box-shadow: 0 2px 2px var(--candy-button-color-shadow);
   padding: var(--candy-select-padding-vertical)
     var(--candy-select-padding-horizontal);
@@ -477,7 +484,7 @@
 .candy-auto :where(select):disabled,
 .candy-select:disabled {
   /* don't override `background-image` since we use that for the arrow */
-  background-color: transparent;
+  background: var(--_candy-select-arrow);
   opacity: 0.5;
   border-color: var(--candy-color-text);
   border-style: solid;
@@ -596,11 +603,11 @@
 
 .candy-auto :where(fieldset),
 .candy-fieldset {
-  border: 1px solid var(--candy-color-shadow);
+  border: 1px solid var(--candy-fieldset-color-border);
   padding: var(--candy-fieldset-padding-vertical)
     var(--candy-fieldset-padding-horizontal);
   margin: 0;
-  border-radius: var(--candy-border-radius);
+  border-radius: var(--candy-fieldset-radius);
 }
 
 .candy-auto :where(legend),
@@ -641,10 +648,7 @@
 
 .candy-box {
   box-sizing: border-box;
-  background: var(--candy-color-background);
-  color: var(--candy-color-text);
-  border: 1px solid var(--candy-color-shadow);
-  border-radius: var(--candy-border-radius-sharp);
+  border: 1px solid var(--candy-box-color-border);
 }
 
 .candy-auto,

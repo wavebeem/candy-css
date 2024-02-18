@@ -9,3 +9,7 @@
 - Finish converting all components
 
 - Audit color accessibility
+
+- Try adding a "smooth" texture
+
+- Try unifying colors around "textures" rather than being per widget
