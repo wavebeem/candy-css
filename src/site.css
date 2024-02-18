@@ -51,6 +51,13 @@ textarea {
   margin-bottom: 1rem;
 }
 
+.site-texture {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .site-columns-auto {
   --gap: 1rem;
   --grid-min: 10rem;
@@ -133,10 +140,6 @@ custom-properties-editor,
 inject-example,
 site-toc {
   display: block;
-}
-
-site-theme-loader {
-  display: none;
 }
 
 site-nav,

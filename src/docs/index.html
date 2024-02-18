@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="bit-root bit-scrollbar">
   <head>
     <meta charset="UTF-8" />
@@ -32,8 +32,6 @@
     />
   </head>
   <body>
-    <site-theme-loader></site-theme-loader>
-
     <h1><span class="bit-code">candy-css</span></h1>
 
     <site-nav></site-nav>
@@ -147,6 +145,16 @@
     <inject-example
       class="site-example"
       data-example="inlineTags"
+    ></inject-example>
+
+    <h2 id="tables">Textures</h2>
+    <p>Textures.</p>
+    <inject-example
+      data-properties="
+        --bit-table-padding-horizontal
+        --bit-table-padding-vertical
+      "
+      data-example="textures"
     ></inject-example>
 
     <h2 id="tables">Tables</h2>
@@ -805,6 +813,15 @@ Disabled.</textarea
       </div>
     </template>
 
+    <template id="template-textures">
+      <div class="site-columns-auto">
+        <div class="bit-box site-texture candy-texture-striped">Striped</div>
+        <div class="bit-box site-texture candy-texture-convex">Convex</div>
+        <div class="bit-box site-texture candy-texture-concave">Concave</div>
+        <div class="bit-box site-texture candy-texture-glossy">Glossy</div>
+      </div>
+    </template>
+
     <template id="template-tableBasic">
       <p>
         A regular table with a responsive wrapper added. The responsive wrapper
@@ -1034,7 +1051,7 @@ Disabled.</textarea
               viewBox="0 0 24 24"
               width="48"
               height="48"
-              style="width: 1em; height: 1em; vertical-align: sub;"
+              style="width: 1em; height: 1em; vertical-align: sub"
             >
               <path
                 d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm2.94,16.56L12,14.25,9.06,17.56c-1.28,1.45-3.4-.68-2.12-2.12L10,12,6.94,8.56C5.66,7.12,7.78,5,9.06,6.44L12,9.75l2.94-3.31c1.28-1.45,3.4.68,2.12,2.12L14,12l3.06,3.44C18.34,16.88,16.23,19,14.94,17.56Z"
@@ -1049,7 +1066,7 @@ Disabled.</textarea
               viewBox="0 0 24 24"
               width="48"
               height="48"
-              style="width: 1em; height: 1em; vertical-align: sub;"
+              style="width: 1em; height: 1em; vertical-align: sub"
             >
               <path
                 d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm2.94,16.56L12,14.25,9.06,17.56c-1.28,1.45-3.4-.68-2.12-2.12L10,12,6.94,8.56C5.66,7.12,7.78,5,9.06,6.44L12,9.75l2.94-3.31c1.28-1.45,3.4.68,2.12,2.12L14,12l3.06,3.44C18.34,16.88,16.23,19,14.94,17.56Z"
