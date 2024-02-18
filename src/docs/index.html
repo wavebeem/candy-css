@@ -59,8 +59,8 @@
 
     <custom-properties-editor
       data-properties="
-        --candy-color-bg
-        --candy-color-fg
+        --candy-color-background
+        --candy-color-text
         --candy-color-shadow
         --candy-color-accent
         --candy-border-radius
@@ -145,13 +145,7 @@
 
     <h2 id="tables">Textures</h2>
     <p>Textures.</p>
-    <inject-example
-      data-properties="
-        --candy-table-padding-horizontal
-        --candy-table-padding-vertical
-      "
-      data-example="textures"
-    ></inject-example>
+    <inject-example data-example="textures"></inject-example>
 
     <h2 id="tables">Tables</h2>
     <p>A basic table.</p>
@@ -250,7 +244,7 @@
 ::-webkit-scrollbar {
   width: 1rem;
   height: 1rem;
-  background-color: var(--candy-color-bg);
+  background-color: var(--candy-color-background);
 }
 
 ::-webkit-scrollbar:vertical {
@@ -270,9 +264,9 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--candy-color-fg);
+  background: var(--candy-color-text);
   background-clip: content-box;
-  box-shadow: inset 0 0 0 3px var(--candy-color-bg);
+  box-shadow: inset 0 0 0 3px var(--candy-color-background);
 }
 
 ::-webkit-scrollbar-thumb:vertical {
@@ -296,8 +290,8 @@
     <pre class="candy-pre">
 .candy-auto,
 .candy-root {
-  --candy-color-bg: #fff;
-  --candy-color-fg: #333;
+  --candy-color-background: #fff;
+  --candy-color-text: #333;
   --candy-color-shadow: #666;
   --candy-color-accent: #c00;
 }
@@ -305,25 +299,13 @@
 @media (prefers-color-scheme: dark) {
   .candy-auto,
   .candy-root {
-    --candy-color-bg: #333;
-    --candy-color-fg: #ccc;
+    --candy-color-background: #333;
+    --candy-color-text: #ccc;
     --candy-color-shadow: #666;
     --candy-color-accent: #0dd;
   }
 }</pre
     >
-
-    <h2 id="rounded-corners">Rounded Corners</h2>
-    <p>
-      Sharp edges not your thing? You can customize that. CSS Custom Properties
-      are inherited, so you can apply this to your whole page by setting
-      <code>--candy-border-radius</code> on any element you want through CSS or
-      even inline styles.
-    </p>
-    <inject-example
-      class="site-example"
-      data-example="rounded-corners"
-    ></inject-example>
 
     <h2 id="auto-mode">Auto Mode</h2>
 
@@ -505,55 +487,6 @@ console.log("Hello, world!");</pre
         arcu, at gravida orci lobortis sed. In laoreet blandit eros non
         fermentum. Donec iaculis varius viverra.
       </p>
-    </template>
-
-    <template id="template-rounded-corners">
-      <div class="site-flex-column site-gap">
-        <div
-          style="--candy-border-radius: 0px"
-          class="candy-card site-columns-auto"
-        >
-          <button class="candy-button">OK</button>
-          <button class="candy-button">Cancel</button>
-          <input class="candy-input" placeholder="Input" />
-          <select class="candy-select">
-            <option selected disabled>&ndash;</option>
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-          </select>
-        </div>
-
-        <div
-          style="--candy-border-radius: 8px"
-          class="candy-card site-columns-auto"
-        >
-          <button class="candy-button">OK</button>
-          <button class="candy-button">Cancel</button>
-          <input class="candy-input" placeholder="Input" />
-          <select class="candy-select">
-            <option selected disabled>&ndash;</option>
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-          </select>
-        </div>
-
-        <div
-          style="--candy-border-radius: 32px"
-          class="candy-card site-columns-auto"
-        >
-          <button class="candy-button">OK</button>
-          <button class="candy-button">Cancel</button>
-          <input class="candy-input" placeholder="Input" />
-          <select class="candy-select">
-            <option selected disabled>&ndash;</option>
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-          </select>
-        </div>
-      </div>
     </template>
 
     <template id="template-buttons">
@@ -808,7 +741,7 @@ Disabled.</textarea
     </template>
 
     <template id="template-textures">
-      <div class="site-columns-auto" style="--grid-min: 12rem;">
+      <div class="site-columns-auto" style="--grid-min: 12rem">
         <div class="candy-card site-texture candy-texture-striped">Striped</div>
         <div class="candy-card site-texture candy-texture-convex">Convex</div>
         <div class="candy-card site-texture candy-texture-concave">Concave</div>
@@ -970,22 +903,22 @@ Disabled.</textarea
     <template id="template-getCreative">
       <style>
         .site-palette-white {
-          --candy-color-fg: black;
-          --candy-color-bg: white;
+          --candy-color-text: black;
+          --candy-color-background: white;
           --candy-color-shadow: whitesmoke;
           --candy-color-accent: blue;
         }
 
         .site-palette-blue {
-          --candy-color-fg: hsl(200 100% 20%);
-          --candy-color-bg: hsl(200 100% 90%);
+          --candy-color-text: hsl(200 100% 20%);
+          --candy-color-background: hsl(200 100% 90%);
           --candy-color-shadow: hsl(200 100% 80%);
           --candy-color-accent: hsl(200 100 30%);
         }
 
         .site-palette-red {
-          --candy-color-fg: hsl(0, 100%, 20%);
-          --candy-color-bg: hsl(0, 100%, 90%);
+          --candy-color-text: hsl(0, 100%, 20%);
+          --candy-color-background: hsl(0, 100%, 90%);
           --candy-color-shadow: hsl(0 100% 80%);
           --candy-color-accent: hsl(0 100% 30%);
         }
@@ -999,8 +932,8 @@ Disabled.</textarea
           type="button"
           class="candy-button"
           style="
-            --candy-color-fg: #222;
-            --candy-color-bg: #eee;
+            --candy-color-text: #222;
+            --candy-color-background: #eee;
             --candy-color-shadow: #ddd;
             --candy-color-accent: #00f;
           "

@@ -197,8 +197,8 @@ footer .candy-link,
   border-radius: 9999px;
   background: var(--candy-color-accent);
   border: 4px solid var(--candy-color-shadow);
-  border-left-color: var(--candy-color-fg);
-  border-right-color: var(--candy-color-fg);
+  border-left-color: var(--candy-color-text);
+  border-right-color: var(--candy-color-text);
   background-clip: content-box;
   padding: 2px;
 }
