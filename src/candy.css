@@ -61,6 +61,15 @@
   --candy-button-padding-horizontal: 1rem;
   --candy-button-radius: 4px;
 
+  --candy-select-color-background1: hsl(80 35% 98%);
+  --candy-select-color-background2: hsl(80 35% 93%);
+  --candy-select-color-shadow: hsl(80 35% 50% / 30%);
+  --candy-select-color-text: hsl(80 35% 20%);
+  --candy-select-color-border: hsl(80 35% 45%);
+  --candy-select-padding-vertical: 0.5rem;
+  --candy-select-padding-horizontal: 1rem;
+  --candy-select-radius: 4px;
+
   --candy-input-color-background: hsl(80 35% 99%);
   --candy-input-color-text: hsl(80 35% 20%);
   --candy-input-color-border: hsl(80 35% 45%);
@@ -105,7 +114,7 @@
 }
 
 .candy-primary {
-  --candy-button-color-background1: hsl(80 100% 35%);
+  --candy-button-color-background1: hsl(80 100% 33%);
   --candy-button-color-background2: hsl(80 100% 30%);
   --candy-button-color-shadow: hsl(80 50% 50% / 30%);
   --candy-button-color-text: hsl(80 100% 95%);
@@ -180,7 +189,7 @@
   margin-right: var(--candy-radiocheckbox-margin-horizontal);
   margin-top: var(--candy-radiocheckbox-margin-vertical);
   margin-bottom: var(--candy-radiocheckbox-margin-vertical);
-  background: var(--candy-color-background);
+  background: var(--candy-radiocheckbox-color-background);
   background-clip: padding-box;
   padding: 2px;
   color: var(--candy-color-text);
@@ -356,7 +365,8 @@
     input[type="color"]
   ):active,
 .candy-button:active {
-  transform: translateY(1px);
+  translate: 0 1px;
+  scale: 0.99;
 }
 
 .candy-auto
@@ -395,14 +405,14 @@
   --_candy-select-blur: 0.5px;
   --_candy-select-handle-thickness: 2px;
   --_candy-select-handle-width: 1.5rem;
-  --_candy-select-handle-fg: var(--candy-color-text);
-  --_candy-select-handle-bg: var(--candy-color-background);
+  --_candy-select-handle-fg: var(--candy-select-color-text);
+  --_candy-select-handle-bg: var(--candy-select-color-background1);
   box-sizing: border-box;
   -webkit-appearance: none;
   appearance: none;
-  color: var(--candy-color-text);
-  background-color: var(--candy-color-background);
-  background-repeat: no-repeat;
+  color: var(--candy-select-color-text);
+  background-color: var(--candy-select-color-background1);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
   background-image: linear-gradient(
       -45deg,
       transparent 50%,
@@ -422,22 +432,33 @@
       45deg,
       transparent 50%,
       var(--_candy-select-handle-fg) calc(50% + var(--_candy-select-blur))
+    ),
+    linear-gradient(
+      to bottom,
+      var(--candy-select-color-background1) 0 50%,
+      var(--candy-select-color-background2) 50%
     );
   background-position:
     calc(100% - 1rem) calc(50% - var(--_candy-select-handle-thickness)),
     calc(100% - 1.5rem) calc(50% - var(--_candy-select-handle-thickness)),
     calc(100% - 1rem) 50%,
-    calc(100% - 1.5rem) 50%;
-  background-size: 0.5rem 0.5rem;
-  box-shadow: inset 0 -2px 0 var(--candy-color-shadow);
+    calc(100% - 1.5rem) 50%,
+    0 0;
+  background-size:
+    0.5rem 0.5rem,
+    0.5rem 0.5rem,
+    0.5rem 0.5rem,
+    0.5rem 0.5rem,
+    100% 100%;
+  box-shadow: 0 2px 2px var(--candy-button-color-shadow);
   padding: var(--candy-select-padding-vertical)
     var(--candy-select-padding-horizontal);
   padding-right: calc(
     var(--candy-select-padding-horizontal) + var(--_candy-select-handle-width)
   );
   font: inherit;
-  border: 1px solid var(--candy-color-text);
-  border-radius: var(--candy-border-radius);
+  border: 1px solid var(--candy-select-color-border);
+  border-radius: var(--candy-select-radius);
 }
 
 .candy-auto :where(select):focus,
