@@ -10,6 +10,7 @@
     "Segoe UI Symbol";
   font-family: var(--site-font-sans);
   color-scheme: light dark;
+  padding: 2rem;
 }
 
 body {
@@ -52,7 +53,7 @@ textarea {
 }
 
 .site-texture {
-  aspect-ratio: 4 / 3;
+  min-height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,7 +78,7 @@ textarea {
   display: grid;
   border: 1px solid black;
   box-shadow: inset 0 0 0 1px rgb(255 255 255 / 25%);
-  border-radius: var(--bit-border-radius);
+  border-radius: var(--candy-border-radius);
 }
 
 .site-link-header {
@@ -149,13 +150,13 @@ site-example-css {
 }
 
 .site-nav-menu,
-.site-toc {
+.site-toc > * {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-footer .bit-link,
+footer .candy-link,
 .site-nav-menu a,
 .site-toc a {
   text-decoration-line: none;
@@ -175,7 +176,7 @@ footer .bit-link,
 
 .site-example {
   --site-example-offset: 1rem;
-  border-left: 1px solid var(--bit-color-shadow);
+  border-left: 1px solid var(--candy-color-shadow);
   padding-left: var(--site-example-offset);
   margin-left: calc(-1 * var(--site-example-offset));
 }
@@ -194,28 +195,15 @@ footer .bit-link,
   width: 12px;
   height: 12px;
   border-radius: 9999px;
-  background: var(--bit-color-accent);
-  border: 4px solid var(--bit-color-shadow);
-  border-left-color: var(--bit-color-fg);
-  border-right-color: var(--bit-color-fg);
+  background: var(--candy-color-accent);
+  border: 4px solid var(--candy-color-shadow);
+  border-left-color: var(--candy-color-fg);
+  border-right-color: var(--candy-color-fg);
   background-clip: content-box;
   padding: 2px;
 }
 
 @media (min-width: 900px) {
-  :root {
-    padding: 2rem;
-    background: var(--bit-color-shadow);
-  }
-
-  body {
-    padding: 2rem;
-    border: 1px solid var(--bit-color-fg);
-    box-shadow: 0 1px 0 var(--bit-color-fg);
-    background: var(--bit-color-bg);
-    border-radius: var(--bit-border-radius);
-  }
-
   .site-property-editor-grid {
     grid-template-columns: max-content max-content;
   }
@@ -226,7 +214,7 @@ footer .bit-link,
     gap: 1rem;
   }
 
-  .site-toc {
+  .site-toc > * {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;

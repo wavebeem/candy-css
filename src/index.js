@@ -16,35 +16,32 @@ export function $elem(tagName, props, ...children) {
   return element;
 }
 
-class HTMLSiteNavElement extends HTMLElement {
+class SiteNav extends HTMLElement {
   connectedCallback() {
     this.innerHTML = html`
-      <nav class="bit-card">
+      <nav class="candy-card candy-texture-convex">
         <ul class="site-nav-menu">
-          <li><a href="/" class="bit-link">Home</a></li>
-          <li><a href="/docs/" class="bit-link">Documentation</a></li>
-          <li><a href="/form-example/" class="bit-link">Form Example</a></li>
-          <li>
-            <a href="/palette-swapping/" class="bit-link">Palette Swapping</a>
-          </li>
+          <li><a href="/" class="candy-link">Home</a></li>
+          <li><a href="/docs/" class="candy-link">Documentation</a></li>
+          <li><a href="/form-example/" class="candy-link">Form Example</a></li>
         </ul>
       </nav>
     `;
   }
 }
 
-customElements.define("site-nav", HTMLSiteNavElement);
+customElements.define("site-nav", SiteNav);
 
-class HTMLSiteFooterElement extends HTMLElement {
+class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = html`
-      <footer class="bit-card">
+      <footer class="candy-card">
         &copy; <span data-slot="year"></span>
-        <a href="https://www.wavebeem.com" class="bit-link">Sage Fennel</a>
+        <a href="https://www.wavebeem.com" class="candy-link">Sage Fennel</a>
       </footer>
     `;
     $("[data-slot='year']", this).textContent = new Date().getFullYear();
   }
 }
 
-customElements.define("site-footer", HTMLSiteFooterElement);
+customElements.define("site-footer", SiteFooter);
