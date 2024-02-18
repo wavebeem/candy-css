@@ -37,6 +37,16 @@
   --candy-pre-padding-horizontal: 1rem;
   --candy-pre-padding-vertical: 1rem;
 
+  --candy-color-background1: hsl(80 35% 99%);
+  --candy-color-background2: hsl(80 35% 98%);
+  --candy-color-background3: hsl(80 35% 93%);
+  --candy-color-border1: hsl(80 35% 40%);
+  --candy-color-border2: hsl(80 35% 50%);
+  --candy-color-border3: hsl(80 35% 80%);
+  --candy-color-accent1: hsl(260 100% 40%);
+  --candy-color-accent2: hsl(260 100% 30%);
+  --candy-color-shadow1: hsl(80 35% 50% / 30%);
+
   /* Radio buttons & checkboxes */
   --candy-radiocheckbox-size: 1.5em;
   --candy-radiocheckbox-margin-horizontal: 4px;
@@ -74,7 +84,7 @@
   --candy-input-padding-horizontal: 0.5rem;
   --candy-input-radius: 2px;
 
-  --candy-card-color-background: hsl(80 35% 92%);
+  --candy-card-color-background: hsl(80 35% 90%);
   --candy-card-color-text: hsl(80 35% 20%);
   --candy-card-color-border: hsl(80 35% 50%);
   --candy-card-color-shadow: hsl(80 35% 50% / 30%);
@@ -99,15 +109,14 @@
 
   --candy-box-color-border: hsl(80 35% 70%);
 
-  --candy-texture-striped-color-stripe: hsl(80 35% 98%);
-  --candy-texture-striped-color-background1: hsl(80 35% 90%);
+  --candy-texture-striped-color-background1: hsl(80 35% 93%);
   --candy-texture-striped-color-background2: hsl(80 35% 98%);
   --candy-texture-striped-size: 2px;
 
   --candy-texture-convex-color-background1: hsl(80 35% 98%);
-  --candy-texture-convex-color-background2: hsl(80 35% 90%);
+  --candy-texture-convex-color-background2: hsl(80 35% 93%);
 
-  --candy-texture-concave-color-background1: hsl(80 35% 90%);
+  --candy-texture-concave-color-background1: hsl(80 35% 93%);
   --candy-texture-concave-color-background2: hsl(80 35% 98%);
 
   --candy-texture-glossy-color-background1: hsl(80 35% 98%);
@@ -612,14 +621,13 @@
 
 .candy-auto :where(legend),
 .candy-legend {
-  border: 0 solid var(--candy-color-shadow);
+  border: 0;
   padding-top: var(--candy-legend-padding-vertical);
   padding-right: var(--candy-legend-padding-horizontal);
   padding-bottom: var(--candy-legend-padding-vertical);
   padding-left: 0;
   margin: 0;
   margin-left: calc(-1 * var(--candy-fieldset-padding-vertical) - 1px);
-  border-radius: var(--candy-border-radius);
 }
 
 /* Firefox nonsense */
@@ -686,14 +694,14 @@
   background: repeating-linear-gradient(
       -45deg,
       transparent 0 calc(2 * var(--candy-texture-striped-size)),
-      var(--candy-texture-striped-color-stripe)
+      var(--candy-texture-striped-color-background1)
         calc(2 * var(--candy-texture-striped-size))
         calc(4 * var(--candy-texture-striped-size))
     ),
     linear-gradient(
       to bottom,
-      var(--candy-texture-striped-color-background1),
-      var(--candy-texture-striped-color-background2)
+      var(--candy-texture-striped-color-background2),
+      var(--candy-texture-striped-color-background1)
     );
 }
 
