@@ -69,6 +69,9 @@
   /* Textures */
   --candy-texture-striped-size: 2px;
 
+  /* Links */
+  --candy-link-radius: 2px;
+
   background: var(--candy-color-background4);
   color: var(--candy-color-text1);
 }
@@ -279,7 +282,7 @@
 
 .candy-auto table tfoot,
 .candy-table tfoot {
-  border-top: 1px solid var(--candy-table-color-header-border);
+  border-top: 1px solid var(--candy-color-border3);
   border-bottom: 0;
 }
 
@@ -367,36 +370,28 @@
 .candy-auto :where(select),
 .candy-select {
   --_candy-select-blur: 0.5px;
-  --_candy-select-handle-thickness: 2px;
-  --_candy-select-handle-width: 1.5rem;
+  --_candy-select-handle-width: 0.3rem;
+  --_candy-select-handle-height: 0.6rem;
   --_candy-select-handle-fg: var(--candy-color-text1);
-  --_candy-select-handle-bg: var(--candy-color-background1);
   --_candy-select-arrow: linear-gradient(
-        -45deg,
-        transparent 50%,
-        var(--_candy-select-handle-bg) calc(50% + var(--_candy-select-blur))
-      )
-      calc(100% - 1rem) calc(50% - var(--_candy-select-handle-thickness)) /
-      0.5rem 0.5rem no-repeat,
-    linear-gradient(
-        45deg,
-        transparent 50%,
-        var(--_candy-select-handle-bg) calc(50% + var(--_candy-select-blur))
-      )
-      calc(100% - 1.5rem) calc(50% - var(--_candy-select-handle-thickness)) /
-      0.5rem 0.5rem no-repeat,
-    linear-gradient(
-        -45deg,
+        -60deg,
         transparent 50%,
         var(--_candy-select-handle-fg) calc(50% + var(--_candy-select-blur))
       )
-      calc(100% - 1rem) 50% / 0.5rem 0.5rem no-repeat,
+      calc(100% - var(--candy-select-padding-horizontal)) 50% /
+      var(--_candy-select-handle-width) var(--_candy-select-handle-height)
+      no-repeat,
     linear-gradient(
-        45deg,
+        60deg,
         transparent 50%,
         var(--_candy-select-handle-fg) calc(50% + var(--_candy-select-blur))
       )
-      calc(100% - 1.5rem) 50% / 0.5rem 0.5rem no-repeat;
+      calc(
+        100% - var(--_candy-select-handle-width) -
+          var(--candy-select-padding-horizontal)
+      )
+      50% / var(--_candy-select-handle-width) var(--_candy-select-handle-height)
+      no-repeat;
   box-sizing: border-box;
   -webkit-appearance: none;
   appearance: none;
@@ -414,7 +409,8 @@
   padding: var(--candy-select-padding-vertical)
     var(--candy-select-padding-horizontal);
   padding-right: calc(
-    var(--candy-select-padding-horizontal) + var(--_candy-select-handle-width)
+    2 * var(--candy-select-padding-horizontal) + 2 *
+      var(--_candy-select-handle-width)
   );
   font: inherit;
   border: 1px solid var(--candy-color-border1);
@@ -449,8 +445,8 @@
 
 .candy-auto :where(a),
 .candy-link {
-  color: var(--candy-link-color-text);
-  border-radius: var(--candy-border-radius);
+  color: var(--candy-color-accent1);
+  border-radius: var(--candy-link-radius);
 }
 
 .candy-auto :where(a):focus,
