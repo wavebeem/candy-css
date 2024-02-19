@@ -38,6 +38,10 @@
   --candy-input-padding-horizontal: 0.5rem;
   --candy-input-radius: 2px;
 
+  /* Tables */
+  --candy-table-padding-vertical: 0.5rem;
+  --candy-table-padding-horizontal: 1rem;
+
   /* Cards */
   --candy-pre-padding-vertical: 1rem;
   --candy-pre-padding-horizontal: 1rem;
@@ -230,8 +234,8 @@
 .candy-auto :where(table),
 .candy-table {
   box-sizing: border-box;
-  background: var(--candy-table-color-body-background);
-  color: var(--candy-table-color-text);
+  background: var(--candy-color-background1);
+  color: var(--candy-color-text1);
   border-collapse: collapse;
 }
 
@@ -244,15 +248,15 @@
 
 .candy-auto :where(table tbody tr):not(:last-of-type),
 .candy-table tbody tr:not(:last-of-type) {
-  border-bottom: 1px solid var(--candy-table-color-body-border);
+  border-bottom: 1px solid var(--candy-color-border4);
 }
 
 .candy-auto table thead th,
 .candy-table thead th {
   background: linear-gradient(
     to bottom,
-    var(--candy-table-color-header-background1),
-    var(--candy-table-color-header-background2)
+    var(--candy-color-background2),
+    var(--candy-color-background3)
   );
   color: var(--candy-table-color-text);
   padding: var(--candy-table-padding-vertical)
@@ -270,7 +274,7 @@
 .candy-auto table thead,
 .candy-table thead {
   border-top: 0;
-  border-bottom: 1px solid var(--candy-table-color-header-border);
+  border-bottom: 1px solid var(--candy-color-border3);
 }
 
 .candy-auto table tfoot,
