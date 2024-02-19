@@ -5,9 +5,7 @@
   overflow-y: scroll;
   --site-font-monospace: "JetBrains Mono", "Cascadia Code", "Menlo", "Consolas",
     monospace;
-  --site-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
+  --site-font-sans: system-ui, sans-serif;
   font-family: var(--site-font-sans);
   color-scheme: light dark;
   padding: 1rem;
