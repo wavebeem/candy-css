@@ -52,12 +52,12 @@
       candy.css.
     </p>
 
-    <p>
+    <!-- <p>
       Change the custom properties to try different values. Refresh the page to
       reset it.
-    </p>
+    </p> -->
 
-    <custom-properties-editor
+    <!-- <custom-properties-editor
       data-properties="
         --candy-color-background
         --candy-color-text
@@ -67,25 +67,7 @@
         --candy-border-radius-sharp
         --candy-underline-thickness
       "
-    ></custom-properties-editor>
-
-    <h2 id="links">Links</h2>
-
-    <p>
-      The thickly underlined links make them easy to see within a large amount
-      of text.
-    </p>
-
-    <inject-example data-example="link"></inject-example>
-
-    <h2 id="selects">Selects</h2>
-    <inject-example
-      data-properties="
-        --candy-select-padding-horizontal
-        --candy-select-padding-vertical
-      "
-      data-example="select"
-    ></inject-example>
+    ></custom-properties-editor> -->
 
     <h2 id="buttons">Buttons</h2>
     <inject-example
@@ -103,6 +85,15 @@
         --candy-input-padding-vertical
       "
       data-example="inputs"
+    ></inject-example>
+
+    <h2 id="selects">Selects</h2>
+    <inject-example
+      data-properties="
+        --candy-select-padding-horizontal
+        --candy-select-padding-vertical
+      "
+      data-example="select"
     ></inject-example>
 
     <h2 id="radios">Radio Buttons</h2>
@@ -136,19 +127,6 @@
       "
       data-example="checkboxes"
     ></inject-example>
-
-    <h2 id="textures">Textures</h2>
-    <p>
-      Textures are meant to be used in your own containers. Textures can be
-      applied to nav bars, sidebars, or content areas.
-    </p>
-    <inject-example data-example="textures"></inject-example>
-    <p>
-      The striped texture is best reserved for highly decorative elements, like
-      the main nav bar on a page, or a page hero element. You can also nest a
-      box inside a container using the stripe texture in order to make the
-      content more readable.
-    </p>
 
     <h2 id="tables">Tables</h2>
     <inject-example
@@ -242,6 +220,19 @@
     </p>
     <inject-example data-example="inlineSVG"></inject-example>
 
+    <h2 id="textures">Textures</h2>
+    <p>
+      Textures are meant to be used in your own containers. Textures can be
+      applied to nav bars, sidebars, or content areas.
+    </p>
+    <inject-example data-example="textures"></inject-example>
+    <p>
+      The striped texture is best reserved for highly decorative elements, like
+      the main nav bar on a page, or a page hero element. You can also nest a
+      box inside a container using the stripe texture in order to make the
+      content more readable.
+    </p>
+
     <h2 id="hr">Horizontal Rule</h2>
     <inject-example data-example="horizontalRule"></inject-example>
 
@@ -256,6 +247,9 @@
       "
       data-example="pre"
     ></inject-example>
+
+    <h2 id="links">Links</h2>
+    <inject-example data-example="link"></inject-example>
 
     <site-footer></site-footer>
 
@@ -559,12 +553,12 @@ Disabled.</textarea
 
     <template id="template-tableBasic">
       <p>
-        A <code>.candy-table</code> inside a <code>.candy-box</code> with a
+        A <code>candy-table</code> inside a <code>candy-box</code> with a
         responsive wrapper added. The responsive wrapper is not part of
         candy.css. The table doesn't have its own external border, so if you
-        want one you should add <code>.candy-box</code> on the table itself. If
+        want one you should add <code>candy-box</code> on the table itself. If
         you want a responsive table, then the scroll code should be on the
-        parent element along with <code>.canyd-box</code>
+        parent element along with <code>candy-box</code>
       </p>
       <div class="candy-box site-table-responsive site-table-music">
         <table class="candy-table" style="width: 100%">
@@ -876,21 +870,6 @@ Disabled.</textarea
 
     <template id="template-well">
       <div class="site-flex-column site-gap">
-        <div class="site-flex-row-wrap">
-          <div class="candy-well">
-            <div style="width: 50px; height: 50px; background: red"></div>
-          </div>
-          <div class="candy-well">
-            <div style="width: 50px; height: 50px; background: blue"></div>
-          </div>
-          <div class="candy-well">
-            <div style="width: 50px; height: 50px; background: green"></div>
-          </div>
-          <div class="candy-well">
-            <div style="width: 50px; height: 50px; background: magenta"></div>
-          </div>
-        </div>
-
         <div class="site-columns-auto">
           <div class="candy-well">
             This is a candy.css Card. It has a border and comfortable padding to
@@ -914,20 +893,6 @@ Disabled.</textarea
 
     <template id="template-box">
       <div class="site-flex-column site-gap">
-        <div class="site-flex-row-wrap">
-          <div class="candy-box">
-            <div style="width: 50px; height: 50px; background: red"></div>
-          </div>
-          <div class="candy-box">
-            <div style="width: 50px; height: 50px; background: blue"></div>
-          </div>
-          <div class="candy-box">
-            <div style="width: 50px; height: 50px; background: green"></div>
-          </div>
-          <div class="candy-box">
-            <div style="width: 50px; height: 50px; background: magenta"></div>
-          </div>
-        </div>
         <div class="site-columns-auto">
           <div class="candy-box">
             This is a candy.css Box. It has a simple border and minimal padding.

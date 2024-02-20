@@ -64,11 +64,11 @@ class InjectExample extends HTMLElement {
     summary.style.marginTop = "1rem";
     summary.style.userSelect = "none";
     details.insertAdjacentElement("beforeend", summary);
-    if ("properties" in this.dataset) {
-      const propertyEditor = document.createElement("custom-properties-editor");
-      propertyEditor.dataset.properties = this.dataset.properties;
-      details.insertAdjacentElement("beforeend", propertyEditor);
-    }
+    // if ("properties" in this.dataset) {
+    //   const propertyEditor = document.createElement("custom-properties-editor");
+    //   propertyEditor.dataset.properties = this.dataset.properties;
+    //   details.insertAdjacentElement("beforeend", propertyEditor);
+    // }
     details.insertAdjacentElement("beforeend", pre);
     this.insertAdjacentElement("beforeend", divH3);
     this.insertAdjacentElement("beforeend", div);
