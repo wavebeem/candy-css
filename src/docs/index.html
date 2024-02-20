@@ -137,16 +137,20 @@
       data-example="checkboxes"
     ></inject-example>
 
-    <h2 id="containers">Containers</h2>
-    <p>Containers.</p>
-    <inject-example data-example="containers"></inject-example>
-
     <h2 id="textures">Textures</h2>
-    <p>Textures.</p>
+    <p>
+      Textures are meant to be used in your own containers. Textures can be
+      applied to nav bars, sidebars, or content areas.
+    </p>
     <inject-example data-example="textures"></inject-example>
+    <p>
+      The striped texture is best reserved for highly decorative elements, like
+      the main nav bar on a page, or a page hero element. You can also nest a
+      box inside a container using the stripe texture in order to make the
+      content more readable.
+    </p>
 
     <h2 id="tables">Tables</h2>
-    <p>A basic table.</p>
     <inject-example
       data-properties="
         --candy-table-padding-horizontal
@@ -155,7 +159,10 @@
       data-example="tableBasic"
     ></inject-example>
 
-    <p>A table with row headers.</p>
+    <p>
+      A table with row headers: <code>th</code> elements inside the
+      <code>tbody</code>.
+    </p>
     <inject-example
       data-properties="
         --candy-table-padding-horizontal
@@ -164,7 +171,10 @@
       data-example="tableRowHeaders"
     ></inject-example>
 
-    <p>A table with a footer.</p>
+    <p>
+      A table with a footer: a <code>tfoot</code> element including
+      <code>th</code> and <code>td</code> children.
+    </p>
     <inject-example
       data-properties="
         --candy-table-padding-horizontal
@@ -174,6 +184,11 @@
     ></inject-example>
 
     <h2 id="cards">Cards</h2>
+    <p>
+      Cards should be used for grouping contents. They are not meant to be
+      accessible as clickable elements. Use buttons and links for that. You're
+      on your own if you want to make a clickable card.
+    </p>
     <inject-example
       data-properties="
         --candy-card-padding-horizontal
@@ -182,7 +197,20 @@
       data-example="card"
     ></inject-example>
 
-    <h2 id="box">Box</h2>
+    <h2 id="cards">Wells</h2>
+    <p>
+      Wells are used for grouping contents. Whereas cards appear elevated, wells
+      appear sunken.
+    </p>
+    <inject-example
+      data-properties="
+        --candy-well-padding-horizontal
+        --candy-well-padding-vertical
+      "
+      data-example="well"
+    ></inject-example>
+
+    <h2 id="box">Boxes</h2>
     <inject-example
       data-properties="
         --candy-box-padding-horizontal
@@ -192,6 +220,10 @@
     ></inject-example>
 
     <h2 id="fieldsets">Fieldsets</h2>
+    <p>
+      Fieldsets can be used to group any elements within a form, but are
+      especially useful when grouping checkboxes or radio buttons.
+    </p>
     <inject-example
       data-properties="
         --candy-fieldset-padding-horizontal
@@ -225,245 +257,7 @@
       data-example="pre"
     ></inject-example>
 
-    <h2 id="scrollbars">Scrollbars</h2>
-    <p>
-      Firefox has the ability to put custom colors on your scrollbars! Don't
-      forget to put <code>candy-scrollbar</code> on your
-      <code>&lt;html&gt;</code> element if you'd like to opt-in to this feature.
-      You can also put it on only specific elements that you'd like to opt-in to
-      this behavior. Hopefully in the future more browsers besides Firefox will
-      implement this feature.
-    </p>
-    <p>
-      You can also use the nonstandard WebKit scrollbar properties to color
-      scrollbars if you'd like. This is not included in candy.css itself.
-    </p>
-    <pre class="candy-pre">
-::-webkit-scrollbar {
-  width: 1rem;
-  height: 1rem;
-  background-color: var(--candy-color-background);
-}
-
-::-webkit-scrollbar:vertical {
-  border-left: 1px solid var(--candy-color-shadow);
-}
-
-::-webkit-scrollbar:horizontal {
-  border-top: 1px solid var(--candy-color-shadow);
-}
-
-::-webkit-scrollbar-track {
-  padding: 2px;
-}
-
-::-webkit-scrollbar-corner {
-  background-color: var(--candy-color-shadow);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--candy-color-text);
-  background-clip: content-box;
-  box-shadow: inset 0 0 0 3px var(--candy-color-background);
-}
-
-::-webkit-scrollbar-thumb:vertical {
-  border-left: 1px solid var(--candy-color-shadow);
-  min-height: 1rem;
-}
-
-::-webkit-scrollbar-thumb:horizontal {
-  border-top: 1px solid var(--candy-color-shadow);
-  min-width: 1rem;
-}</pre
-    >
-
-    <h2 id="dark">Dark Mode</h2>
-    <p>
-      You can use the
-      <code>prefers-color-scheme: dark</code> CSS media query to set the
-      <code>--candy-color-*</code> variables, allowing your visitors to
-      automatically get dark mode with a single block of CSS
-    </p>
-    <pre class="candy-pre">
-.candy-auto,
-.candy-root {
-  --candy-color-background: #fff;
-  --candy-color-text: #333;
-  --candy-color-shadow: #666;
-  --candy-color-accent: #c00;
-}
-
-@media (prefers-color-scheme: dark) {
-  .candy-auto,
-  .candy-root {
-    --candy-color-background: #333;
-    --candy-color-text: #ccc;
-    --candy-color-shadow: #666;
-    --candy-color-accent: #0dd;
-  }
-}</pre
-    >
-
-    <h2 id="auto-mode">Auto Mode</h2>
-
-    <p>
-      The suggested way to use <code>candy.css</code> is exclusively by adding
-      CSS classes to elements you want to style. But sometimes your HTML is
-      constrained to be entirely <code>class</code> free.
-    </p>
-
-    <p>
-      In order to use auto mode, put the class
-      <code>candy-auto</code> on whichever tag you want class free markup inside
-      of (e.g. on the main element of your blog post, or even the entire
-      document if you want to work quicker, or use Markdown or something).
-    </p>
-
-    <inject-example data-example="auto"></inject-example>
-
     <site-footer></site-footer>
-
-    <template id="template-auto">
-      <div class="candy-auto">
-        <button type="button">Button</button>
-        <br />
-        <br />
-        <hr />
-        <br />
-        <label>
-          <div>Input</div>
-          <input type="text" value="Example text here" />
-        </label>
-        <br />
-        <label>
-          <div>Text area</div>
-          <textarea>Example text here</textarea>
-        </label>
-        <br />
-        <hr />
-        <br />
-        <fieldset>
-          <legend>Fieldset &amp; legend</legend>
-          <label>
-            <input type="checkbox" />
-            <span>Pineapple</span>
-          </label>
-          <label>
-            <input type="checkbox" />
-            <span>Mushroom</span>
-          </label>
-          <label>
-            <input type="checkbox" />
-            <span>Olives</span>
-          </label>
-          <label>
-            <input type="checkbox" disabled />
-            <span>Disabled</span>
-          </label>
-        </fieldset>
-        <br />
-        <br />
-        <hr />
-        <br />
-        <table>
-          <thead>
-            <tr>
-              <th>Column 1</th>
-              <th>Column 2</th>
-              <th>Column 3</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>11</td>
-              <td>21</td>
-              <td>31</td>
-            </tr>
-            <tr>
-              <td>12</td>
-              <td>22</td>
-              <td>32</td>
-            </tr>
-            <tr>
-              <td>13</td>
-              <td>23</td>
-              <td>33</td>
-            </tr>
-          </tbody>
-        </table>
-        <br />
-        <hr />
-        <br />
-        <label>
-          <span>Select</span>
-          <select style="min-width: 20ch">
-            <option disabled selected>&ndash;</option>
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-          </select>
-        </label>
-        <br />
-        <hr />
-        <br />
-        <div>
-          <label>
-            <input type="checkbox" checked />
-            <span>Checked checkbox</span>
-          </label>
-          <label>
-            <input type="checkbox" />
-            <span>Unchecked checkbox</span>
-          </label>
-          <label>
-            <input type="checkbox" />
-            <span
-              >Checkbox with<br />line that wraps<br />because it's long</span
-            >
-          </label>
-          <label>
-            <input type="checkbox" />
-            <span
-              >Checkbox with<br />line that wraps<br />because it's long<br />and
-              no HMTL ID</span
-            >
-          </label>
-          <div>
-            <input type="checkbox" id="checkbox__2022-12-18__11.42.40" />
-            <label for="checkbox__2022-12-18__11.42.40"
-              >Checkbox label sibling</label
-            >
-          </div>
-          <label>
-            <input type="checkbox" disabled />
-            <span>Disabled checkbox</span>
-          </label>
-          <br />
-          <hr />
-          <br />
-          <label>
-            <input type="radio" checked name="auto-b" value="auto-b1" />
-            <span>Checked radio button</span>
-          </label>
-          <label>
-            <input type="radio" name="auto-b" value="auto-b2" />
-            <span>Unchecked radio button</span>
-          </label>
-          <label>
-            <input type="radio" disabled name="auto-b" value="auto-b3" />
-            <span>Disabled radio button</span>
-          </label>
-          <br />
-          <hr />
-          <br />
-          <pre>
-// JavaScript example
-console.log("Hello, world!");</pre
-          >
-        </div>
-      </div>
-    </template>
 
     <template id="template-link">
       <p>
@@ -727,17 +521,6 @@ Disabled.</textarea
       </div>
     </template>
 
-    <template id="template-containers">
-      <div class="site-columns-auto" style="--grid-min: 12rem">
-        <div class="candy-card site-texture">Card</div>
-        <div class="candy-card site-texture">Card</div>
-        <div class="candy-well site-texture">Well</div>
-        <div class="candy-well site-texture">Well</div>
-        <div class="candy-box site-texture">Box</div>
-        <div class="candy-box site-texture">Box</div>
-      </div>
-    </template>
-
     <template id="template-textures">
       <div class="site-columns-auto" style="--grid-min: 12rem">
         <div class="candy-card site-texture candy-texture-striped">Striped</div>
@@ -745,109 +528,21 @@ Disabled.</textarea
         <div class="candy-card site-texture candy-texture-concave">Concave</div>
         <div class="candy-card site-texture candy-texture-glossy">Glossy</div>
         <div class="candy-card site-texture candy-texture-paper">Paper</div>
+        <div class="candy-card site-texture candy-texture-smooth">Smooth</div>
+        <div class="candy-card site-texture candy-texture-default">Default</div>
       </div>
     </template>
 
     <template id="template-tableBasic">
       <p>
-        A regular table with a responsive wrapper added. The responsive wrapper
-        is not part of candy.css.
+        A <code>.candy-table</code> inside a <code>.candy-box</code> with a
+        responsive wrapper added. The responsive wrapper is not part of
+        candy.css. The table doesn't have its own external border, so if you
+        want one you should add <code>.candy-box</code> on the table itself. If
+        you want a responsive table, then the scroll code should be on the
+        parent element along with <code>.canyd-box</code>
       </p>
-      <div class="site-table-responsive site-table-music">
-        <table class="candy-table" style="width: 100%">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Title</th>
-              <th>Time</th>
-              <th>Rating</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Pretelethal</td>
-              <td>3:21</td>
-              <td>&starf;&starf;&starf;&starf;&star;</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Key Entity Extraction V: Sentry the Defiant</td>
-              <td>5:45</td>
-              <td>&starf;&starf;&starf;&starf;&starf;</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>The Hard Sell</td>
-              <td>5:10</td>
-              <td>&starf;&starf;&star;&star;&star;</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Number City</td>
-              <td>3:49</td>
-              <td>&starf;&starf;&starf;&star;&star;</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Gravity's Union</td>
-              <td>6:46</td>
-              <td>&starf;&starf;&starf;&starf;&starf;</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p>Table inside a box</p>
-      <div class="site-table-responsive site-table-music candy-box">
-        <table class="candy-table" style="width: 100%">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Title</th>
-              <th>Time</th>
-              <th>Rating</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Pretelethal</td>
-              <td>3:21</td>
-              <td>&starf;&starf;&starf;&starf;&star;</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Key Entity Extraction V: Sentry the Defiant</td>
-              <td>5:45</td>
-              <td>&starf;&starf;&starf;&starf;&starf;</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>The Hard Sell</td>
-              <td>5:10</td>
-              <td>&starf;&starf;&star;&star;&star;</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Number City</td>
-              <td>3:49</td>
-              <td>&starf;&starf;&starf;&star;&star;</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Gravity's Union</td>
-              <td>6:46</td>
-              <td>&starf;&starf;&starf;&starf;&starf;</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p>Table inside a card</p>
-      <div class="site-table-responsive site-table-music candy-card">
+      <div class="candy-box site-table-responsive site-table-music">
         <table class="candy-table" style="width: 100%">
           <thead>
             <tr>
@@ -895,7 +590,13 @@ Disabled.</textarea
     </template>
 
     <template id="template-horizontalRule">
+      <p>&darr; The horizontal rule is below this paragraph.</p>
       <hr class="candy-hr" />
+      <p>&uarr; The horizontal rule is above this paragraph.</p>
+      <p>
+        The <code>candy-hr</code> class is not meant to be used for borders,
+        just casually dividing sections.
+      </p>
     </template>
 
     <template id="template-getCreative">
@@ -1007,7 +708,7 @@ Disabled.</textarea
     </template>
 
     <template id="template-tableRowHeaders">
-      <div class="site-table-responsive">
+      <div class="candy-box site-table-responsive">
         <table class="candy-table">
           <thead>
             <tr>
@@ -1042,7 +743,7 @@ Disabled.</textarea
     </template>
 
     <template id="template-tableTfoot">
-      <div class="site-table-responsive">
+      <div class="candy-box site-table-responsive">
         <table class="candy-table">
           <thead>
             <tr>
@@ -1128,21 +829,6 @@ Disabled.</textarea
 
     <template id="template-card">
       <div class="site-flex-column site-gap">
-        <div class="site-flex-row-wrap">
-          <div class="candy-card">
-            <div style="width: 50px; height: 50px; background: red"></div>
-          </div>
-          <div class="candy-card">
-            <div style="width: 50px; height: 50px; background: blue"></div>
-          </div>
-          <div class="candy-card">
-            <div style="width: 50px; height: 50px; background: green"></div>
-          </div>
-          <div class="candy-card">
-            <div style="width: 50px; height: 50px; background: magenta"></div>
-          </div>
-        </div>
-
         <div class="site-columns-auto">
           <div class="candy-card">
             This is a candy.css Card. It has a border and comfortable padding to
@@ -1157,6 +843,44 @@ Disabled.</textarea
             frame your content.
           </div>
           <div class="candy-card">
+            This is a candy.css Card. It has a border and comfortable padding to
+            frame your content.
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <template id="template-well">
+      <div class="site-flex-column site-gap">
+        <div class="site-flex-row-wrap">
+          <div class="candy-well">
+            <div style="width: 50px; height: 50px; background: red"></div>
+          </div>
+          <div class="candy-well">
+            <div style="width: 50px; height: 50px; background: blue"></div>
+          </div>
+          <div class="candy-well">
+            <div style="width: 50px; height: 50px; background: green"></div>
+          </div>
+          <div class="candy-well">
+            <div style="width: 50px; height: 50px; background: magenta"></div>
+          </div>
+        </div>
+
+        <div class="site-columns-auto">
+          <div class="candy-well">
+            This is a candy.css Card. It has a border and comfortable padding to
+            frame your content.
+          </div>
+          <div class="candy-well">
+            This is a candy.css Card. It has a border and comfortable padding to
+            frame your content.
+          </div>
+          <div class="candy-well">
+            This is a candy.css Card. It has a border and comfortable padding to
+            frame your content.
+          </div>
+          <div class="candy-well">
             This is a candy.css Card. It has a border and comfortable padding to
             frame your content.
           </div>

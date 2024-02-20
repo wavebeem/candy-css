@@ -90,8 +90,11 @@ textarea {
 }
 
 .site-table-responsive {
-  width: 100%;
   overflow-x: auto;
+}
+
+.site-table-responsive > table {
+  width: 100%;
 }
 
 .site-table-music > table > thead > tr > th:nth-of-type(2) {

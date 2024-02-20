@@ -253,21 +253,23 @@
   border-bottom: 1px solid var(--candy-color-border3);
 }
 
-.candy-auto table thead th,
-.candy-table thead th {
-  background: linear-gradient(
-    to bottom,
-    var(--candy-color-background2),
-    var(--candy-color-background3)
-  );
+.candy-auto table td,
+.candy-table td {
+  background: var(--candy-table-color-body-background);
   color: var(--candy-table-color-text);
   padding: var(--candy-table-padding-vertical)
     var(--candy-table-padding-horizontal);
 }
 
-.candy-auto table td,
-.candy-table td {
-  background: var(--candy-table-color-body-background);
+.candy-auto table tfoot :is(th, td),
+.candy-table tfoot :is(th, td),
+.candy-auto table thead :is(th, td),
+.candy-table thead :is(th, td) {
+  background: linear-gradient(
+    to bottom,
+    var(--candy-color-background2),
+    var(--candy-color-background3)
+  );
   color: var(--candy-table-color-text);
   padding: var(--candy-table-padding-vertical)
     var(--candy-table-padding-horizontal);
@@ -554,7 +556,7 @@
 
 .candy-auto :where(fieldset),
 .candy-fieldset {
-  border: 1px solid var(--candy-fieldset-color-border);
+  border: 1px solid var(--candy-color-border3);
   padding: var(--candy-fieldset-padding-vertical)
     var(--candy-fieldset-padding-horizontal);
   margin: 0;
@@ -681,4 +683,12 @@
 
 .candy-texture-paper {
   background: var(--candy-color-background1);
+}
+
+.candy-texture-smooth {
+  background: var(--candy-color-background3);
+}
+
+.candy-texture-default {
+  background: var(--candy-color-background4);
 }
