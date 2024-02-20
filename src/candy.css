@@ -9,7 +9,6 @@
   --candy-color-border1: hsl(80 35% 40%);
   --candy-color-border2: hsl(80 35% 50%);
   --candy-color-border3: hsl(80 35% 70%);
-  --candy-color-border4: hsl(80 35% 80%);
   --candy-color-accent1: hsl(260 100% 40%);
   --candy-color-accent2: hsl(260 100% 30%);
   --candy-color-shadow1: hsl(80 35% 50% / 30%);
@@ -251,7 +250,7 @@
 
 .candy-auto :where(table tbody tr):not(:last-of-type),
 .candy-table tbody tr:not(:last-of-type) {
-  border-bottom: 1px solid var(--candy-color-border4);
+  border-bottom: 1px solid var(--candy-color-border3);
 }
 
 .candy-auto table thead th,
@@ -277,12 +276,12 @@
 .candy-auto table thead,
 .candy-table thead {
   border-top: 0;
-  border-bottom: 1px solid var(--candy-color-border3);
+  border-bottom: 1px solid var(--candy-color-border2);
 }
 
 .candy-auto table tfoot,
 .candy-table tfoot {
-  border-top: 1px solid var(--candy-color-border3);
+  border-top: 1px solid var(--candy-color-border2);
   border-bottom: 0;
 }
 
@@ -370,11 +369,14 @@
 .candy-auto :where(select),
 .candy-select {
   --_candy-select-blur: 0.5px;
-  --_candy-select-handle-width: 0.3rem;
-  --_candy-select-handle-height: 0.6rem;
+  --_candy-select-handle-angle: 45deg;
+  /* 5.5px assuming 1rem = 16px */
+  --_candy-select-handle-size: 0.34375rem;
+  --_candy-select-handle-width: var(--_candy-select-handle-size);
+  --_candy-select-handle-height: var(--_candy-select-handle-size);
   --_candy-select-handle-fg: var(--candy-color-text1);
   --_candy-select-arrow: linear-gradient(
-        -60deg,
+        calc(-1 * var(--_candy-select-handle-angle)),
         transparent 50%,
         var(--_candy-select-handle-fg) calc(50% + var(--_candy-select-blur))
       )
@@ -382,7 +384,7 @@
       var(--_candy-select-handle-width) var(--_candy-select-handle-height)
       no-repeat,
     linear-gradient(
-        60deg,
+        var(--_candy-select-handle-angle),
         transparent 50%,
         var(--_candy-select-handle-fg) calc(50% + var(--_candy-select-blur))
       )
@@ -644,38 +646,37 @@
   background: repeating-linear-gradient(
       -45deg,
       transparent 0 calc(2 * var(--candy-texture-striped-size)),
-      var(--candy-color-background3) calc(2 * var(--candy-texture-striped-size))
+      var(--candy-color-background2) calc(2 * var(--candy-texture-striped-size))
         calc(4 * var(--candy-texture-striped-size))
-    ),
-    linear-gradient(
-      to bottom,
-      var(--candy-color-background2),
-      var(--candy-color-background3)
-    );
+    )
+    var(--candy-color-background3);
 }
 
 .candy-texture-convex {
   background: linear-gradient(
-    to bottom,
-    var(--candy-color-background2),
-    var(--candy-color-background3)
-  );
+      to bottom,
+      var(--candy-color-background2),
+      var(--candy-color-background3)
+    )
+    var(--candy-color-background2);
 }
 
 .candy-texture-concave {
   background: linear-gradient(
-    to bottom,
-    var(--candy-color-background3),
-    var(--candy-color-background2)
-  );
+      to bottom,
+      var(--candy-color-background3),
+      var(--candy-color-background2)
+    )
+    var(--candy-color-background3);
 }
 
 .candy-texture-glossy {
   background: linear-gradient(
-    to bottom,
-    var(--candy-color-background2) 0 50%,
-    var(--candy-color-background3) 50% 100%
-  );
+      to bottom,
+      var(--candy-color-background2) 0 50%,
+      var(--candy-color-background3) 50% 100%
+    )
+    var(--candy-color-background2);
 }
 
 .candy-texture-paper {
