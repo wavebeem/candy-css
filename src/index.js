@@ -19,7 +19,7 @@ export function $elem(tagName, props, ...children) {
 class SiteNav extends HTMLElement {
   connectedCallback() {
     this.innerHTML = html`
-      <nav class="candy-texture-convex">
+      <nav>
         <ul class="site-nav-menu">
           <li><a href="/" class="candy-link">Home</a></li>
           <li><a href="/docs/" class="candy-link">Documentation</a></li>

@@ -33,10 +33,12 @@
   </head>
   <body>
     <header class="site-header candy-texture-convex">
-      <h1>candy.css</h1>
+      <div>
+        <img src="/favicon-192.png" alt="" width="32" height="32" />
+        <h1>candy.css</h1>
+      </div>
+      <site-nav></site-nav>
     </header>
-
-    <site-nav class="site-nav candy-texture-convex"></site-nav>
 
     <site-toc class="site-toc candy-texture-striped"></site-toc>
 
@@ -233,7 +235,9 @@
       <h2 id="links">Links</h2>
       <inject-example data-example="link"></inject-example>
 
-      <site-copyright class="site-copyright candy-texture-concave"></site-copyright>
+      <site-copyright
+        class="site-copyright candy-texture-concave"
+      ></site-copyright>
     </main>
 
     <template id="template-link">
