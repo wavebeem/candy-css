@@ -1,13 +1,15 @@
 <!doctype html>
-<html lang="en" class="candy-root candy-scrollbar">
+<html lang="en" class="candy-root candy-scrollbar" data-page-layout="sidebar">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Documentation | candy.css</title>
-    <link rel="icon" sizes="16x16" href="/favicon-16.png" />
-    <link rel="icon" sizes="32x32" href="/favicon-32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" sizes="16x16" href="/favicon-16.png?v=2" />
+    <link rel="icon" sizes="32x32" href="/favicon-32.png?v=2" />
+    <link rel="icon" sizes="180x180" href="/favicon-180.png?v=2" />
+    <link rel="icon" sizes="192x192" href="/favicon-192.png?v=2" />
+    <link rel="icon" sizes="512x512" href="/favicon-512.png?v=2" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png?v=2" />
     <link rel="stylesheet" href="/candy.css" />
     <link rel="stylesheet" href="/site.css" />
     <script type="module" src="/index.js"></script>
@@ -24,7 +26,7 @@
     <meta name="og:title" content="candy.css" />
     <meta
       name="og:description"
-      content="A CSS library for 2-bit inspired design"
+      content="A glossy CSS library inspired by Web 2.0 design"
     />
     <meta
       name="og:image"
@@ -43,17 +45,23 @@
     <site-toc class="site-toc candy-texture-striped"></site-toc>
 
     <main class="site-main">
-      <h2>Introduction</h2>
-      <p>
-        This page demonstrates some of the ways candy.css can be used, as well
-        as code for its examples.
-      </p>
-      <h2 id="basics">Basics</h2>
-      <p>
-        All CSS classes from candy.css start with
-        <code>candy-</code>. This way you'll always know when you're using
-        candy.css.
-      </p>
+      <section>
+        <h2>Introduction</h2>
+        <p>
+          This page demonstrates some of the ways candy.css can be used, as well
+          as code for its examples.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="basics">Basics</h2>
+        <p>
+          All CSS classes from candy.css start with
+          <code>candy-</code>. This way you'll always know when you're using
+          candy.css.
+        </p>
+      </section>
+
       <!-- <p>
         Change the custom properties to try different values. Refresh the page to
         reset it.
@@ -69,171 +77,220 @@
           --candy-underline-thickness
         "
       ></custom-properties-editor> -->
-      <h2 id="buttons">Buttons</h2>
-      <inject-example
-        data-properties="
-          --candy-button-padding-horizontal
-          --candy-button-padding-vertical
+      <section>
+        <h2 id="buttons">Buttons</h2>
+        <inject-example
+          data-properties="
+            --candy-button-padding-horizontal
+            --candy-button-padding-vertical
+          "
+          data-example="buttons"
+        ></inject-example>
+      </section>
+
+      <section>
+        <h2 id="inputs">Text Inputs</h2>
+        <inject-example
+          data-properties="
+            --candy-input-padding-horizontal
+            --candy-input-padding-vertical
+          "
+          data-example="inputs"
+        ></inject-example>
+      </section>
+
+      <section>
+        <h2 id="selects">Selects</h2>
+        <inject-example
+          data-properties="
+            --candy-select-padding-horizontal
+            --candy-select-padding-vertical
+          "
+          data-example="select"
+        ></inject-example>
+      </section>
+
+      <section>
+        <h2 id="radios">Radio Buttons</h2>
+        <p>
+          For proper accessibility and appearance, wrap all radio buttons inside
+          a
+          <code>candy-field</code> and put a <code>label</code> after it with
+          correct <code>id</code> and <code>for</code> attributes (or nest the
+          radio button inside a label)
+        </p>
+        <inject-example
+          data-properties="
+            --candy-radiocheckbox-size
+            --candy-radiocheckbox-margin-horizontal
+            --candy-radiocheckbox-margin-vertical
+          "
+          data-example="radios"
+        ></inject-example>
+      </section>
+
+      <section>
+        <h2 id="checkboxes">Checkboxes</h2>
+        <p>
+          For proper accessibility and appearance, wrap all checkboxes inside a
+          <code>candy-field</code> and put a <code>label</code> after it with
+          correct <code>id</code> and <code>for</code> attributes (or nest the
+          checkbox inside a label)
+        </p>
+        <inject-example
+          data-properties="
+            --candy-radiocheckbox-size
+            --candy-radiocheckbox-margin-horizontal
+            --candy-radiocheckbox-margin-vertical
+          "
+          data-example="checkboxes"
+        ></inject-example>
+      </section>
+
+      <section>
+        <h2 id="tables">Tables</h2>
+        <inject-example
+          data-properties="
+            --candy-table-padding-horizontal
+            --candy-table-padding-vertical
+          "
+          data-example="tableBasic"
+        ></inject-example>
+      </section>
+
+      <section>
+        <p>
+          A table with row headers: <code>th</code> elements inside the
+          <code>tbody</code>.
+        </p>
+        <inject-example
+          data-properties="
+            --candy-table-padding-horizontal
+            --candy-table-padding-vertical
+          "
+          data-example="tableRowHeaders"
+        ></inject-example>
+        <p>
+          A table with a footer: a <code>tfoot</code> element including
+          <code>th</code> and <code>td</code> children.
+        </p>
+        <inject-example
+          data-properties="
+        --candy-table-padding-horizontal
+        --candy-table-padding-vertical
         "
-        data-example="buttons"
-      ></inject-example>
-      <h2 id="inputs">Text Inputs</h2>
-      <inject-example
-        data-properties="
-          --candy-input-padding-horizontal
-          --candy-input-padding-vertical
-        "
-        data-example="inputs"
-      ></inject-example>
-      <h2 id="selects">Selects</h2>
-      <inject-example
-        data-properties="
-          --candy-select-padding-horizontal
-          --candy-select-padding-vertical
-        "
-        data-example="select"
-      ></inject-example>
-      <h2 id="radios">Radio Buttons</h2>
-      <p>
-        For proper accessibility and appearance, wrap all radio buttons inside a
-        <code>candy-field</code> and put a <code>label</code> after it with
-        correct <code>id</code> and <code>for</code> attributes (or nest the
-        radio button inside a label)
-      </p>
-      <inject-example
-        data-properties="
-          --candy-radiocheckbox-size
-          --candy-radiocheckbox-margin-horizontal
-          --candy-radiocheckbox-margin-vertical
-        "
-        data-example="radios"
-      ></inject-example>
-      <h2 id="checkboxes">Checkboxes</h2>
-      <p>
-        For proper accessibility and appearance, wrap all checkboxes inside a
-        <code>candy-field</code> and put a <code>label</code> after it with
-        correct <code>id</code> and <code>for</code> attributes (or nest the
-        checkbox inside a label)
-      </p>
-      <inject-example
-        data-properties="
-          --candy-radiocheckbox-size
-          --candy-radiocheckbox-margin-horizontal
-          --candy-radiocheckbox-margin-vertical
-        "
-        data-example="checkboxes"
-      ></inject-example>
-      <h2 id="tables">Tables</h2>
-      <inject-example
-        data-properties="
-          --candy-table-padding-horizontal
-          --candy-table-padding-vertical
-        "
-        data-example="tableBasic"
-      ></inject-example>
-      <p>
-        A table with row headers: <code>th</code> elements inside the
-        <code>tbody</code>.
-      </p>
-      <inject-example
-        data-properties="
-          --candy-table-padding-horizontal
-          --candy-table-padding-vertical
-        "
-        data-example="tableRowHeaders"
-      ></inject-example>
-      <p>
-        A table with a footer: a <code>tfoot</code> element including
-        <code>th</code> and <code>td</code> children.
-      </p>
-      <inject-example
-        data-properties="
-          --candy-table-padding-horizontal
-          --candy-table-padding-vertical
-        "
-        data-example="tableTfoot"
-      ></inject-example>
-      <h2 id="cards">Cards</h2>
-      <p>
-        Cards should be used for grouping contents. They are not meant to be
-        accessible as clickable elements. Use buttons and links for that. You're
-        on your own if you want to make a clickable card.
-      </p>
-      <inject-example
-        data-properties="
-          --candy-card-padding-horizontal
-          --candy-card-padding-vertical
-        "
-        data-example="card"
-      ></inject-example>
-      <h2 id="cards">Wells</h2>
-      <p>
-        Wells are used for grouping contents. Whereas cards appear elevated,
-        wells appear sunken.
-      </p>
-      <inject-example
-        data-properties="
-          --candy-well-padding-horizontal
-          --candy-well-padding-vertical
-        "
-        data-example="well"
-      ></inject-example>
-      <h2 id="box">Boxes</h2>
-      <inject-example
-        data-properties="
-          --candy-box-padding-horizontal
-          --candy-box-padding-vertical
-        "
-        data-example="box"
-      ></inject-example>
-      <h2 id="fieldsets">Fieldsets</h2>
-      <p>
-        Fieldsets can be used to group any elements within a form, but are
-        especially useful when grouping checkboxes or radio buttons.
-      </p>
-      <inject-example
-        data-properties="
-          --candy-fieldset-padding-horizontal
-          --candy-fieldset-padding-vertical
-          --candy-legend-padding-horizontal
-          --candy-legend-padding-vertical
-        "
-        data-example="fieldsetLegend"
-      ></inject-example>
-      <h2 id="svg">Inline SVG</h2>
-      <p>
-        Using the CSS class <code>candy-svg</code> will set the
-        <code>fill</code> property to <code>currentcolor</code>, causing inline
-        SVGs to automatically match your candy.css theme.
-      </p>
-      <inject-example data-example="inlineSVG"></inject-example>
-      <h2 id="textures">Textures</h2>
-      <p>
-        Textures are meant to be used in your own containers. Textures can be
-        applied to nav bars, sidebars, or content areas.
-      </p>
-      <inject-example data-example="textures"></inject-example>
-      <p>
-        The striped texture is best reserved for highly decorative elements,
-        like the main nav bar on a page, or a page hero element. You can also
-        nest a box inside a container using the stripe texture in order to make
-        the content more readable.
-      </p>
-      <h2 id="hr">Horizontal Rule</h2>
-      <inject-example data-example="horizontalRule"></inject-example>
-      <h2 id="pre">Code</h2>
-      <p>
-        The class <code>candy-pre</code> can be used for multiline code blocks.
-      </p>
-      <inject-example
-        data-properties="
-          --candy-pre-padding-horizontal
-          --candy-pre-padding-vertical
-        "
-        data-example="pre"
-      ></inject-example>
-      <h2 id="links">Links</h2>
-      <inject-example data-example="link"></inject-example>
+          data-example="tableTfoot"
+        ></inject-example>
+      </section>
+
+      <section>
+        <h2 id="cards">Cards</h2>
+        <p>
+          Cards should be used for grouping contents. They are not meant to be
+          accessible as clickable elements. Use buttons and links for that.
+          You're on your own if you want to make a clickable card.
+        </p>
+        <inject-example
+          data-properties="
+            --candy-card-padding-horizontal
+            --candy-card-padding-vertical
+          "
+          data-example="card"
+        ></inject-example>
+      </section>
+
+      <section>
+        <h2 id="cards">Wells</h2>
+        <p>
+          Wells are used for grouping contents. Whereas cards appear elevated,
+          wells appear sunken.
+        </p>
+        <inject-example
+          data-properties="
+            --candy-well-padding-horizontal
+            --candy-well-padding-vertical
+          "
+          data-example="well"
+        ></inject-example>
+      </section>
+
+      <section>
+        <h2 id="box">Boxes</h2>
+        <inject-example
+          data-properties="
+            --candy-box-padding-horizontal
+            --candy-box-padding-vertical
+          "
+          data-example="box"
+        ></inject-example>
+      </section>
+
+      <section>
+        <h2 id="fieldsets">Fieldsets</h2>
+        <p>
+          Fieldsets can be used to group any elements within a form, but are
+          especially useful when grouping checkboxes or radio buttons.
+        </p>
+        <inject-example
+          data-properties="
+            --candy-fieldset-padding-horizontal
+            --candy-fieldset-padding-vertical
+            --candy-legend-padding-horizontal
+            --candy-legend-padding-vertical
+          "
+          data-example="fieldsetLegend"
+        ></inject-example>
+      </section>
+
+      <section>
+        <h2 id="svg">Inline SVG</h2>
+        <p>
+          Using the CSS class <code>candy-svg</code> will set the
+          <code>fill</code> property to <code>currentcolor</code>, causing
+          inline SVGs to automatically match your candy.css theme.
+        </p>
+        <inject-example data-example="inlineSVG"></inject-example>
+      </section>
+
+      <section>
+        <h2 id="textures">Textures</h2>
+        <p>
+          Textures are meant to be used in your own containers. Textures can be
+          applied to nav bars, sidebars, or content areas.
+        </p>
+        <inject-example data-example="textures"></inject-example>
+        <p>
+          The striped texture is best reserved for highly decorative elements,
+          like the main nav bar on a page, or a page hero element. You can also
+          nest a box inside a container using the stripe texture in order to
+          make the content more readable.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="hr">Horizontal Rule</h2>
+        <inject-example data-example="horizontalRule"></inject-example>
+      </section>
+
+      <section>
+        <h2 id="pre">Code</h2>
+        <p>
+          The class <code>candy-pre</code> can be used for multiline code
+          blocks.
+        </p>
+        <inject-example
+          data-properties="
+            --candy-pre-padding-horizontal
+            --candy-pre-padding-vertical
+          "
+          data-example="pre"
+        ></inject-example>
+      </section>
+
+      <section>
+        <h2 id="links">Links</h2>
+        <inject-example data-example="link"></inject-example>
+      </section>
 
       <site-copyright
         class="site-copyright candy-texture-concave"

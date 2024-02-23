@@ -56,7 +56,7 @@ class InjectExample extends HTMLElement {
     pre.dataset.exampleType = "html";
     const details = document.createElement("details");
     const summary = document.createElement("summary");
-    summary.textContent = "Show HTML & CSS";
+    summary.textContent = "Show code";
     summary.className = "candy-button";
     summary.style.maxWidth = "max-content";
     summary.style.marginTop = "1rem";

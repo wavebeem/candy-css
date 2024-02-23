@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>candy.css</title>
-    <link rel="icon" sizes="16x16" href="/favicon-16.png" />
-    <link rel="icon" sizes="32x32" href="/favicon-32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" sizes="16x16" href="/favicon-16.png?v=2" />
+    <link rel="icon" sizes="32x32" href="/favicon-32.png?v=2" />
+    <link rel="icon" sizes="180x180" href="/favicon-180.png?v=2" />
+    <link rel="icon" sizes="192x192" href="/favicon-192.png?v=2" />
+    <link rel="icon" sizes="512x512" href="/favicon-512.png?v=2" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png?v=2" />
     <link rel="stylesheet" href="/candy.css" />
     <link rel="stylesheet" href="/site.css" />
     <script type="module" src="/index.js"></script>
@@ -17,68 +19,83 @@
       data-domain="candy.wavebeem.com"
       src="https://plausible.io/js/plausible.js"
     ></script>
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@wavebeem" />
-    <meta name="twitter:creator" content="@wavebeem" />
     <meta name="og:title" content="candy.css" />
     <meta
       name="og:description"
-      content="A CSS library for 2-bit inspired design"
+      content="A glossy CSS library inspired by Web 2.0 design"
     />
     <meta
       name="og:image"
-      content="https://candy.wavebeem.com/favicon-512.png"
+      content="https://candy.wavebeem.com/favicon-512.png?v=2"
     />
   </head>
   <body>
-    <h1><span class="candy-code">candy.css</span></h1>
+    <header class="site-header candy-texture-convex">
+      <div>
+        <img src="/favicon-192.png" alt="" width="32" height="32" />
+        <h1>candy.css</h1>
+      </div>
+      <site-nav></site-nav>
+    </header>
 
-    <site-nav></site-nav>
+    <main class="site-main">
+      <section>
+        <h2>Introduction</h2>
+        <p>
+          candy.css is a small CSS library for making retro-inspired web pages
+          using four colors. Its color palette is completely customizable using
+          <a
+            class="candy-link"
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*"
+            target="_blank"
+            >CSS Custom Properties.</a
+          >
+        </p>
+      </section>
 
-    <h2>Introduction</h2>
+      <section>
+        <h2>More Detail</h2>
+        <p>
+          You can use candy.css with basic form fields and other elements.
+          candy.css requires the use of CSS classes, so it won't clash with your
+          existing CSS. candy.css also uses relatively low specificity for each
+          rule, making it much less likely to override your existing CSS.
+        </p>
+      </section>
 
-    <p>
-      candy.css is a small CSS library for making retro-inspired web pages using
-      four colors. Its color palette is completely customizable using
-      <a
-        class="candy-link"
-        href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*"
-        target="_blank"
-        >CSS Custom Properties.</a
-      >
-    </p>
+      <section>
+        <h2>Standard Installation</h2>
+        <p>
+          Download
+          <a download href="/candy.css" class="candy-link">candy.css</a>
+          and use a <code>link</code> tag:
+        </p>
+        <pre class="candy-pre">
+&lt;link rel="stylesheet" href="candy.css" /&gt;</pre
+        >
+      </section>
 
-    <h2>More Detail</h2>
-    <p>
-      You can use candy.css with basic form fields and other elements. candy.css
-      requires the use of CSS classes, so it won't clash with your existing CSS.
-      candy.css also uses relatively low specificity for each rule, making it
-      much less likely to override your existing CSS.
-    </p>
+      <section>
+        <h2>Webpack Installation</h2>
+        <p>
+          If you're using
+          <a
+            href="https://webpack.js.org/loaders/css-loader/"
+            class="candy-link"
+            >webpack with css-loader</a
+          >, you can install it through npm:
+        </p>
+        <pre class="candy-pre">npm install candy-css</pre>
+        <p>Then load the CSS through your JavaScript:</p>
+        <pre class="candy-pre">import "candy-css";</pre>
+      </section>
 
-    <h2>Standard Installation</h2>
-    <p>
-      Download
-      <a download href="/candy.css" class="candy-link">candy.css</a>
-      and use a <code>link</code> tag:
-    </p>
-    <pre class="candy-pre">&lt;link rel="stylesheet" href="candy.css" /&gt;</pre>
-
-    <h2>Webpack Installation</h2>
-
-    <p>
-      If you're using
-      <a href="https://webpack.js.org/loaders/css-loader/" class="candy-link"
-        >webpack with css-loader</a
-      >, you can install it through npm:
-    </p>
-
-    <pre class="candy-pre">npm install candy-css</pre>
-
-    <p>Then load the CSS through your JavaScript:</p>
-
-    <pre class="candy-pre">import "candy-css";</pre>
-
-    <site-footer></site-footer>
+      <section>
+        <div class="site-spacer"></div>
+        <hr class="candy-hr" />
+        <div class="site-spacer"></div>
+        <site-copyright></site-copyright>
+      </section>
+    </main>
   </body>
 </html>
