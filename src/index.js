@@ -19,7 +19,7 @@ export function $elem(tagName, props, ...children) {
 class SiteNav extends HTMLElement {
   connectedCallback() {
     this.innerHTML = html`
-      <nav class="candy-card candy-texture-convex">
+      <nav class="candy-texture-convex">
         <ul class="site-nav-menu">
           <li><a href="/" class="candy-link">Home</a></li>
           <li><a href="/docs/" class="candy-link">Documentation</a></li>
@@ -35,7 +35,7 @@ customElements.define("site-nav", SiteNav);
 class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = html`
-      <footer class="candy-card">
+      <footer>
         &copy; <span data-slot="year"></span>
         <a href="https://www.wavebeem.com" class="candy-link">Sage Fennel</a>
       </footer>
@@ -45,3 +45,15 @@ class SiteFooter extends HTMLElement {
 }
 
 customElements.define("site-footer", SiteFooter);
+
+class SiteCopyright extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = html`
+      &copy; <span data-slot="year"></span>
+      <a href="https://www.wavebeem.com" class="candy-link">Sage Fennel</a>
+    `;
+    $("[data-slot='year']", this).textContent = new Date().getFullYear();
+  }
+}
+
+customElements.define("site-copyright", SiteCopyright);

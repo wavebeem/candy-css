@@ -1,24 +1,90 @@
 :root {
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 0;
   line-height: 1.5;
-  overflow-y: scroll;
   --site-font-monospace: "JetBrains Mono", "Cascadia Code", "Menlo", "Consolas",
     monospace;
   --site-font-sans: system-ui, sans-serif;
   font-family: var(--site-font-sans);
   color-scheme: light dark;
-  padding: 1rem;
 }
 
 body {
-  max-width: 50rem;
   margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "toc"
+    "main"
+    "footer";
 }
 
-footer {
-  margin-top: 1rem;
-  text-decoration-line: none;
+header {
+  grid-area: header;
+}
+
+site-nav {
+  grid-area: nav;
+}
+
+site-toc {
+  grid-area: toc;
+}
+
+main {
+  grid-area: main;
+}
+
+.site-main {
+  padding: 1rem;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.site-header,
+.site-nav {
+  padding: 1rem;
+  border-bottom: 1px solid var(--candy-color-border2);
+}
+
+.site-nav {
+  box-shadow: 0 2px 2px 0 var(--candy-color-shadow1);
+  isolation: isolate;
+}
+
+.site-toc {
+  box-shadow: inset 0 -2px 2px 0 var(--candy-color-shadow1);
+  padding: 1rem;
+  border-bottom: 1px solid var(--candy-color-border2);
+  overflow: auto;
+}
+
+@media (min-width: 900px) {
+  body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    grid-template-areas:
+      "toc header"
+      "toc nav"
+      "toc main";
+  }
+
+  .site-main {
+    overflow-y: auto;
+  }
+
+  .site-toc {
+    border: 0;
+    border-right: 1px solid var(--candy-color-border2);
+    box-shadow: inset -2px 0 2px 0 var(--candy-color-shadow1);
+  }
 }
 
 pre,
@@ -137,6 +203,9 @@ textarea {
   margin-top: 0;
 }
 
+site-copyright,
+site-nav,
+site-example-css,
 theme-switchers,
 custom-properties-editor,
 inject-example,
@@ -144,10 +213,10 @@ site-toc {
   display: block;
 }
 
-site-nav,
-site-footer,
-site-example-css {
-  display: contents;
+.site-copyright {
+  margin: 1rem -1rem -1rem -1rem;
+  padding: 1rem;
+  border-top: 1px solid var(--candy-color-border2);
 }
 
 .site-nav-menu,
@@ -157,14 +226,9 @@ site-example-css {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-footer .candy-link,
 .site-nav-menu a,
 .site-toc a {
   text-decoration-line: none;
-}
-
-.site-toc {
-  margin-top: 1rem;
 }
 
 .site-toc a {
@@ -173,13 +237,6 @@ footer .candy-link,
 
 .site-list {
   padding-left: 1rem;
-}
-
-.site-example {
-  --site-example-offset: 1rem;
-  border-left: 1px solid var(--candy-color-border3);
-  padding-left: var(--site-example-offset);
-  margin-left: calc(-1 * var(--site-example-offset));
 }
 
 .site-theme-button {
@@ -207,11 +264,5 @@ footer .candy-link,
 
   .site-nav-menu a {
     display: inline;
-  }
-
-  .site-toc {
-    float: right;
-    margin: 1rem;
-    margin-right: 0;
   }
 }

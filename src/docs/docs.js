@@ -41,8 +41,6 @@ for (const key of keys) {
 
 class InjectExample extends HTMLElement {
   connectedCallback() {
-    // TODO: Don't alter class list in a custom element
-    this.classList.add("site-example");
     const name = this.dataset.example;
     const template = document.getElementById(`template-${name}`);
     const div = document.createElement("div");
@@ -119,7 +117,7 @@ class SiteToc extends HTMLElement {
     const div = document.createElement("div");
     div.className = "candy-texture-paper candy-card";
     // TODO: Don't alter class list in a custom element
-    this.classList.add("candy-card", "site-toc", "candy-texture-striped");
+    this.classList.add("site-toc", "candy-texture-striped");
     for (const h2 of document.querySelectorAll("h2")) {
       const a = document.createElement("a");
       a.href = `#${h2.id}`;
