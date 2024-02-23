@@ -12,6 +12,7 @@
 body {
   margin: 0 auto;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
     "header"
     "toc"
@@ -66,7 +67,9 @@ section {
   padding: 1rem;
   border-bottom: 1px solid var(--candy-color-border2);
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
   box-shadow: 0 2px 2px 0 var(--candy-color-shadow1);
   isolation: isolate;
 }
@@ -106,6 +109,10 @@ section {
     border: 0;
     border-right: 1px solid var(--candy-color-border2);
     box-shadow: inset -2px 0 2px 0 var(--candy-color-shadow1);
+  }
+
+  .site-header {
+    flex-direction: row;
   }
 }
 
@@ -304,7 +311,6 @@ site-nav nav ul {
   .site-toc > * {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
   }
 
   .site-nav-menu a {

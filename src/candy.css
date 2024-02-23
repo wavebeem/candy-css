@@ -7,10 +7,10 @@
   --candy-color-background4: hsl(80 35% 90%);
   --candy-color-text1: hsl(80 35% 20%);
   --candy-color-border1: hsl(80 35% 40%);
-  --candy-color-border2: hsl(80 35% 50%);
-  --candy-color-border3: hsl(80 35% 70%);
+  --candy-color-border2: hsl(80 35% 60%);
+  --candy-color-border3: hsl(80 35% 75%);
   --candy-color-accent1: hsl(260 100% 40%);
-  --candy-color-accent2: hsl(260 100% 30%);
+  --candy-color-accent2: hsl(260 100% 20%);
   --candy-color-shadow1: hsl(80 35% 50% / 30%);
 
   --candy-shadow-outset: 0 2px 2px 0 var(--candy-color-shadow1);
@@ -42,9 +42,9 @@
   --candy-table-padding-horizontal: 1rem;
 
   /* Cards */
-  --candy-pre-padding-vertical: 1rem;
-  --candy-pre-padding-horizontal: 1rem;
-  --candy-pre-radius: 6px;
+  --candy-code-padding-vertical: 1rem;
+  --candy-code-padding-horizontal: 1rem;
+  --candy-code-radius: 6px;
 
   /* Cards */
   --candy-card-padding-vertical: 1rem;
@@ -370,11 +370,11 @@
 }
 
 .candy-primary:where(:not(:disabled)) {
-  --candy-color-background2: hsl(80 100% 30%);
-  --candy-color-background3: hsl(80 100% 27%);
+  --candy-color-background2: hsl(330 100% 40%);
+  --candy-color-background3: hsl(330 100% 35%);
   --candy-color-shadow1: hsl(80 50% 50% / 30%);
-  --candy-color-text1: hsl(80 100% 95%);
-  --candy-color-border1: hsl(80 50% 20%);
+  --candy-color-text1: hsl(330 100% 95%);
+  --candy-color-border1: hsl(330 50% 30%);
 }
 
 /* Select */
@@ -567,7 +567,7 @@
 
 .candy-auto :where(fieldset),
 .candy-fieldset {
-  border: 1px solid var(--candy-color-border3);
+  border: 1px solid var(--candy-color-border2);
   padding: var(--candy-fieldset-padding-vertical)
     var(--candy-fieldset-padding-horizontal);
   margin: 0;
@@ -635,22 +635,23 @@
 }
 
 .candy-auto :where(hr),
-.candy-hr {
+.candy-divider {
   box-sizing: border-box;
   border: 0;
-  border-top: 1px solid var(--candy-color-border3);
+  border-top: 1px solid var(--candy-color-border2);
 }
 
 .candy-auto :where(pre),
-.candy-pre {
+.candy-code {
   box-sizing: border-box;
   background: var(--candy-color-background1);
   color: var(--candy-color-text1);
   scrollbar-color: var(--candy-color-text1) var(--candy-color-background1);
   border: 1px solid var(--candy-color-border2);
   overflow-x: auto;
-  padding: var(--candy-pre-padding-vertical) var(--candy-pre-padding-horizontal);
-  border-radius: var(--candy-pre-radius);
+  padding: var(--candy-code-padding-vertical)
+    var(--candy-code-padding-horizontal);
+  border-radius: var(--candy-code-radius);
 }
 
 /* Textures */

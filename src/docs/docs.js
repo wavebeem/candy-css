@@ -1,15 +1,27 @@
 const html = String.raw;
 
+function* range(start, end) {
+  for (let i = start; i < end; i++) {
+    yield i;
+  }
+}
+
 function htmlToCode(code) {
+  // - Remove initial newlines
+  // - Remove trailing whitespace
+  // - Split on newlines
   const lines = code.replace(/^\n*/, "").replace(/\s+$/, "").split("\n");
   const match = lines[0].match(/^[ ]*/);
   if (match) {
-    // TODO: This is dangerous; we should only remove an equivalent amount
-    // of leading whitespace, not just any arbitrary chunk of `length`
-    // characters...
     const length = match[0].length;
-    for (const [index, value] of lines.entries()) {
-      lines[index] = value.slice(length);
+    line: for (const [index, value] of lines.entries()) {
+      lines[index] = value;
+      for (const i of range(0, length)) {
+        if (value[i] !== " ") {
+          continue line;
+        }
+        lines[index] = lines[index].slice(1);
+      }
     }
   }
   return lines.join("\n");
@@ -50,7 +62,7 @@ class InjectExample extends HTMLElement {
     const divH3 = document.createElement("h3");
     divH3.textContent = "Example";
     const pre = document.createElement("pre");
-    pre.className = "candy-pre";
+    pre.className = "candy-code";
     pre.textContent = htmlToCode(template.innerHTML);
     pre.dataset.exampleName = name;
     pre.dataset.exampleType = "html";

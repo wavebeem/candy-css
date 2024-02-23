@@ -269,21 +269,21 @@
 
       <section>
         <h2 id="hr">Horizontal Rule</h2>
-        <inject-example data-example="horizontalRule"></inject-example>
+        <inject-example data-example="divider"></inject-example>
       </section>
 
       <section>
-        <h2 id="pre">Code</h2>
+        <h2 id="code">Code</h2>
         <p>
-          The class <code>candy-pre</code> can be used for multiline code
+          The class <code>candy-code</code> can be used for multiline code
           blocks.
         </p>
         <inject-example
           data-properties="
-            --candy-pre-padding-horizontal
-            --candy-pre-padding-vertical
+            --candy-code-padding-horizontal
+            --candy-code-padding-vertical
           "
-          data-example="pre"
+          data-example="code"
         ></inject-example>
       </section>
 
@@ -532,11 +532,12 @@ Disabled.</textarea
       </div>
     </template>
 
-    <!-- prettier-ignore -->
-    <template id="template-pre">
-<pre class="candy-pre">function sayHello() {
+    <template id="template-code">
+      <pre class="candy-code">
+function sayHello() {
   console.log("Hello!");
-}</pre>
+}</pre
+      >
     </template>
 
     <template id="template-select">
@@ -651,12 +652,12 @@ Disabled.</textarea
       </div>
     </template>
 
-    <template id="template-horizontalRule">
-      <p>&darr; The horizontal rule is below this paragraph.</p>
-      <hr class="candy-hr" />
-      <p>&uarr; The horizontal rule is above this paragraph.</p>
+    <template id="template-divider">
+      <p>&darr; The divider is below this paragraph.</p>
+      <hr class="candy-divider" />
+      <p>&uarr; The divider is above this paragraph.</p>
       <p>
-        The <code>candy-hr</code> class is not meant to be used for borders,
+        The <code>candy-divider</code> class is not meant to be used for borders,
         just casually dividing sections.
       </p>
     </template>
