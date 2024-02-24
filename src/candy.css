@@ -152,9 +152,9 @@
   box-shadow: inset 0 2px 2px var(--candy-color-shadow1);
 }
 
-.candy-auto :where(input[type="checkbox"], input[type="radio"]):focus,
-.candy-checkbox:focus,
-.candy-radio:focus {
+.candy-auto :where(input[type="checkbox"], input[type="radio"]):focus-visible,
+.candy-checkbox:focus-visible,
+.candy-radio:focus-visible {
   box-shadow: none;
   outline: 3px solid var(--candy-color-accent1);
   outline-offset: -2px;
@@ -224,9 +224,10 @@
   box-shadow: inset 0 0 0 6px var(--_candy-color-filled-background);
 }
 
-.candy-auto :where(input[type="checkbox"], input[type="radio"]):checked:focus,
-.candy-checkbox:checked:focus,
-.candy-radio:checked:focus {
+.candy-auto
+  :where(input[type="checkbox"], input[type="radio"]):checked:focus-visible,
+.candy-checkbox:checked:focus-visible,
+.candy-radio:checked:focus-visible {
   box-shadow:
     inset 0 0 0 2px var(--candy-color-background1),
     inset 0 0 0 6px var(--candy-color-accent1);
@@ -330,8 +331,8 @@
     input[type="button"],
     input[type="submit"],
     input[type="color"]
-  ):focus,
-.candy-button:focus {
+  ):focus-visible,
+.candy-button:focus-visible {
   outline: 3px solid var(--candy-color-accent1);
   outline-offset: -2px;
   box-shadow: inset 0 0 0 2px var(--candy-color-background1);
@@ -419,8 +420,8 @@
   border-radius: var(--candy-select-radius);
 }
 
-.candy-auto :where(select):focus,
-.candy-select:focus {
+.candy-auto :where(select):focus-visible,
+.candy-select:focus-visible {
   outline: 3px solid var(--candy-color-accent1);
   outline-offset: -2px;
   box-shadow: none;
@@ -451,8 +452,8 @@
   border-radius: var(--candy-link-radius);
 }
 
-.candy-auto :where(a):focus,
-.candy-link:focus {
+.candy-auto :where(a):focus-visible,
+.candy-link:focus-visible {
   text-decoration-line: none;
   outline: 2px solid var(--candy-color-accent1);
   outline-offset: 2px;
@@ -495,8 +496,8 @@
     input[type="number"],
     input[type="password"],
     textarea
-  ):focus,
-.candy-input:focus {
+  ):focus-visible,
+.candy-input:focus-visible {
   outline: 3px solid var(--candy-color-accent1);
   outline-offset: -2px;
   box-shadow: none;
