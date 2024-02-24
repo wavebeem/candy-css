@@ -10,18 +10,6 @@
 
 - Audit color accessibility
 
-## Containers
-
-- Card
-- Well
-- Box
-
-## Textures
-
-- None
-- Raised?
-- Sunken?
-
 ## Colors
 
 - Try unifying colors around "textures" rather than being per widget
