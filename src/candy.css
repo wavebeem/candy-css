@@ -324,19 +324,6 @@
   border-radius: var(--candy-button-radius);
 }
 
-:is(
-    .candy-auto
-      :where(
-        button,
-        input[type="button"],
-        input[type="submit"],
-        input[type="color"]
-      ):active,
-    .candy-button:active
-  ):where(:not(:disabled)) {
-  filter: brightness(0.9);
-}
-
 .candy-auto
   :where(
     button,
@@ -475,6 +462,7 @@
 
 .candy-auto
   :where(
+    input:not([type]),
     input[type="tel"],
     input[type="url"],
     input[type="text"],
@@ -498,6 +486,7 @@
 
 .candy-auto
   :where(
+    input:not([type]),
     input[type="tel"],
     input[type="url"],
     input[type="text"],
@@ -515,6 +504,7 @@
 
 .candy-auto
   :where(
+    input:not([type]),
     input[type="tel"],
     input[type="url"],
     input[type="text"],
@@ -533,6 +523,7 @@
 
 .candy-auto
   :where(
+    input:not([type]),
     input[type="tel"],
     input[type="url"],
     input[type="text"],
@@ -549,6 +540,7 @@
 
 .candy-auto
   :where(
+    input:not([type]),
     input[type="tel"],
     input[type="url"],
     input[type="text"],
@@ -598,6 +590,26 @@
 
 /* Miscellaneous */
 
+/* Add a click effect to interactable elements */
+:is(
+    .candy-auto
+      :where(
+        button,
+        input[type="button"],
+        input[type="submit"],
+        input[type="color"],
+        input[type="checkbox"],
+        input[type="radio"],
+        select
+      ),
+    .candy-button,
+    .candy-radio,
+    .candy-checkbox,
+    .candy-select
+  ):is(:active):where(:not(:disabled)) {
+  filter: brightness(0.9);
+}
+
 .candy-card {
   box-sizing: border-box;
   background: var(--candy-color-background3);
@@ -646,7 +658,6 @@
   box-sizing: border-box;
   background: var(--candy-color-background1);
   color: var(--candy-color-text1);
-  scrollbar-color: var(--candy-color-text1) var(--candy-color-background1);
   border: 1px solid var(--candy-color-border2);
   overflow-x: auto;
   padding: var(--candy-code-padding-vertical)
