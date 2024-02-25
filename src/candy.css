@@ -5,7 +5,8 @@
   --candy-color-background2: hsl(80 35% 98%);
   --candy-color-background3: hsl(80 35% 93%);
   --candy-color-background4: hsl(80 35% 90%);
-  --candy-color-text1: hsl(80 35% 20%);
+  --candy-color-text1: hsl(80 35% 5%);
+  --candy-color-text2: hsl(80 35% 20%);
   --candy-color-border1: hsl(80 35% 40%);
   --candy-color-border2: hsl(80 35% 60%);
   --candy-color-border3: hsl(80 35% 75%);
@@ -70,9 +71,10 @@
 
   /* Links */
   --candy-link-radius: 2px;
+  --candy-link-underline: 1px;
 
   background: var(--candy-color-background4);
-  color: var(--candy-color-text1);
+  color: var(--candy-color-text2);
 }
 
 /* Checkbox / Radio Button Field Container */
@@ -250,7 +252,7 @@
 .candy-table {
   box-sizing: border-box;
   background: var(--candy-color-background1);
-  color: var(--candy-color-text1);
+  color: var(--candy-color-text2);
   border-collapse: collapse;
 }
 
@@ -268,8 +270,8 @@
 
 .candy-auto table td,
 .candy-table td {
-  background: var(--candy-table-color-body-background);
-  color: var(--candy-table-color-text);
+  background: var(--candy-color-background1);
+  color: var(--candy-color-text2);
   padding: var(--candy-table-padding-vertical)
     var(--candy-table-padding-horizontal);
 }
@@ -283,7 +285,7 @@
     var(--candy-color-background2),
     var(--candy-color-background3)
   );
-  color: var(--candy-table-color-text);
+  color: var(--candy-color-text2);
   padding: var(--candy-table-padding-vertical)
     var(--candy-table-padding-horizontal);
 }
@@ -317,7 +319,7 @@
     var(--candy-color-background3) 50%
   );
   box-shadow: 0 2px 2px var(--candy-color-shadow1);
-  color: var(--candy-color-text1);
+  color: var(--candy-color-text2);
   padding: var(--candy-button-padding-vertical)
     var(--candy-button-padding-horizontal);
   font: inherit;
@@ -361,7 +363,7 @@
   --candy-color-background2: hsl(330 100% 40%);
   --candy-color-background3: hsl(330 100% 35%);
   --candy-color-shadow1: hsl(80 50% 50% / 30%);
-  --candy-color-text1: hsl(330 100% 95%);
+  --candy-color-text2: hsl(330 100% 95%);
   --candy-color-border1: hsl(330 50% 30%);
 }
 
@@ -375,7 +377,7 @@
   --_candy-select-handle-size: 0.34375rem;
   --_candy-select-handle-width: var(--_candy-select-handle-size);
   --_candy-select-handle-height: var(--_candy-select-handle-size);
-  --_candy-select-handle-fg: var(--candy-color-text1);
+  --_candy-select-handle-fg: var(--candy-color-text2);
   --_candy-select-arrow: linear-gradient(
         calc(-1 * var(--_candy-select-handle-angle)),
         transparent 50%,
@@ -398,8 +400,8 @@
   box-sizing: border-box;
   -webkit-appearance: none;
   appearance: none;
-  color: var(--candy-color-text1);
-  background-color: var(--candy-select-color-background1);
+  color: var(--candy-color-text2);
+  background-color: var(--candy-color-background2);
   background:
     var(--_candy-select-arrow),
     linear-gradient(
@@ -430,7 +432,7 @@
 .candy-auto :where(select):-moz-focusring,
 .candy-select:-moz-focusring {
   color: transparent;
-  text-shadow: 0 0 0 var(--candy-color-text1);
+  text-shadow: 0 0 0 var(--candy-color-text2);
 }
 
 .candy-auto :where(select):disabled,
@@ -444,12 +446,19 @@
   box-shadow: none;
 }
 
+/* Text styles */
+
+.candy-bright {
+  color: var(--candy-color-text1);
+}
+
 /* Link */
 
 .candy-auto :where(a),
 .candy-link {
   color: var(--candy-color-accent1);
   border-radius: var(--candy-link-radius);
+  text-decoration-thickness: var(--candy-link-underline);
 }
 
 .candy-auto :where(a):focus-visible,
@@ -476,7 +485,7 @@
 .candy-input {
   box-sizing: border-box;
   background: var(--candy-color-background1);
-  color: var(--candy-color-text1);
+  color: var(--candy-color-text2);
   font: inherit;
   padding: var(--candy-input-padding-vertical)
     var(--candy-input-padding-horizontal);
@@ -552,7 +561,7 @@
     textarea
   )::selection,
 .candy-input::selection {
-  background: var(--candy-color-text1);
+  background: var(--candy-color-text2);
   color: var(--candy-color-background1);
 }
 
@@ -614,7 +623,7 @@
 .candy-card {
   box-sizing: border-box;
   background: var(--candy-color-background3);
-  color: var(--candy-color-text1);
+  color: var(--candy-color-text2);
   border: 1px solid var(--candy-color-border2);
   padding: var(--candy-card-padding-vertical)
     var(--candy-card-padding-horizontal);
@@ -625,7 +634,7 @@
 .candy-well {
   box-sizing: border-box;
   background: var(--candy-color-background4);
-  color: var(--candy-color-text1);
+  color: var(--candy-color-text2);
   border: 1px solid var(--candy-color-border2);
   padding: var(--candy-card-padding-vertical)
     var(--candy-card-padding-horizontal);
@@ -640,7 +649,7 @@
 
 .candy-auto,
 .candy-scrollbar {
-  scrollbar-color: var(--candy-color-text1) var(--candy-color-background4);
+  scrollbar-color: var(--candy-color-text2) var(--candy-color-background4);
 }
 
 .candy-svg {
@@ -658,7 +667,7 @@
 .candy-code {
   box-sizing: border-box;
   background: var(--candy-color-background1);
-  color: var(--candy-color-text1);
+  color: var(--candy-color-text2);
   border: 1px solid var(--candy-color-border2);
   overflow-x: auto;
   padding: var(--candy-code-padding-vertical)
