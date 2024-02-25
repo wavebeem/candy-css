@@ -37,7 +37,7 @@
     <header class="site-header candy-texture-convex">
       <div>
         <img src="/favicon-192.png" alt="" width="32" height="32" />
-        <h1>candy.css</h1>
+        <b>candy.css</b>
       </div>
       <site-nav></site-nav>
     </header>
@@ -45,6 +45,9 @@
     <site-toc class="site-toc candy-texture-striped"></site-toc>
 
     <main class="site-main">
+      <div class="content">
+        <h1>Documentation</h1>
+      </div>
       <section>
         <h2>Introduction</h2>
         <p>
@@ -62,27 +65,38 @@
         </p>
       </section>
 
-      <!-- <p>
-        Change the custom properties to try different values. Refresh the page to
-        reset it.
-      </p> -->
-      <!-- <custom-properties-editor
-        data-properties="
-          --candy-color-background
-          --candy-color-text
-          --candy-color-shadow
-          --candy-color-accent
-          --candy-border-radius
-          --candy-border-radius-sharp
-          --candy-underline-thickness
+      <p>
+        Change the custom properties to try different values. Refresh the page
+        to reset it.
+      </p>
+      <details>
+        <summary class="candy-button">Edit CSS custom properties</summary>
+        <custom-properties-editor
+          data-properties="
+          --candy-color-background1
+          --candy-color-background2
+          --candy-color-background3
+          --candy-color-background4
+          --candy-color-text1
+          --candy-color-text2
+          --candy-color-border1
+          --candy-color-border2
+          --candy-color-border3
+          --candy-color-accent1
+          --candy-color-accent2
+          --candy-color-shadow1
+          --candy-shadow-outset
+          --candy-shadow-inset
         "
-      ></custom-properties-editor> -->
+        ></custom-properties-editor>
+      </details>
       <section>
         <h2 id="buttons">Buttons</h2>
         <inject-example
           data-properties="
             --candy-button-padding-horizontal
             --candy-button-padding-vertical
+            --candy-button-radius
           "
           data-example="buttons"
         ></inject-example>
@@ -94,6 +108,7 @@
           data-properties="
             --candy-input-padding-horizontal
             --candy-input-padding-vertical
+            --candy-input-radius
           "
           data-example="inputs"
         ></inject-example>
@@ -105,6 +120,7 @@
           data-properties="
             --candy-select-padding-horizontal
             --candy-select-padding-vertical
+            --candy-select-radius
           "
           data-example="select"
         ></inject-example>
@@ -124,6 +140,7 @@
             --candy-radiocheckbox-size
             --candy-radiocheckbox-margin-horizontal
             --candy-radiocheckbox-margin-vertical
+            --candy-radiocheckbox-radius
           "
           data-example="radios"
         ></inject-example>
@@ -137,14 +154,7 @@
           correct <code>id</code> and <code>for</code> attributes (or nest the
           checkbox inside a label)
         </p>
-        <inject-example
-          data-properties="
-            --candy-radiocheckbox-size
-            --candy-radiocheckbox-margin-horizontal
-            --candy-radiocheckbox-margin-vertical
-          "
-          data-example="checkboxes"
-        ></inject-example>
+        <inject-example data-example="checkboxes"></inject-example>
       </section>
 
       <section>
@@ -163,24 +173,12 @@
           A table with row headers: <code>th</code> elements inside the
           <code>tbody</code>.
         </p>
-        <inject-example
-          data-properties="
-            --candy-table-padding-horizontal
-            --candy-table-padding-vertical
-          "
-          data-example="tableRowHeaders"
-        ></inject-example>
+        <inject-example data-example="tableRowHeaders"></inject-example>
         <p>
           A table with a footer: a <code>tfoot</code> element including
           <code>th</code> and <code>td</code> children.
         </p>
-        <inject-example
-          data-properties="
-        --candy-table-padding-horizontal
-        --candy-table-padding-vertical
-        "
-          data-example="tableTfoot"
-        ></inject-example>
+        <inject-example data-example="tableTfoot"></inject-example>
       </section>
 
       <section>
@@ -194,6 +192,7 @@
           data-properties="
             --candy-card-padding-horizontal
             --candy-card-padding-vertical
+            --candy-card-radius
           "
           data-example="card"
         ></inject-example>
@@ -209,6 +208,7 @@
           data-properties="
             --candy-well-padding-horizontal
             --candy-well-padding-vertical
+            --candy-well-radius
           "
           data-example="well"
         ></inject-example>
@@ -216,13 +216,7 @@
 
       <section>
         <h2 id="box">Boxes</h2>
-        <inject-example
-          data-properties="
-            --candy-box-padding-horizontal
-            --candy-box-padding-vertical
-          "
-          data-example="box"
-        ></inject-example>
+        <inject-example data-properties="" data-example="box"></inject-example>
       </section>
 
       <section>
@@ -235,6 +229,7 @@
           data-properties="
             --candy-fieldset-padding-horizontal
             --candy-fieldset-padding-vertical
+            --candy-fieldset-radius
             --candy-legend-padding-horizontal
             --candy-legend-padding-vertical
           "
@@ -258,13 +253,42 @@
           Textures are meant to be used in your own containers. Textures can be
           applied to nav bars, sidebars, or content areas.
         </p>
-        <inject-example data-example="textures"></inject-example>
+        <inject-example
+          data-properties="
+            --candy-texture-striped-size
+          "
+          data-example="textures"
+        ></inject-example>
         <p>
           The striped texture is best reserved for highly decorative elements,
           like the main nav bar on a page, or a page hero element. You can also
           nest a box inside a container using the stripe texture in order to
           make the content more readable.
         </p>
+      </section>
+
+      <section>
+        <h2 id="shadows">Shadows</h2>
+        <p>
+          Shadows are still in development. Some elements currently have
+          shadows, but they need some fine tuning. I want to eventually provide
+          a few different shadow classes and properties that can be reused, but
+          the directionality and size of shadows makes this tough.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="scrollbars">Scrollbars</h2>
+        <p>
+          Chrome and Firefox support
+          <a
+            href="https://caniuse.com/mdn-css_properties_scrollbar-color"
+            class="candy-link"
+            >scrollbar-color</a
+          >
+          to customize the color of scrollbars.
+        </p>
+        <inject-example data-example="scrollbars"></inject-example>
       </section>
 
       <section>
@@ -282,6 +306,7 @@
           data-properties="
             --candy-code-padding-horizontal
             --candy-code-padding-vertical
+            --candy-code-radius
           "
           data-example="code"
         ></inject-example>
@@ -289,7 +314,13 @@
 
       <section>
         <h2 id="text">Text styles</h2>
-        <inject-example data-example="text"></inject-example>
+        <inject-example
+          data-properties="
+            --candy-link-radius
+            --candy-link-underline
+          "
+          data-example="text"
+        ></inject-example>
       </section>
 
       <site-copyright
@@ -597,6 +628,70 @@ function sayHello() {
       </div>
     </template>
 
+    <template id="template-scrollbars">
+      <div
+        class="candy-scrollbar candy-well"
+        style="overflow-y: scroll; max-height: 300px"
+      >
+        <p style="margin-top: 0;">
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+          egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
+          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
+          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in
+          turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
+          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+          facilisis luctus, metus
+        </p>
+        <p>
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+          egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
+          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
+          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in
+          turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
+          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+          facilisis luctus, metus
+        </p>
+        <p>
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+          egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
+          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
+          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in
+          turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
+          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+          facilisis luctus, metus
+        </p>
+        <p style="margin-bottom: 0;">
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+          egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
+          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
+          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in
+          turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
+          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+          facilisis luctus, metus
+        </p>
+      </div>
+    </template>
+
     <template id="template-tableBasic">
       <p>
         A <code>candy-table</code> inside a <code>candy-box</code> with a
@@ -659,7 +754,9 @@ function sayHello() {
       <p>&uarr; The divider is above this paragraph.</p>
       <p>
         The <code>candy-divider</code> class is not meant to be used for
-        borders, just casually dividing sections.
+        borders, just casually dividing sections. If you want to add a border,
+        you should use the <code>--candy-color-border</code> properties in your
+        own CSS.
       </p>
     </template>
 
@@ -895,19 +992,19 @@ function sayHello() {
       <div class="site-flex-column site-gap">
         <div class="site-columns-auto">
           <div class="candy-card">
-            This is a candy.css Card. It has a border and comfortable padding to
+            This is a candy-card. It has a border and comfortable padding to
             frame your content.
           </div>
           <div class="candy-card">
-            This is a candy.css Card. It has a border and comfortable padding to
+            This is a candy-card. It has a border and comfortable padding to
             frame your content.
           </div>
           <div class="candy-card">
-            This is a candy.css Card. It has a border and comfortable padding to
+            This is a candy-card. It has a border and comfortable padding to
             frame your content.
           </div>
           <div class="candy-card">
-            This is a candy.css Card. It has a border and comfortable padding to
+            This is a candy-card. It has a border and comfortable padding to
             frame your content.
           </div>
         </div>
@@ -918,19 +1015,19 @@ function sayHello() {
       <div class="site-flex-column site-gap">
         <div class="site-columns-auto">
           <div class="candy-well">
-            This is a candy.css Card. It has a border and comfortable padding to
+            This is a candy-well. It has a border and comfortable padding to
             frame your content.
           </div>
           <div class="candy-well">
-            This is a candy.css Card. It has a border and comfortable padding to
+            This is a candy-well. It has a border and comfortable padding to
             frame your content.
           </div>
           <div class="candy-well">
-            This is a candy.css Card. It has a border and comfortable padding to
+            This is a candy-well. It has a border and comfortable padding to
             frame your content.
           </div>
           <div class="candy-well">
-            This is a candy.css Card. It has a border and comfortable padding to
+            This is a candy-well. It has a border and comfortable padding to
             frame your content.
           </div>
         </div>
@@ -941,10 +1038,16 @@ function sayHello() {
       <div class="site-flex-column site-gap">
         <div class="site-columns-auto">
           <div class="candy-box">
-            This is a candy.css Box. It has a simple border and minimal padding.
+            This is a candy-box. It has a border no padding.
           </div>
           <div class="candy-box">
-            This is a candy.css Box. It has a simple border and minimal padding.
+            This is a candy-box. It has a border no padding.
+          </div>
+          <div class="candy-box">
+            This is a candy-box. It has a border no padding.
+          </div>
+          <div class="candy-box">
+            This is a candy-box. It has a border no padding.
           </div>
         </div>
       </div>

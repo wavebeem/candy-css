@@ -36,14 +36,16 @@
     <header class="site-header candy-texture-convex">
       <div>
         <img src="/favicon-192.png" alt="" width="32" height="32" />
-        <h1>candy.css</h1>
+        <b>candy.css</b>
       </div>
       <site-nav></site-nav>
     </header>
 
     <main class="site-main">
+      <div class="content">
+        <h1>Form Example</h1>
+      </div>
       <section>
-        <h2>Form Example</h2>
         <div class="site-columns-auto-fit" style="--grid-min: 20rem">
           <form class="candy-card" action="" onsubmit="event.preventDefault();">
             <h3 class="site-example-heading">Welcome</h3>
@@ -162,6 +164,20 @@
                   />
                   <label for="r-favorite-animal-disabled">Disabled</label>
                 </div>
+                <div class="candy-field">
+                  <input
+                    type="radio"
+                    class="candy-radio"
+                    name="r-favorite-animal2"
+                    value="Disabled"
+                    id="r-favorite-animal-disabled-checked"
+                    disabled
+                    checked
+                  />
+                  <label for="r-favorite-animal-disabled-checked"
+                    >Disabled &amp; checked</label
+                  >
+                </div>
               </fieldset>
               <div class="site-spacer"></div>
               <fieldset class="candy-fieldset">
@@ -207,6 +223,18 @@
                     disabled
                   />
                   <label for="r-pizza-disabled">Disabled</label>
+                </div>
+                <div class="candy-field">
+                  <input
+                    type="checkbox"
+                    class="candy-checkbox"
+                    name="r-pizza"
+                    value="Disabled"
+                    id="r-pizza-disabled2"
+                    disabled
+                    checked
+                  />
+                  <label for="r-pizza-disabled2">Disabled &amp; checked</label>
                 </div>
               </fieldset>
               <div class="site-spacer"></div>

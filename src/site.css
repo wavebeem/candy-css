@@ -35,13 +35,26 @@ main {
   grid-area: main;
 }
 
+.content,
 section {
   max-width: 100ch;
   margin: 0 auto;
 }
 
+h2 {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--candy-color-border3);
+}
+
 [id] {
   scroll-margin-top: 1rem;
+}
+
+summary.candy-button {
+  max-width: max-content;
+  margin-top: 1rem;
+  user-select: none;
 }
 
 .site-main {
@@ -60,6 +73,7 @@ section {
 .site-header div {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -122,6 +136,10 @@ kbd,
 samp {
   font-family: var(--site-font-monospace);
   font-variant-ligatures: none;
+}
+
+:where(:not(pre)) > code {
+  color: var(--candy-color-text1);
 }
 
 textarea {
@@ -300,7 +318,7 @@ site-nav nav ul {
 
 @media (min-width: 900px) {
   .site-property-editor-grid {
-    grid-template-columns: max-content max-content;
+    grid-template-columns: max-content minmax(0, 1fr);
   }
 
   .site-nav-menu {

@@ -70,15 +70,12 @@ class InjectExample extends HTMLElement {
     const summary = document.createElement("summary");
     summary.textContent = "Show code";
     summary.className = "candy-button";
-    summary.style.maxWidth = "max-content";
-    summary.style.marginTop = "1rem";
-    summary.style.userSelect = "none";
     details.insertAdjacentElement("beforeend", summary);
-    // if ("properties" in this.dataset) {
-    //   const propertyEditor = document.createElement("custom-properties-editor");
-    //   propertyEditor.dataset.properties = this.dataset.properties;
-    //   details.insertAdjacentElement("beforeend", propertyEditor);
-    // }
+    if ("properties" in this.dataset) {
+      const propertyEditor = document.createElement("custom-properties-editor");
+      propertyEditor.dataset.properties = this.dataset.properties;
+      details.insertAdjacentElement("beforeend", propertyEditor);
+    }
     details.insertAdjacentElement("beforeend", pre);
     this.insertAdjacentElement("beforeend", divH3);
     this.insertAdjacentElement("beforeend", div);
@@ -98,7 +95,7 @@ class CustomPropertiesEditor extends HTMLElement {
     this.classList.add("candy-card", "site-property-editor");
     const title = document.createElement("h3");
     title.className = "site-property-editor-title";
-    title.textContent = "CSS Custom Properties";
+    title.textContent = "CSS custom properties";
     this.appendChild(title);
     const grid = document.createElement("div");
     grid.className = "site-property-editor-grid";
