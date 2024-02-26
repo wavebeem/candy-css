@@ -50,11 +50,6 @@ site-theme-editor > .output {
   flex: auto;
 }
 
-site-theme-editor > .output > .preview {
-  display: flex;
-  padding-bottom: 1rem;
-}
-
 site-theme-editor > .output > .report {
   border-bottom: 1px solid black;
 }

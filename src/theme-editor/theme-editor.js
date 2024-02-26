@@ -15,7 +15,7 @@ const trimColorName = (colorName) => {
 
 // Move to HTML <template>?
 const outputHtml = html`
-  <section>
+  <div class="site-padding">
     <h1>Preview</h1>
 
     <h2>Buttons</h2>
@@ -70,7 +70,7 @@ const outputHtml = html`
       <input name="radio2" type="radio" class="candy-radio" disabled />
       <input name="radio2" type="radio" class="candy-radio" disabled checked />
     </div>
-  </section>
+  </div>
 `;
 
 function isThemeProperty(property) {
