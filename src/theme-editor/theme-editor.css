@@ -4,9 +4,18 @@ site-theme-editor {
   flex: auto;
   display: flex;
   flex-direction: column;
-  background: #000;
-  color: #fff;
+  background: var(--candy-color-border1);
   gap: 1px;
+}
+
+site-theme-editor .preview {
+  padding: 1rem 2rem;
+  margin: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid hsl(0 0 0% / 50%);
+  box-shadow:
+    inset 0 0 0 1px hsl(0 0% 100% / 50%),
+    0 2px 8px var(--candy-color-shadow1);
 }
 
 site-theme-editor .contrast-report {
@@ -34,7 +43,7 @@ site-theme-editor .contrast-table :is(th, td) {
   font-variant: tabular-nums;
 }
 
-site-theme-editor .contrast-table :is(th, td):last-child {
+site-theme-editor .contrast-table :is(th, td):first-child {
   width: 100%;
   text-align: left;
 }
@@ -47,10 +56,6 @@ site-theme-editor .editor {
 
 site-theme-editor > .output {
   flex: auto;
-}
-
-site-theme-editor > .output > .report {
-  border-bottom: 1px solid black;
 }
 
 @media (min-width: 900px) {

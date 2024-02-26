@@ -107,10 +107,6 @@ summary.candy-button {
   overflow: auto;
 }
 
-.site-main {
-  padding-bottom: 1rem;
-}
-
 @media (min-width: 900px) {
   body {
     position: fixed;

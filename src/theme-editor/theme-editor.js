@@ -15,7 +15,7 @@ const trimColorName = (colorName) => {
 
 // Move to HTML <template>?
 const outputHtml = html`
-  <div class="site-padding">
+  <div>
     <h1>Preview</h1>
 
     <h2>Buttons</h2>
@@ -159,8 +159,7 @@ class SiteThemeEditor extends HTMLElement {
   connectedCallback() {
     this.innerHTML = "";
     this.editor = $elem("div", {
-      className:
-        "editor candy-root site-flex-column site-gap site-padding candy-texture-smooth",
+      className: "editor candy-root site-flex-column site-gap site-padding",
     });
     this.output = $elem("div", {
       className: "output candy-root",
@@ -243,11 +242,11 @@ class SiteThemeEditor extends HTMLElement {
       $elem(
         "tr",
         {},
+        $elem("th", {}, "Foreground"),
         $elem("th", {}, "BG1"),
         $elem("th", {}, "BG2"),
         $elem("th", {}, "BG3"),
         $elem("th", {}, "BG4"),
-        $elem("th", {}, "Foreground"),
       ),
     );
     const tbody = $elem("tbody", {});
@@ -255,6 +254,7 @@ class SiteThemeEditor extends HTMLElement {
     const appendRow = (target, colorName) => {
       const name = trimColorName(colorName);
       const tr = $elem("tr", {});
+      tr.append($elem("td", {}, name));
       const fg = this.theme[colorName];
       for (const bg of allBackgrounds) {
         const contrast = getContrast(fg, this.theme[bg]);
@@ -269,7 +269,6 @@ class SiteThemeEditor extends HTMLElement {
           ),
         );
       }
-      tr.append($elem("td", {}, name));
       tbody.append(tr);
     };
 
