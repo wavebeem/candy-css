@@ -62,16 +62,15 @@ site-theme-editor > .output {
 @media (min-width: 900px) {
   site-theme-editor {
     overflow: hidden;
-    overflow: hidden;
     flex-direction: row;
   }
 
   site-theme-editor > .editor {
     flex: 0 0 var(--site-sidebar-width);
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   site-theme-editor > .output {
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }
