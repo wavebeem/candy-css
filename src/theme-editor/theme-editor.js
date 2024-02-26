@@ -9,9 +9,21 @@ if (!chroma) {
 
 const html = String.raw;
 
-const trimColorName = (colorName) => {
+function trimColorName(colorName) {
   return colorName.replace(/^--candy-color-/, "");
-};
+}
+
+function areSetsEqual(a, b) {
+  if (a.size !== b.size) {
+    return false;
+  }
+  for (const x of a) {
+    if (!b.has(x)) {
+      return false;
+    }
+  }
+  return true;
+}
 
 // Move to HTML <template>?
 const outputHtml = html`
@@ -155,9 +167,11 @@ class SiteThemeEditor extends HTMLElement {
   };
 
   connectedCallback() {
+    this.#checkThemes();
     this.innerHTML = "";
     this.editor = $elem("div", {
-      className: "editor candy-root site-flex-column site-gap site-padding",
+      className:
+        "editor candy-root site-flex-column site-gap site-padding candy-texture-smooth",
     });
     this.output = $elem("div", {
       className: "output candy-root",
@@ -167,9 +181,7 @@ class SiteThemeEditor extends HTMLElement {
     });
     this.report = $elem(
       "div",
-      {
-        className: "report site-padding",
-      },
+      { className: "report site-padding" },
       "This is a summary of your theme:",
     );
     this.preview.innerHTML = outputHtml;
@@ -282,21 +294,40 @@ class SiteThemeEditor extends HTMLElement {
     this.report.append(div);
   }
 
+  #checkThemes() {
+    const lightThemeKeys = new Set(Object.keys(this.themes.light));
+    for (const [name, theme] of Object.entries(this.themes)) {
+      const set = new Set(Object.keys(theme));
+      if (!areSetsEqual(set, lightThemeKeys)) {
+        console.error(`Theme "${name}" has a different set of keys.`);
+      }
+    }
+  }
+
   #saveCustomTheme() {
     localStorage.setItem("candy.theme.custom", JSON.stringify(this.theme));
   }
 
   #loadTheme(name) {
+    for (const key of Object.keys(this.theme)) {
+      delete this.theme[key];
+    }
     this.#updateTheme(this.themes[name]);
     this.themeSelect.value = "";
   }
 
   #loadCustomTheme() {
-    const theme = localStorage.getItem("candy.theme.custom");
-    if (theme === null) {
-      return getThemeObject();
+    const json = localStorage.getItem("candy.theme.custom");
+    let value = {};
+    try {
+      value = JSON.parse(json);
+    } catch (err) {
+      console.error(err);
     }
-    return JSON.parse(theme);
+    return {
+      ...getThemeObject(),
+      ...value,
+    };
   }
 }
 
