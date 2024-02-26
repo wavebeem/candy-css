@@ -9,9 +9,41 @@ site-theme-editor {
   gap: 1px;
 }
 
-site-theme-editor > .editor {
+site-theme-editor .contrast-report {
+  display: grid;
+  grid-template-columns: 1fr max-content max-content;
+  gap: 1rem;
+  background: var(--background);
+  color: var(--background);
+}
+
+site-theme-editor .contrast-pass {
+  color: hsl(120 100% 25%);
+}
+
+site-theme-editor .contrast-fail {
+  color: hsl(0 100% 40%);
+}
+
+site-theme-editor .contrast-table-container {
+  width: 100%;
+}
+
+site-theme-editor .contrast-table :is(th, td) {
+  width: max-content;
+  text-align: right;
+  font-variant: tabular-nums;
+}
+
+site-theme-editor .contrast-table :is(th, td):last-child {
+  width: 100%;
+  text-align: left;
+}
+
+site-theme-editor .editor {
   flex: auto;
   padding: 1rem;
+  font-variant: tabular-nums;
 }
 
 site-theme-editor > .output {

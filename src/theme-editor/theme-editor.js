@@ -1,11 +1,17 @@
 import { $elem } from "../index.js";
 
+const nbsp = "\u00a0";
+
 const { chroma } = globalThis;
 if (!chroma) {
   throw new Error("Chroma.js is required for this module to work.");
 }
 
 const html = String.raw;
+
+const trimColorName = (colorName) => {
+  return colorName.replace(/^--candy-color-/, "");
+};
 
 // Move to HTML <template>?
 const outputHtml = html`
@@ -105,29 +111,10 @@ function normalizeCssColor(color) {
   return div.style.color;
 }
 
-class ContrastChecker {
-  constructor({ targetContrast, foreground, backgrounds }) {
-    this.targetContrast = targetContrast;
-    this.foreground = foreground;
-    this.backgrounds = backgrounds;
-  }
-
-  report(theme) {
-    return this.backgrounds.map((bgName) => {
-      // Chroma.js can't parse modern CSS color functions, so we have to use the
-      // DOM API to convert them to classic `rgb(r, g, b)` from modern `hsl(h s
-      // l)` format
-      const bg = normalizeCssColor(theme[bgName]);
-      const fg = normalizeCssColor(theme[this.foreground]);
-      const contrast = chroma.contrast(fg, bg);
-      return {
-        background: bgName,
-        foreground: this.foreground,
-        contrast: contrast,
-        passes: contrast >= this.targetContrast,
-      };
-    });
-  }
+function getContrast(fg, bg) {
+  fg = normalizeCssColor(fg);
+  bg = normalizeCssColor(bg);
+  return chroma.contrast(fg, bg);
 }
 
 const allBackgrounds = [
@@ -163,34 +150,6 @@ class SiteThemeEditor extends HTMLElement {
     },
     custom: this.#loadCustomTheme(),
   };
-
-  contrastCheckers = [
-    new ContrastChecker({
-      targetContrast: 4.5,
-      foreground: "--candy-color-text1",
-      backgrounds: allBackgrounds,
-    }),
-    new ContrastChecker({
-      targetContrast: 4.5,
-      foreground: "--candy-color-text2",
-      backgrounds: allBackgrounds,
-    }),
-    new ContrastChecker({
-      targetContrast: 3,
-      foreground: "--candy-color-border1",
-      backgrounds: allBackgrounds,
-    }),
-    new ContrastChecker({
-      targetContrast: 3,
-      foreground: "--candy-color-accent1",
-      backgrounds: allBackgrounds,
-    }),
-    new ContrastChecker({
-      targetContrast: 3,
-      foreground: "--candy-color-accent2",
-      backgrounds: allBackgrounds,
-    }),
-  ];
 
   connectedCallback() {
     this.innerHTML = "";
@@ -245,7 +204,7 @@ class SiteThemeEditor extends HTMLElement {
       const field = $elem(
         "label",
         { className: "site-flex-column" },
-        $elem("span", {}, key),
+        $elem("span", {}, trimColorName(key)),
         this.inputs[key],
       );
       this.editor.append(field);
@@ -266,21 +225,59 @@ class SiteThemeEditor extends HTMLElement {
   }
 
   #updateReport() {
-    const pre = document.createElement("pre");
-    pre.className = "bit-code";
-    for (const checker of this.contrastCheckers) {
-      for (const { foreground, background, contrast, passes } of checker.report(
-        this.theme,
-      )) {
-        const badge = passes ? "✅" : "❌";
-        pre.append(
-          `${badge} ${contrast.toFixed(1).padStart(6)} :: ${foreground} on ${background}\n`,
+    const div = document.createElement("div");
+    div.className = "site-flex-row-wrap";
+    const tableContainer = document.createElement("div");
+    tableContainer.className =
+      "candy-box site-table-responsive contrast-table-container";
+    const table = document.createElement("table");
+    table.className = "candy-table contrast-table";
+    tableContainer.append(table);
+    const thead = $elem("thead", {});
+    thead.append(
+      $elem(
+        "tr",
+        {},
+        $elem("th", {}, "BG1"),
+        $elem("th", {}, "BG2"),
+        $elem("th", {}, "BG3"),
+        $elem("th", {}, "BG4"),
+        $elem("th", {}, "Foreground"),
+      ),
+    );
+    const tbody = $elem("tbody", {});
+
+    const appendRow = (target, colorName) => {
+      const name = trimColorName(colorName);
+      const tr = $elem("tr", {});
+      const fg = this.theme[colorName];
+      for (const bg of allBackgrounds) {
+        const contrast = getContrast(fg, this.theme[bg]);
+        const className = contrast < target ? "contrast-fail" : "contrast-pass";
+        tr.append(
+          $elem(
+            "td",
+            { className },
+            contrast.toFixed(2),
+            nbsp,
+            contrast < target ? "🚫" : "✅",
+          ),
         );
       }
-      pre.append("".padStart(80, "-"), "\n");
-    }
+      tr.append($elem("td", {}, name));
+      tbody.append(tr);
+    };
+
+    appendRow(3, "--candy-color-border1");
+    appendRow(4.5, "--candy-color-text1");
+    appendRow(4.5, "--candy-color-text2");
+    appendRow(4.5, "--candy-color-accent1");
+    appendRow(4.5, "--candy-color-accent2");
+
+    table.append(thead, tbody);
+    div.append(tableContainer);
     this.report.innerHTML = "";
-    this.report.append(pre);
+    this.report.append(div);
   }
 
   #saveCustomTheme() {
@@ -291,9 +288,7 @@ class SiteThemeEditor extends HTMLElement {
   }
 
   #loadTheme(name) {
-    for (const [key, value] of Object.entries(this.themes[name])) {
-      this.#updateTheme(key, value);
-    }
+    this.#updateTheme(this.themes[name]);
     this.themeSelect.value = "";
   }
 
