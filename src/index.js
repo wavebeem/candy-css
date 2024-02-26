@@ -11,7 +11,13 @@ export function $$(selector, root = document) {
 
 export function $elem(tagName, props, ...children) {
   const element = document.createElement(tagName);
-  Object.assign(element, props);
+  for (const key of Object.keys(props)) {
+    if (key in element) {
+      element[key] = props[key];
+    } else {
+      element.setAttribute(key, props[key]);
+    }
+  }
   element.append(...children);
   return element;
 }
@@ -23,7 +29,7 @@ class SiteNav extends HTMLElement {
         <ul class="site-nav-menu">
           <li><a href="/" class="candy-link">Home</a></li>
           <li><a href="/docs/" class="candy-link">Documentation</a></li>
-          <li><a href="/form-example/" class="candy-link">Form Example</a></li>
+          <li><a href="/theme-editor/" class="candy-link">Theme Editor</a></li>
         </ul>
       </nav>
     `;

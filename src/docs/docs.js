@@ -31,15 +31,15 @@ function cleanCSSPropertyValue(value) {
   return value.trim();
 }
 
-const bitRoot = document.querySelector(".candy-root");
+const candyRoot = document.querySelector(".candy-root");
 const baseCustomProperties = {};
-const bitRootStyle = getComputedStyle(bitRoot);
+const candyRootStyle = getComputedStyle(candyRoot);
 // `getComputedStyle` omits custom properties in Chromium for some reason. So we
 // have to work way harder and parse the actual stylesheet to fill in these
 // variables. To keep things simple, we're scanning all stylesheets for all
-// properties starting with `--candy-`.
+// properties starting with `--candy-`. (2023-12-14)
 //
-// 2023-12-14 https://bugs.chromium.org/p/chromium/issues/detail?id=949807
+// https://bugs.chromium.org/p/chromium/issues/detail?id=949807
 const keys = [...document.styleSheets]
   .flatMap((sheet) => [...sheet.cssRules])
   .flatMap((rules) => [...(rules.style || [])])
@@ -47,7 +47,7 @@ const keys = [...document.styleSheets]
 
 for (const key of keys) {
   baseCustomProperties[key] = cleanCSSPropertyValue(
-    bitRootStyle.getPropertyValue(key) || "",
+    candyRootStyle.getPropertyValue(key) || "",
   );
 }
 
@@ -109,7 +109,7 @@ class CustomPropertiesEditor extends HTMLElement {
       input.addEventListener(
         "input",
         (event) => {
-          bitRoot.style.setProperty(prop, event.target.value);
+          candyRoot.style.setProperty(prop, event.target.value);
         },
         false,
       );

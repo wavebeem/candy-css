@@ -1,0 +1,45 @@
+site-theme-editor {
+  grid-area: main;
+  display: flex;
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  color: #fff;
+  gap: 1px;
+}
+
+site-theme-editor > .editor {
+  flex: auto;
+  padding: 1rem;
+}
+
+site-theme-editor > .output {
+  flex: auto;
+}
+
+site-theme-editor > .output > .preview {
+  display: flex;
+  padding-bottom: 1rem;
+}
+
+site-theme-editor > .output > .report {
+  border-bottom: 1px solid black;
+}
+
+@media (min-width: 900px) {
+  site-theme-editor {
+    overflow: hidden;
+    overflow: hidden;
+    flex-direction: row;
+  }
+
+  site-theme-editor > .editor {
+    flex: 0 0 var(--site-sidebar-width);
+    overflow-y: scroll;
+  }
+
+  site-theme-editor > .output {
+    overflow-y: scroll;
+  }
+}
