@@ -112,9 +112,14 @@ function normalizeCssColor(color) {
 }
 
 function getContrast(fg, bg) {
-  fg = normalizeCssColor(fg);
-  bg = normalizeCssColor(bg);
-  return chroma.contrast(fg, bg);
+  try {
+    fg = normalizeCssColor(fg);
+    bg = normalizeCssColor(bg);
+    return chroma.contrast(fg, bg);
+  } catch (err) {
+    console.error(err);
+    return 0;
+  }
 }
 
 const allBackgrounds = [
@@ -125,7 +130,7 @@ const allBackgrounds = [
 ];
 
 class SiteThemeEditor extends HTMLElement {
-  theme = getThemeObject();
+  theme = this.#loadCustomTheme();
   inputs = {};
   themeNames = {
     default: "Default",
@@ -133,7 +138,7 @@ class SiteThemeEditor extends HTMLElement {
     custom: "Custom",
   };
   themes = {
-    default: { ...this.theme },
+    default: getThemeObject(),
     dark: {
       "--candy-color-background1": "hsl(160 50% 18%)",
       "--candy-color-background2": "hsl(160 50% 16%)",
@@ -281,10 +286,7 @@ class SiteThemeEditor extends HTMLElement {
   }
 
   #saveCustomTheme() {
-    localStorage.setItem(
-      "candy.theme.custom",
-      JSON.stringify(this.themes.custom),
-    );
+    localStorage.setItem("candy.theme.custom", JSON.stringify(this.theme));
   }
 
   #loadTheme(name) {
@@ -295,20 +297,7 @@ class SiteThemeEditor extends HTMLElement {
   #loadCustomTheme() {
     const theme = localStorage.getItem("candy.theme.custom");
     if (theme === null) {
-      return {
-        "--candy-color-background1": "hsl(80 35% 99%)",
-        "--candy-color-background2": "hsl(80 35% 98%)",
-        "--candy-color-background3": "hsl(80 35% 93%)",
-        "--candy-color-background4": "hsl(80 35% 90%)",
-        "--candy-color-text1": "hsl(80 35% 5%)",
-        "--candy-color-text2": "hsl(80 35% 20%)",
-        "--candy-color-border1": "hsl(80 35% 40%)",
-        "--candy-color-border2": "hsl(80 35% 60%)",
-        "--candy-color-border3": "hsl(80 35% 75%)",
-        "--candy-color-accent1": "hsl(260 100% 40%)",
-        "--candy-color-accent2": "hsl(260 100% 20%)",
-        "--candy-color-shadow1": "hsl(80 35% 50% / 30%)",
-      };
+      return getThemeObject();
     }
     return JSON.parse(theme);
   }

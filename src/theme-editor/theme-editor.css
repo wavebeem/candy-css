@@ -30,7 +30,6 @@ site-theme-editor .contrast-table-container {
 }
 
 site-theme-editor .contrast-table :is(th, td) {
-  width: max-content;
   text-align: right;
   font-variant: tabular-nums;
 }
