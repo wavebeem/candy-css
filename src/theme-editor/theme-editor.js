@@ -133,12 +133,11 @@ class SiteThemeEditor extends HTMLElement {
   theme = this.#loadCustomTheme();
   inputs = {};
   themeNames = {
-    default: "Default",
+    light: "Light",
     dark: "Dark",
-    custom: "Custom",
   };
   themes = {
-    default: getThemeObject(),
+    light: getThemeObject(),
     dark: {
       "--candy-color-background1": "hsl(160 50% 18%)",
       "--candy-color-background2": "hsl(160 50% 16%)",
@@ -153,7 +152,6 @@ class SiteThemeEditor extends HTMLElement {
       "--candy-color-accent2": "hsl(85 90% 90%)",
       "--candy-color-shadow1": "hsl(160 50% 5% / 50%)",
     },
-    custom: this.#loadCustomTheme(),
   };
 
   connectedCallback() {
