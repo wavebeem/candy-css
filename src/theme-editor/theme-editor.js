@@ -1,5 +1,10 @@
 import { $elem } from "../index.js";
 
+const { chroma } = globalThis;
+if (!chroma) {
+  throw new Error("Chroma.js is required for this module to work.");
+}
+
 const html = String.raw;
 
 // Move to HTML <template>?
@@ -94,6 +99,44 @@ function getThemeObject() {
   return themeObject;
 }
 
+const div = document.createElement("div");
+function normalizeCssColor(color) {
+  div.style.color = color;
+  return div.style.color;
+}
+
+class ContrastChecker {
+  constructor({ targetContrast, foreground, backgrounds }) {
+    this.targetContrast = targetContrast;
+    this.foreground = foreground;
+    this.backgrounds = backgrounds;
+  }
+
+  report(theme) {
+    return this.backgrounds.map((bgName) => {
+      // Chroma.js can't parse modern CSS color functions, so we have to use the
+      // DOM API to convert them to classic `rgb(r, g, b)` from modern `hsl(h s
+      // l)` format
+      const bg = normalizeCssColor(theme[bgName]);
+      const fg = normalizeCssColor(theme[this.foreground]);
+      const contrast = chroma.contrast(fg, bg);
+      return {
+        background: bgName,
+        foreground: this.foreground,
+        contrast: contrast,
+        passes: contrast >= this.targetContrast,
+      };
+    });
+  }
+}
+
+const allBackgrounds = [
+  "--candy-color-background1",
+  "--candy-color-background2",
+  "--candy-color-background3",
+  "--candy-color-background4",
+];
+
 class SiteThemeEditor extends HTMLElement {
   theme = getThemeObject();
   inputs = {};
@@ -120,6 +163,34 @@ class SiteThemeEditor extends HTMLElement {
     },
     custom: this.#loadCustomTheme(),
   };
+
+  contrastCheckers = [
+    new ContrastChecker({
+      targetContrast: 4.5,
+      foreground: "--candy-color-text1",
+      backgrounds: allBackgrounds,
+    }),
+    new ContrastChecker({
+      targetContrast: 4.5,
+      foreground: "--candy-color-text2",
+      backgrounds: allBackgrounds,
+    }),
+    new ContrastChecker({
+      targetContrast: 3,
+      foreground: "--candy-color-border1",
+      backgrounds: allBackgrounds,
+    }),
+    new ContrastChecker({
+      targetContrast: 3,
+      foreground: "--candy-color-accent1",
+      backgrounds: allBackgrounds,
+    }),
+    new ContrastChecker({
+      targetContrast: 3,
+      foreground: "--candy-color-accent2",
+      backgrounds: allBackgrounds,
+    }),
+  ];
 
   connectedCallback() {
     this.innerHTML = "";
@@ -166,7 +237,9 @@ class SiteThemeEditor extends HTMLElement {
         className: "candy-input",
         value,
         oninput: (event) => {
-          this.#updateTheme(key, event.target.value);
+          this.#updateTheme({
+            [key]: event.target.value,
+          });
         },
       });
       const field = $elem(
@@ -177,18 +250,37 @@ class SiteThemeEditor extends HTMLElement {
       );
       this.editor.append(field);
     }
-    for (const [key, value] of Object.entries(this.theme)) {
-      this.#updateTheme(key, value);
-    }
+    this.#updateTheme(this.theme);
   }
 
-  #updateTheme(key, value) {
-    this.theme[key] = value;
-    if (value !== this.inputs[key].value) {
-      this.inputs[key].value = value;
+  #updateTheme(theme) {
+    for (const [key, value] of Object.entries(theme)) {
+      this.theme[key] = value;
+      if (value !== this.inputs[key].value) {
+        this.inputs[key].value = value;
+      }
+      this.preview.style.setProperty(key, value);
     }
-    this.preview.style.setProperty(key, value);
     this.#saveCustomTheme();
+    this.#updateReport();
+  }
+
+  #updateReport() {
+    const pre = document.createElement("pre");
+    pre.className = "bit-code";
+    for (const checker of this.contrastCheckers) {
+      for (const { foreground, background, contrast, passes } of checker.report(
+        this.theme,
+      )) {
+        const badge = passes ? "✅" : "❌";
+        pre.append(
+          `${badge} ${contrast.toFixed(1).padStart(6)} :: ${foreground} on ${background}\n`,
+        );
+      }
+      pre.append("".padStart(80, "-"), "\n");
+    }
+    this.report.innerHTML = "";
+    this.report.append(pre);
   }
 
   #saveCustomTheme() {
