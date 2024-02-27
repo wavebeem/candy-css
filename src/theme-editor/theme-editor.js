@@ -31,10 +31,13 @@ const outputHtml = html`
     <h1>Preview</h1>
 
     <h2>Buttons</h2>
-    <div class="site-flex-row-wrap">
-      <button class="candy-button candy-primary">Primary</button>
-      <button class="candy-button">Button</button>
-      <button class="candy-button" disabled>Button</button>
+    <div class="site-flex-column site-gap">
+      <div class="site-flex-row-wrap">
+        <button class="candy-button candy-primary">Primary</button>
+        <button class="candy-button">Button</button>
+        <button class="candy-button candy-primary" disabled>Primary</button>
+        <button class="candy-button" disabled>Button</button>
+      </div>
     </div>
 
     <h2>Selects</h2>
@@ -192,21 +195,21 @@ class SiteThemeEditor extends HTMLElement {
   theme = this.#loadCustomTheme();
   inputs = {};
   themeNames = {
-    light: "Light",
-    dark: "Dark",
+    lightGreen: "Light Green",
+    darkGreen: "Dark Green",
     gray: "Gray",
     cyber: "Cyber",
   };
   themes = {
-    light: getThemeObject(),
-    dark: {
-      "--candy-color-background1": "hsl(160 50% 6%)",
-      "--candy-color-background2": "hsl(160 50% 16%)",
-      "--candy-color-background3": "hsl(160 50% 13%)",
-      "--candy-color-background4": "hsl(160 50% 10%)",
+    lightGreen: getThemeObject(),
+    darkGreen: {
+      "--candy-color-background1": "hsl(160 50% 10%)",
+      "--candy-color-background2": "hsl(160 50% 20%)",
+      "--candy-color-background3": "hsl(160 50% 17%)",
+      "--candy-color-background4": "hsl(160 50% 14%)",
       "--candy-color-text1": "hsl(160 50% 90%)",
       "--candy-color-text2": "hsl(160 50% 70%)",
-      "--candy-color-border1": "hsl(160 50% 40%)",
+      "--candy-color-border1": "hsl(160 50% 45%)",
       "--candy-color-border2": "hsl(160 50% 26%)",
       "--candy-color-border3": "hsl(160 50% 22%)",
       "--candy-color-accent-background1": "hsl(85 80% 50%)",
@@ -232,10 +235,10 @@ class SiteThemeEditor extends HTMLElement {
       "--candy-color-shadow1": "hsl(0 0% 5% / 20%)",
     },
     cyber: {
-      "--candy-color-background1": "#001111",
-      "--candy-color-background2": "#003838",
+      "--candy-color-background1": "#002222",
+      "--candy-color-background2": "#003c3c",
       "--candy-color-background3": "#003333",
-      "--candy-color-background4": "#002222",
+      "--candy-color-background4": "#002c2c",
       "--candy-color-text1": "#00eeee",
       "--candy-color-text2": "#00cccc",
       "--candy-color-border1": "#00aaaa",
@@ -245,7 +248,7 @@ class SiteThemeEditor extends HTMLElement {
       "--candy-color-accent-background2": "#00d8d8",
       "--candy-color-accent-border1": "#00ffff",
       "--candy-color-accent-text1": "#001111",
-      "--candy-color-shadow1": "#0011114",
+      "--candy-color-shadow1": "#00111188",
     },
   };
 
@@ -388,7 +391,7 @@ class SiteThemeEditor extends HTMLElement {
   }
 
   #checkThemes() {
-    const lightThemeKeys = new Set(Object.keys(this.themes.light));
+    const lightThemeKeys = new Set(Object.keys(this.themes.lightGreen));
     for (const [name, theme] of Object.entries(this.themes)) {
       const set = new Set(Object.keys(theme));
       if (!areSetsEqual(set, lightThemeKeys)) {
