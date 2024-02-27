@@ -490,7 +490,7 @@
 .candy-input {
   box-sizing: border-box;
   background: var(--candy-color-background1);
-  color: var(--candy-color-text2);
+  color: var(--candy-color-text1);
   font: inherit;
   padding: var(--candy-input-padding-vertical)
     var(--candy-input-padding-horizontal);
