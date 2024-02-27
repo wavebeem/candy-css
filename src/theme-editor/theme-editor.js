@@ -299,17 +299,29 @@ class SiteThemeEditor extends HTMLElement {
           this.#updateTheme({
             [key]: event.target.value,
           });
+          colorPreview.style.setProperty("--color", event.target.value);
         },
       });
+      const colorPreview = this.#createColorPreview();
+      colorPreview.style.setProperty("--color", value);
       const field = $elem(
         "label",
         { className: "site-flex-column" },
         $elem("span", {}, trimColorName(key)),
-        this.inputs[key],
+        $elem(
+          "div",
+          { className: "site-flex-row" },
+          this.inputs[key],
+          colorPreview,
+        ),
       );
       this.editor.append(field);
     }
     this.#updateTheme(this.theme);
+  }
+
+  #createColorPreview() {
+    return $elem("div", { className: "color-preview" });
   }
 
   #updateTheme(theme) {

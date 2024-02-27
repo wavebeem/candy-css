@@ -239,6 +239,12 @@ textarea {
   display: block;
 }
 
+.site-flex-row {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
 .site-flex-row-wrap {
   gap: 0.5rem;
   display: flex;
