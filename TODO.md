@@ -1,4 +1,4 @@
-- Make `.bit-primary` use top level variables
+- Document `.bit-primary` buttons
 
 - Work on theme editor
 

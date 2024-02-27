@@ -82,6 +82,53 @@ const outputHtml = html`
       <input name="radio2" type="radio" class="candy-radio" disabled />
       <input name="radio2" type="radio" class="candy-radio" disabled checked />
     </div>
+
+    <h2>Tables</h2>
+    <div class="candy-box site-table-responsive site-table-music">
+      <table class="candy-table" style="width: 100%">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Time</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Pretelethal</td>
+            <td>3:21</td>
+            <td>&starf;&starf;&starf;&starf;&star;</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Key Entity Extraction V: Sentry the Defiant</td>
+            <td>5:45</td>
+            <td>&starf;&starf;&starf;&starf;&starf;</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>The Hard Sell</td>
+            <td>5:10</td>
+            <td>&starf;&starf;&star;&star;&star;</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Number City</td>
+            <td>3:49</td>
+            <td>&starf;&starf;&starf;&star;&star;</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Gravity's Union</td>
+            <td>6:46</td>
+            <td>&starf;&starf;&starf;&starf;&starf;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 `;
 
@@ -147,11 +194,13 @@ class SiteThemeEditor extends HTMLElement {
   themeNames = {
     light: "Light",
     dark: "Dark",
+    gray: "Gray",
+    cyber: "Cyber",
   };
   themes = {
     light: getThemeObject(),
     dark: {
-      "--candy-color-background1": "hsl(160 50% 18%)",
+      "--candy-color-background1": "hsl(160 50% 6%)",
       "--candy-color-background2": "hsl(160 50% 16%)",
       "--candy-color-background3": "hsl(160 50% 13%)",
       "--candy-color-background4": "hsl(160 50% 10%)",
@@ -160,9 +209,43 @@ class SiteThemeEditor extends HTMLElement {
       "--candy-color-border1": "hsl(160 50% 40%)",
       "--candy-color-border2": "hsl(160 50% 26%)",
       "--candy-color-border3": "hsl(160 50% 22%)",
-      "--candy-color-accent1": "hsl(85 90% 50%)",
-      "--candy-color-accent2": "hsl(85 90% 90%)",
-      "--candy-color-shadow1": "hsl(160 50% 5% / 50%)",
+      "--candy-color-accent-background1": "hsl(85 80% 50%)",
+      "--candy-color-accent-background2": "hsl(85 80% 45%)",
+      "--candy-color-accent-border1": "hsl(85 80% 80%)",
+      "--candy-color-accent-text1": "hsl(85 80% 5%)",
+      "--candy-color-shadow1": "hsl(160 50% 0% / 50%)",
+    },
+    gray: {
+      "--candy-color-background1": "hsl(0 0% 100%)",
+      "--candy-color-background2": "hsl(0 0% 96%)",
+      "--candy-color-background3": "hsl(0 0% 90%)",
+      "--candy-color-background4": "hsl(0 0% 84%)",
+      "--candy-color-text1": "hsl(0 0% 5%)",
+      "--candy-color-text2": "hsl(0 0% 25%)",
+      "--candy-color-border1": "hsl(0 0% 40%)",
+      "--candy-color-border2": "hsl(0 0% 60%)",
+      "--candy-color-border3": "hsl(0 0% 70%)",
+      "--candy-color-accent-background1": "hsl(0 0% 30%)",
+      "--candy-color-accent-background2": "hsl(0 0% 25%)",
+      "--candy-color-accent-border1": "hsl(0 0% 10%)",
+      "--candy-color-accent-text1": "hsl(0 0% 100%)",
+      "--candy-color-shadow1": "hsl(0 0% 5% / 20%)",
+    },
+    cyber: {
+      "--candy-color-background1": "#001111",
+      "--candy-color-background2": "#003838",
+      "--candy-color-background3": "#003333",
+      "--candy-color-background4": "#002222",
+      "--candy-color-text1": "#00eeee",
+      "--candy-color-text2": "#00cccc",
+      "--candy-color-border1": "#00aaaa",
+      "--candy-color-border2": "#006666",
+      "--candy-color-border3": "#004444",
+      "--candy-color-accent-background1": "#00e8e8",
+      "--candy-color-accent-background2": "#00d8d8",
+      "--candy-color-accent-border1": "#00ffff",
+      "--candy-color-accent-text1": "#001111",
+      "--candy-color-shadow1": "#0011114",
     },
   };
 
@@ -201,7 +284,7 @@ class SiteThemeEditor extends HTMLElement {
         "Load theme...",
       ),
       ...Object.keys(this.themes).map((key) => {
-        return $elem("option", { value: key }, this.themeNames[key]);
+        return $elem("option", { value: key }, this.themeNames[key] || key);
       }),
     );
     this.editor.append(this.themeSelect);
@@ -261,32 +344,42 @@ class SiteThemeEditor extends HTMLElement {
     );
     const tbody = $elem("tbody", {});
 
-    const appendRow = (target, colorName) => {
+    const appendRow = (target, colorName, backgrounds) => {
       const name = trimColorName(colorName);
       const tr = $elem("tr", {});
       tr.append($elem("td", {}, name));
       const fg = this.theme[colorName];
-      for (const bg of allBackgrounds) {
-        const contrast = getContrast(fg, this.theme[bg]);
-        const className = contrast < target ? "contrast-fail" : "contrast-pass";
-        tr.append(
-          $elem(
-            "td",
-            { className },
-            contrast.toFixed(2),
-            nbsp,
-            contrast < target ? "🚫" : "✅",
-          ),
-        );
+      for (const bg of backgrounds) {
+        if (bg === undefined) {
+          tr.append($elem("td", {}));
+        } else {
+          const contrast = getContrast(fg, this.theme[bg]);
+          const className =
+            contrast < target ? "contrast-fail" : "contrast-pass";
+          tr.append(
+            $elem(
+              "td",
+              { className },
+              contrast.toFixed(2),
+              nbsp,
+              contrast < target ? "🚫" : "✅",
+            ),
+          );
+        }
       }
       tbody.append(tr);
     };
 
-    appendRow(3, "--candy-color-border1");
-    appendRow(4.5, "--candy-color-text1");
-    appendRow(4.5, "--candy-color-text2");
-    appendRow(4.5, "--candy-color-accent1");
-    appendRow(4.5, "--candy-color-accent2");
+    appendRow(3, "--candy-color-border1", allBackgrounds);
+    appendRow(4.5, "--candy-color-text1", allBackgrounds);
+    appendRow(4.5, "--candy-color-text2", allBackgrounds);
+    appendRow(4.5, "--candy-color-accent-border1", allBackgrounds);
+    appendRow(4.5, "--candy-color-accent-text1", [
+      "--candy-color-accent-background1",
+      "--candy-color-accent-background2",
+      undefined,
+      undefined,
+    ]);
 
     table.append(thead, tbody);
     div.append(tableContainer);
