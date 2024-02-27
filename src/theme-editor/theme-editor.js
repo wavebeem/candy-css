@@ -1,4 +1,4 @@
-import { $elem } from "../index.js";
+import { $, $elem } from "../index.js";
 
 const nbsp = "\u00a0";
 
@@ -6,8 +6,6 @@ const { chroma } = globalThis;
 if (!chroma) {
   throw new Error("Chroma.js is required for this module to work.");
 }
-
-const html = String.raw;
 
 function trimColorName(colorName) {
   return colorName.replace(/^--candy-color-/, "");
@@ -24,116 +22,6 @@ function areSetsEqual(a, b) {
   }
   return true;
 }
-
-// Move to HTML <template>?
-const outputHtml = html`
-  <div>
-    <h1>Preview</h1>
-
-    <h2>Buttons</h2>
-    <div class="site-flex-column site-gap">
-      <div class="site-flex-row-wrap">
-        <button class="candy-button candy-primary">Primary</button>
-        <button class="candy-button">Button</button>
-        <button class="candy-button candy-primary" disabled>Primary</button>
-        <button class="candy-button" disabled>Button</button>
-      </div>
-    </div>
-
-    <h2>Selects</h2>
-    <div class="site-flex-row-wrap">
-      <select class="candy-select">
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option>Option 3</option>
-      </select>
-      <select class="candy-select" disabled>
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option>Option 3</option>
-      </select>
-    </div>
-
-    <h2>Inputs</h2>
-    <div class="site-flex-column site-gap">
-      <div class="site-flex-row-wrap">
-        <input class="candy-input" value="Input" />
-        <input class="candy-input" value="Input" disabled />
-      </div>
-      <div class="site-flex-row-wrap">
-        <input class="candy-input" placeholder="Placeholder" />
-        <input class="candy-input" placeholder="Placeholder" disabled />
-      </div>
-      <div class="site-flex-row-wrap">
-        <input class="candy-input" />
-        <input class="candy-input" disabled />
-      </div>
-    </div>
-
-    <h2>Checkboxes</h2>
-    <div class="site-flex-row-wrap">
-      <input type="checkbox" class="candy-checkbox" />
-      <input type="checkbox" class="candy-checkbox" checked />
-      <input type="checkbox" class="candy-checkbox" disabled />
-      <input type="checkbox" class="candy-checkbox" disabled checked />
-    </div>
-
-    <h2>Radio buttons</h2>
-    <div class="site-flex-row-wrap">
-      <input name="radio1" type="radio" class="candy-radio" />
-      <input name="radio1" type="radio" class="candy-radio" checked />
-      <input name="radio2" type="radio" class="candy-radio" disabled />
-      <input name="radio2" type="radio" class="candy-radio" disabled checked />
-    </div>
-
-    <h2>Tables</h2>
-    <div class="candy-box site-table-responsive site-table-music">
-      <table class="candy-table" style="width: 100%">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Title</th>
-            <th>Time</th>
-            <th>Rating</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Pretelethal</td>
-            <td>3:21</td>
-            <td>&starf;&starf;&starf;&starf;&star;</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Key Entity Extraction V: Sentry the Defiant</td>
-            <td>5:45</td>
-            <td>&starf;&starf;&starf;&starf;&starf;</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>The Hard Sell</td>
-            <td>5:10</td>
-            <td>&starf;&starf;&star;&star;&star;</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Number City</td>
-            <td>3:49</td>
-            <td>&starf;&starf;&starf;&star;&star;</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Gravity's Union</td>
-            <td>6:46</td>
-            <td>&starf;&starf;&starf;&starf;&starf;</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-`;
 
 function isThemeProperty(property) {
   return property.startsWith("--candy-color-");
@@ -194,6 +82,7 @@ const allBackgrounds = [
 class SiteThemeEditor extends HTMLElement {
   theme = this.#loadCustomTheme();
   inputs = {};
+  previews = {};
   themeNames = {
     lightGreen: "Light Green",
     darkGreen: "Dark Green",
@@ -270,7 +159,8 @@ class SiteThemeEditor extends HTMLElement {
       { className: "report site-padding" },
       "This is a summary of your theme:",
     );
-    this.preview.innerHTML = outputHtml;
+    this.preview.innerHTML = "";
+    this.preview.append($("#theme-editor-template").content.cloneNode(true));
     this.append(this.editor, this.output);
     this.output.append(this.report, this.preview);
     this.themeSelect = $elem(
@@ -299,20 +189,20 @@ class SiteThemeEditor extends HTMLElement {
           this.#updateTheme({
             [key]: event.target.value,
           });
-          colorPreview.style.setProperty("--color", event.target.value);
+          this.previews[key].style.setProperty("--color", event.target.value);
         },
       });
-      const colorPreview = this.#createColorPreview();
-      colorPreview.style.setProperty("--color", value);
+      this.previews[key] = $elem("div", { className: "color-preview" });
+      this.previews[key].style.setProperty("--color", value);
       const field = $elem(
         "label",
-        { className: "site-flex-column" },
+        { className: "site-flex-column site-gap-xs font-mono" },
         $elem("span", {}, trimColorName(key)),
         $elem(
           "div",
-          { className: "site-flex-row" },
+          { className: "site-flex-row color-preview-container" },
           this.inputs[key],
-          colorPreview,
+          this.previews[key],
         ),
       );
       this.editor.append(field);
@@ -320,15 +210,12 @@ class SiteThemeEditor extends HTMLElement {
     this.#updateTheme(this.theme);
   }
 
-  #createColorPreview() {
-    return $elem("div", { className: "color-preview" });
-  }
-
   #updateTheme(theme) {
     for (const [key, value] of Object.entries(theme)) {
       this.theme[key] = value;
       if (value !== this.inputs[key].value) {
         this.inputs[key].value = value;
+        this.previews[key].style.setProperty("--color", value);
       }
       this.preview.style.setProperty(key, value);
     }
@@ -357,7 +244,7 @@ class SiteThemeEditor extends HTMLElement {
         $elem("th", {}, "BG4"),
       ),
     );
-    const tbody = $elem("tbody", {});
+    const tbody = $elem("tbody", { className: "font-mono" });
 
     const appendRow = (target, colorName, backgrounds) => {
       const name = trimColorName(colorName);
@@ -375,7 +262,7 @@ class SiteThemeEditor extends HTMLElement {
             $elem(
               "td",
               { className },
-              contrast.toFixed(2),
+              contrast.toFixed(2).padStart(7, nbsp),
               nbsp,
               contrast < target ? "🚫" : "✅",
             ),

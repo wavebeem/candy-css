@@ -45,5 +45,135 @@
     </header>
 
     <site-theme-editor>Loading theme editor&hellip;</site-theme-editor>
+
+    <template id="theme-editor-template">
+      <h1>Preview</h1>
+
+      <h2>Buttons</h2>
+      <div class="site-flex-column site-gap">
+        <div class="site-flex-row-wrap">
+          <button class="candy-button candy-primary">Primary</button>
+          <button class="candy-button">Button</button>
+          <button class="candy-button candy-primary" disabled>Primary</button>
+          <button class="candy-button" disabled>Button</button>
+        </div>
+      </div>
+
+      <h2>Selects</h2>
+      <div class="site-flex-row-wrap">
+        <select class="candy-select">
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </select>
+        <select class="candy-select" disabled>
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </select>
+      </div>
+
+      <h2>Inputs</h2>
+      <p>Inputs can be regular text inputs or multiline textareas.</p>
+      <div class="site-flex-column site-gap">
+        <label class="site-flex-column site-gap-xs">
+          <span>Input</span>
+          <input class="candy-input" value="Input" />
+        </label>
+        <label class="site-flex-column site-gap-xs">
+          <span>Input</span>
+          <input class="candy-input" value="Input" disabled />
+        </label>
+      </div>
+      <div class="site-flex-row-wrap">
+        <label class="site-flex-column site-gap-xs">
+          <span>Input</span>
+          <input class="candy-input" placeholder="Placeholder" />
+        </label>
+        <label class="site-flex-column site-gap-xs">
+          <span>Input</span>
+          <input class="candy-input" placeholder="Placeholder" disabled />
+        </label>
+      </div>
+      <div class="site-flex-row-wrap">
+        <label class="site-flex-column site-gap-xs">
+          <span>Input</span>
+          <input class="candy-input" />
+        </label>
+        <label class="site-flex-column site-gap-xs">
+          <span>Input</span>
+          <input class="candy-input" disabled />
+        </label>
+      </div>
+
+      <h2>Checkboxes</h2>
+      <div class="site-flex-row-wrap">
+        <input type="checkbox" class="candy-checkbox" />
+        <input type="checkbox" class="candy-checkbox" checked />
+        <input type="checkbox" class="candy-checkbox" disabled />
+        <input type="checkbox" class="candy-checkbox" disabled checked />
+      </div>
+
+      <h2>Radio buttons</h2>
+      <div class="site-flex-row-wrap">
+        <input name="radio1" type="radio" class="candy-radio" />
+        <input name="radio1" type="radio" class="candy-radio" checked />
+        <input name="radio2" type="radio" class="candy-radio" disabled />
+        <input
+          name="radio2"
+          type="radio"
+          class="candy-radio"
+          disabled
+          checked
+        />
+      </div>
+
+      <h2>Tables</h2>
+      <div class="candy-box site-table-responsive site-table-music">
+        <table class="candy-table" style="width: 100%">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Time</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Pretelethal</td>
+              <td>3:21</td>
+              <td>&starf;&starf;&starf;&starf;&star;</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Key Entity Extraction V: Sentry the Defiant</td>
+              <td>5:45</td>
+              <td>&starf;&starf;&starf;&starf;&starf;</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>The Hard Sell</td>
+              <td>5:10</td>
+              <td>&starf;&starf;&star;&star;&star;</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Number City</td>
+              <td>3:49</td>
+              <td>&starf;&starf;&starf;&star;&star;</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Gravity's Union</td>
+              <td>6:46</td>
+              <td>&starf;&starf;&starf;&starf;&starf;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </template>
   </body>
 </html>

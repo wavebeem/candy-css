@@ -54,6 +54,7 @@ section {
 }
 
 .docs-content {
+  flex: auto;
   padding-bottom: 1rem;
 }
 
@@ -139,6 +140,11 @@ pre,
 code,
 kbd,
 samp {
+  font-family: var(--site-font-monospace);
+  font-variant-ligatures: none;
+}
+
+.font-mono {
   font-family: var(--site-font-monospace);
   font-variant-ligatures: none;
 }
@@ -257,6 +263,14 @@ textarea {
   flex-direction: column;
 }
 
+.site-gap-xs {
+  gap: 0.25rem;
+}
+
+.site-gap-s {
+  gap: 0.5rem;
+}
+
 .site-gap {
   gap: 1rem;
 }
@@ -298,11 +312,10 @@ site-nav nav ul {
   align-items: center;
 }
 
-.site-copyright {
+site-copyright {
   margin-top: 1rem;
-  padding: 1rem;
+  padding: 1rem 0;
   border-top: 1px solid var(--candy-color-border2);
-  text-align: center;
 }
 
 .site-toc > * {

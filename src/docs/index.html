@@ -52,8 +52,8 @@
         <section>
           <h2>Introduction</h2>
           <p>
-            This page demonstrates some of the ways candy.css can be used, as well
-            as code for its examples.
+            This page demonstrates some of the ways candy.css can be used, as
+            well as code for its examples.
           </p>
         </section>
         <section>
@@ -64,8 +64,8 @@
             candy.css.
           </p>
           <p>
-            Change the custom properties to try different values. Refresh the page
-            to reset it.
+            Change the custom properties to try different values. Refresh the
+            page to reset it.
           </p>
           <details>
             <summary class="candy-button">Edit CSS custom properties</summary>
@@ -125,8 +125,8 @@
         <section>
           <h2 id="radios">Radio Buttons</h2>
           <p>
-            For proper accessibility and appearance, wrap all radio buttons inside
-            a
+            For proper accessibility and appearance, wrap all radio buttons
+            inside a
             <code>candy-field</code> and put a <code>label</code> after it with
             correct <code>id</code> and <code>for</code> attributes (or nest the
             radio button inside a label)
@@ -144,7 +144,8 @@
         <section>
           <h2 id="checkboxes">Checkboxes</h2>
           <p>
-            For proper accessibility and appearance, wrap all checkboxes inside a
+            For proper accessibility and appearance, wrap all checkboxes inside
+            a
             <code>candy-field</code> and put a <code>label</code> after it with
             correct <code>id</code> and <code>for</code> attributes (or nest the
             checkbox inside a label)
@@ -206,7 +207,10 @@
         </section>
         <section>
           <h2 id="box">Boxes</h2>
-          <inject-example data-properties="" data-example="box"></inject-example>
+          <inject-example
+            data-properties=""
+            data-example="box"
+          ></inject-example>
         </section>
         <section>
           <h2 id="fieldsets">Fieldsets</h2>
@@ -237,8 +241,8 @@
         <section>
           <h2 id="textures">Textures</h2>
           <p>
-            Textures are meant to be used in your own containers. Textures can be
-            applied to nav bars, sidebars, or content areas.
+            Textures are meant to be used in your own containers. Textures can
+            be applied to nav bars, sidebars, or content areas.
           </p>
           <inject-example
             data-properties="
@@ -248,18 +252,18 @@
           ></inject-example>
           <p>
             The striped texture is best reserved for highly decorative elements,
-            like the main nav bar on a page, or a page hero element. You can also
-            nest a box inside a container using the stripe texture in order to
-            make the content more readable.
+            like the main nav bar on a page, or a page hero element. You can
+            also nest a box inside a container using the stripe texture in order
+            to make the content more readable.
           </p>
         </section>
         <section>
           <h2 id="shadows">Shadows</h2>
           <p>
             Shadows are still in development. Some elements currently have
-            shadows, but they need some fine tuning. I want to eventually provide
-            a few different shadow classes and properties that can be reused, but
-            the directionality and size of shadows makes this tough.
+            shadows, but they need some fine tuning. I want to eventually
+            provide a few different shadow classes and properties that can be
+            reused, but the directionality and size of shadows makes this tough.
           </p>
         </section>
         <section>
@@ -331,6 +335,10 @@
     </template>
 
     <template id="template-buttons">
+      <p>
+        Primary buttons use the class <code>candy-primary</code> in addition to
+        <code>candy-button</code>.
+      </p>
       <div class="site-flex-row-wrap">
         <button type="button" class="candy-button candy-primary">
           Primary
