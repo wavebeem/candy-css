@@ -9,11 +9,14 @@ site-theme-editor {
 }
 
 site-theme-editor .preview {
-  padding: 1rem 2rem;
-  margin: 1rem;
-  margin-top: 0;
+  padding: 1rem;
   border: 1px solid #000;
   box-shadow: inset 0 0 0 1px white;
+}
+site-theme-editor .code {
+  margin: 0;
+  overflow: visible;
+  border-radius: 0;
 }
 
 site-theme-editor .color-preview-container > :first-child {

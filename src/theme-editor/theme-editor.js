@@ -149,20 +149,35 @@ class SiteThemeEditor extends HTMLElement {
         "editor candy-root site-flex-column site-gap site-padding candy-texture-smooth",
     });
     this.output = $elem("div", {
-      className: "output candy-root",
+      className: "output candy-root site-flex-column site-gap site-padding",
     });
     this.preview = $elem("div", {
       className: "preview candy-root candy-scrollbar",
     });
     this.report = $elem(
       "div",
-      { className: "report site-padding" },
+      { className: "report" },
       "This is a summary of your theme:",
+    );
+    this.code = $elem(
+      "pre",
+      { className: "candy-code code" },
+      this.#generateCode(),
+    );
+    this.copyCode = $elem(
+      "button",
+      {
+        className: "candy-button max-content",
+        onclick: () => {
+          navigator.clipboard.writeText(this.code.textContent);
+        },
+      },
+      "Copy code",
     );
     this.preview.innerHTML = "";
     this.preview.append($("#theme-editor-template").content.cloneNode(true));
     this.append(this.editor, this.output);
-    this.output.append(this.report, this.preview);
+    this.output.append(this.preview, this.report, this.code, this.copyCode);
     this.themeSelect = $elem(
       "select",
       {
@@ -221,6 +236,7 @@ class SiteThemeEditor extends HTMLElement {
     }
     this.#saveCustomTheme();
     this.#updateReport();
+    this.code.textContent = this.#generateCode();
   }
 
   #updateReport() {
@@ -297,6 +313,16 @@ class SiteThemeEditor extends HTMLElement {
         console.error(`Theme "${name}" has a different set of keys.`);
       }
     }
+  }
+
+  #generateCode() {
+    let code = ".candy-auto, \n";
+    code += ".candy-root {\n";
+    for (const [key, value] of Object.entries(this.theme)) {
+      code += `  ${key}: ${value};\n`;
+    }
+    code += "}\n";
+    return code;
   }
 
   #saveCustomTheme() {

@@ -40,6 +40,10 @@ section {
   margin: 0 auto;
 }
 
+.max-content {
+  max-width: max-content;
+}
+
 .docs-container {
   display: flex;
   flex-direction: column;
@@ -179,6 +183,7 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--candy-color-text1);
 }
 
 .site-columns-auto {

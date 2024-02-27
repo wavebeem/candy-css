@@ -47,9 +47,15 @@
     <site-theme-editor>Loading theme editor&hellip;</site-theme-editor>
 
     <template id="theme-editor-template">
-      <h1>Preview</h1>
+      <h1 class="candy-bright" style="margin-top: 0;">Preview</h1>
 
-      <h2>Buttons</h2>
+      <p>
+        Scroll down to see a live accessibility report and to copy your theme as
+        CSS.
+      </p>
+
+      <h2 class="candy-bright">Buttons</h2>
+      <p>Regular buttons and primary buttons.</p>
       <div class="site-flex-column site-gap">
         <div class="site-flex-row-wrap">
           <button class="candy-button candy-primary">Primary</button>
@@ -59,7 +65,8 @@
         </div>
       </div>
 
-      <h2>Selects</h2>
+      <h2 class="candy-bright">Selects</h2>
+      <p>The select arrow was hard to create via CSS.</p>
       <div class="site-flex-row-wrap">
         <select class="candy-select">
           <option>Option 1</option>
@@ -73,62 +80,94 @@
         </select>
       </div>
 
-      <h2>Inputs</h2>
+      <h2 class="candy-bright">Inputs</h2>
       <p>Inputs can be regular text inputs or multiline textareas.</p>
       <div class="site-flex-column site-gap">
-        <label class="site-flex-column site-gap-xs">
-          <span>Input</span>
-          <input class="candy-input" value="Input" />
-        </label>
-        <label class="site-flex-column site-gap-xs">
-          <span>Input</span>
-          <input class="candy-input" value="Input" disabled />
-        </label>
-      </div>
-      <div class="site-flex-row-wrap">
-        <label class="site-flex-column site-gap-xs">
-          <span>Input</span>
-          <input class="candy-input" placeholder="Placeholder" />
-        </label>
-        <label class="site-flex-column site-gap-xs">
-          <span>Input</span>
-          <input class="candy-input" placeholder="Placeholder" disabled />
-        </label>
-      </div>
-      <div class="site-flex-row-wrap">
-        <label class="site-flex-column site-gap-xs">
-          <span>Input</span>
-          <input class="candy-input" />
-        </label>
-        <label class="site-flex-column site-gap-xs">
-          <span>Input</span>
-          <input class="candy-input" disabled />
-        </label>
-      </div>
-
-      <h2>Checkboxes</h2>
-      <div class="site-flex-row-wrap">
-        <input type="checkbox" class="candy-checkbox" />
-        <input type="checkbox" class="candy-checkbox" checked />
-        <input type="checkbox" class="candy-checkbox" disabled />
-        <input type="checkbox" class="candy-checkbox" disabled checked />
+        <div class="site-flex-row-wrap">
+          <label class="site-flex-column site-gap-xs">
+            <span>Label</span>
+            <input class="candy-input" value="Input" />
+          </label>
+          <label class="site-flex-column site-gap-xs">
+            <span>Label</span>
+            <input class="candy-input" value="Input" disabled />
+          </label>
+        </div>
+        <div class="site-flex-row-wrap">
+          <label class="site-flex-column site-gap-xs">
+            <span>Label</span>
+            <input class="candy-input" placeholder="Placeholder" />
+          </label>
+          <label class="site-flex-column site-gap-xs">
+            <span>Label</span>
+            <input class="candy-input" placeholder="Placeholder" disabled />
+          </label>
+        </div>
+        <div class="site-flex-row-wrap">
+          <label class="site-flex-column site-gap-xs">
+            <span>Label</span>
+            <input class="candy-input" />
+          </label>
+          <label class="site-flex-column site-gap-xs">
+            <span>Label</span>
+            <input class="candy-input" disabled />
+          </label>
+        </div>
       </div>
 
-      <h2>Radio buttons</h2>
+      <h2 class="candy-bright">Checkboxes</h2>
       <div class="site-flex-row-wrap">
-        <input name="radio1" type="radio" class="candy-radio" />
-        <input name="radio1" type="radio" class="candy-radio" checked />
-        <input name="radio2" type="radio" class="candy-radio" disabled />
-        <input
-          name="radio2"
-          type="radio"
-          class="candy-radio"
-          disabled
-          checked
-        />
+        <fieldset class="candy-fieldset">
+          <legend class="candy-legend">Checkboxes</legend>
+          <label class="candy-field">
+            <input type="checkbox" class="candy-checkbox" />
+            <span>Checkbox</span>
+          </label>
+          <label class="candy-field">
+            <input type="checkbox" class="candy-checkbox" checked />
+            <span>Checkbox (checked)</span>
+          </label>
+          <label class="candy-field">
+            <input type="checkbox" class="candy-checkbox" disabled />
+            <span>Checkbox (disabled)</span>
+          </label>
+          <label class="candy-field">
+            <input type="checkbox" class="candy-checkbox" disabled checked />
+            <span>Checkbox (disabled &amp; checked)</span>
+          </label>
+        </fieldset>
       </div>
 
-      <h2>Tables</h2>
+      <h2 class="candy-bright">Radio buttons</h2>
+      <div class="site-flex-row-wrap">
+        <fieldset class="candy-fieldset">
+          <legend class="candy-legend">Radio buttons</legend>
+          <label class="candy-field">
+            <input type="radio" name="x1" class="candy-radio" />
+            <span>Radio button</span>
+          </label>
+          <label class="candy-field">
+            <input type="radio" name="x1" class="candy-radio" checked />
+            <span>Radio button (checked)</span>
+          </label>
+          <label class="candy-field">
+            <input type="radio" name="x2" class="candy-radio" disabled />
+            <span>Radio button (disabled)</span>
+          </label>
+          <label class="candy-field">
+            <input
+              type="radio"
+              name="x2"
+              class="candy-radio"
+              disabled
+              checked
+            />
+            <span>Radio button (disabled &amp; checked)</span>
+          </label>
+        </fieldset>
+      </div>
+
+      <h2 class="candy-bright">Tables</h2>
       <div class="candy-box site-table-responsive site-table-music">
         <table class="candy-table" style="width: 100%">
           <thead>
@@ -173,6 +212,124 @@
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <h2 class="candy-bright">Textures</h2>
+      <div class="site-columns-auto-fit" style="--grid-min: 12rem">
+        <div class="candy-card site-texture candy-texture-striped">Striped</div>
+        <div class="candy-card site-texture candy-texture-convex">Convex</div>
+        <div class="candy-card site-texture candy-texture-concave">Concave</div>
+        <div class="candy-card site-texture candy-texture-glossy">Glossy</div>
+        <div class="candy-card site-texture candy-texture-paper">Paper</div>
+        <div class="candy-card site-texture candy-texture-smooth">Smooth</div>
+        <div class="candy-card site-texture candy-texture-default">Default</div>
+      </div>
+
+      <h2 class="candy-bright">Wells</h2>
+      <div class="site-flex-column site-gap">
+        <div class="site-columns-auto-fit">
+          <div class="candy-well">
+            This is a candy-well. It has a border and comfortable padding to
+            frame your content.
+          </div>
+          <div class="candy-well">
+            This is a candy-well. It has a border and comfortable padding to
+            frame your content.
+          </div>
+          <div class="candy-well">
+            This is a candy-well. It has a border and comfortable padding to
+            frame your content.
+          </div>
+          <div class="candy-well">
+            This is a candy-well. It has a border and comfortable padding to
+            frame your content.
+          </div>
+        </div>
+      </div>
+
+      <h2 class="candy-bright">Cards</h2>
+      <div class="site-flex-column site-gap">
+        <div class="site-columns-auto-fit">
+          <div class="candy-card">
+            This is a candy-card. It has a border and comfortable padding to
+            frame your content.
+          </div>
+          <div class="candy-card">
+            This is a candy-card. It has a border and comfortable padding to
+            frame your content.
+          </div>
+          <div class="candy-card">
+            This is a candy-card. It has a border and comfortable padding to
+            frame your content.
+          </div>
+          <div class="candy-card">
+            This is a candy-card. It has a border and comfortable padding to
+            frame your content.
+          </div>
+        </div>
+      </div>
+
+      <h2 class="candy-bright">Scrollbars</h2>
+      <div
+        class="candy-scrollbar candy-well"
+        style="overflow-y: scroll; max-height: 300px"
+      >
+        <p style="margin-top: 0">
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+          egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
+          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
+          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in
+          turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
+          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+          facilisis luctus, metus
+        </p>
+        <p>
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+          egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
+          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
+          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in
+          turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
+          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+          facilisis luctus, metus
+        </p>
+        <p>
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+          egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
+          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
+          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in
+          turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
+          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+          facilisis luctus, metus
+        </p>
+        <p style="margin-bottom: 0">
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+          egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
+          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
+          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in
+          turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
+          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+          facilisis luctus, metus
+        </p>
       </div>
     </template>
   </body>
