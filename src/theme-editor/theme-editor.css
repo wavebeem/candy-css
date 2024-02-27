@@ -17,6 +17,7 @@ site-theme-editor .code {
   margin: 0;
   overflow: visible;
   border-radius: 0;
+  white-space: pre-wrap;
 }
 
 site-theme-editor .color-preview-container > :first-child {

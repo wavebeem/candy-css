@@ -1,6 +1,7 @@
 import { $, $elem } from "../index.js";
 
 const nbsp = "\u00a0";
+const middot = "\u00b7";
 
 const { chroma } = globalThis;
 if (!chroma) {
@@ -161,7 +162,7 @@ class SiteThemeEditor extends HTMLElement {
     );
     this.code = $elem(
       "pre",
-      { className: "candy-code code" },
+      { id: "css", className: "candy-code code" },
       this.#generateCode(),
     );
     this.copyCode = $elem(
@@ -175,9 +176,37 @@ class SiteThemeEditor extends HTMLElement {
       "Copy code",
     );
     this.preview.innerHTML = "";
+    this.preview.id = "preview";
     this.preview.append($("#theme-editor-template").content.cloneNode(true));
     this.append(this.editor, this.output);
-    this.output.append(this.preview, this.report, this.code, this.copyCode);
+    this.output.append(
+      $elem(
+        "div",
+        {},
+        "Jump to: ",
+        $elem(
+          "a",
+          { className: "candy-link", href: "#preview" },
+          "Theme preview",
+        ),
+        " ",
+        middot,
+        " ",
+        $elem(
+          "a",
+          { className: "candy-link", href: "#accessibility" },
+          "Accessibility report",
+        ),
+        " ",
+        middot,
+        " ",
+        $elem("a", { className: "candy-link", href: "#css" }, "CSS code"),
+      ),
+      this.preview,
+      this.report,
+      this.code,
+      this.copyCode,
+    );
     this.themeSelect = $elem(
       "select",
       {
@@ -246,6 +275,7 @@ class SiteThemeEditor extends HTMLElement {
     tableContainer.className =
       "candy-box site-table-responsive contrast-table-container";
     const table = document.createElement("table");
+    table.id = "accessibility";
     table.className = "candy-table contrast-table";
     tableContainer.append(table);
     const thead = $elem("thead", {});
