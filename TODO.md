@@ -1,7 +1,3 @@
-- Work on theme editor
-
-- Audit color accessibility
-
 - Support `[aria-disabled="true"]` in addition to `:disabled`
 
 - Remove checkbox margin?
