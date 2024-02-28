@@ -106,7 +106,7 @@ class SiteThemeEditor extends HTMLElement {
       "--candy-color-accent-background2": "hsl(85 80% 45%)",
       "--candy-color-accent-border1": "hsl(85 80% 80%)",
       "--candy-color-accent-text1": "hsl(85 80% 5%)",
-      "--candy-color-shadow1": "hsl(160 50% 0% / 50%)",
+      "--candy-color-shadow1": "hsl(160 50% 5% / 50%)",
     },
     gray: {
       "--candy-color-background1": "hsl(0 0% 100%)",
@@ -272,8 +272,9 @@ class SiteThemeEditor extends HTMLElement {
     const div = document.createElement("div");
     div.className = "site-flex-row-wrap";
     const tableContainer = document.createElement("div");
+    tableContainer.tabIndex = 0;
     tableContainer.className =
-      "candy-box site-table-responsive contrast-table-container";
+      "candy-box site-table-responsive contrast-table-container candy-focus";
     const table = document.createElement("table");
     table.id = "accessibility";
     table.className = "candy-table contrast-table";

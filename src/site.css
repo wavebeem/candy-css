@@ -96,12 +96,14 @@ summary.candy-button {
 
 .site-header {
   padding: 1rem;
-  border-bottom: 1px solid var(--candy-color-border2);
+  border-bottom: 1px solid var(--candy-color-border1);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 1rem 2rem;
-  box-shadow: 0 2px 2px 0 var(--candy-color-shadow1);
+  box-shadow:
+    0 1px 4px 0 var(--candy-color-shadow1),
+    0 2px 8px 0 var(--candy-color-shadow1);
   z-index: 1;
 }
 

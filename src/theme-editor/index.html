@@ -47,7 +47,7 @@
     <site-theme-editor>Loading theme editor&hellip;</site-theme-editor>
 
     <template id="theme-editor-template">
-      <h1 class="candy-bright" style="margin-top: 0;">Preview</h1>
+      <h1 class="candy-bright" style="margin-top: 0">Preview</h1>
 
       <p>
         Scroll down to see a live accessibility report and to copy your theme as
@@ -168,7 +168,10 @@
       </div>
 
       <h2 class="candy-bright">Tables</h2>
-      <div class="candy-box site-table-responsive site-table-music">
+      <div
+        class="candy-box site-table-responsive site-table-music candy-focus"
+        tabindex="0"
+      >
         <table class="candy-table" style="width: 100%">
           <thead>
             <tr>
@@ -271,7 +274,8 @@
 
       <h2 class="candy-bright">Scrollbars</h2>
       <div
-        class="candy-scrollbar candy-well"
+        tabindex="0"
+        class="candy-scrollbar candy-well candy-focus"
         style="overflow-y: scroll; max-height: 300px"
       >
         <p style="margin-top: 0">

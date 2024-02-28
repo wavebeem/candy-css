@@ -73,6 +73,7 @@ site-theme-editor .contrast-table-container {
 site-theme-editor .contrast-table :is(th, td) {
   text-align: right;
   font-variant: tabular-nums;
+  white-space: nowrap;
 }
 
 site-theme-editor .contrast-table :is(th, td):first-child {
