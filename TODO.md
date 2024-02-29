@@ -2,4 +2,4 @@
 
 - Add a `.candy-field` wrapper for text fields?
 
-- Fix the select arrow in chrome :( [is this non-retina only?]
+- Does the select arrow look OK in all browsers at retina and non-retina sizes?

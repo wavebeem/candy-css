@@ -11,11 +11,13 @@ export function $$(selector, root = document) {
 
 export function $elem(tagName, props, ...children) {
   const element = document.createElement(tagName);
-  for (const key of Object.keys(props)) {
-    if (key in element) {
-      element[key] = props[key];
-    } else {
-      element.setAttribute(key, props[key]);
+  if (props) {
+    for (const key of Object.keys(props)) {
+      if (key in element) {
+        element[key] = props[key];
+      } else {
+        element.setAttribute(key, props[key]);
+      }
     }
   }
   element.append(...children);

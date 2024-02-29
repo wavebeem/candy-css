@@ -220,6 +220,7 @@ class SiteThemeEditor extends HTMLElement {
         { value: "", selected: true, disabled: true },
         "Load theme...",
       ),
+      $elem("hr"),
       ...Object.keys(this.themes).map((key) => {
         return $elem("option", { value: key }, this.themeNames[key] || key);
       }),

@@ -30,6 +30,7 @@ site-theme-editor .color-preview {
   --size: 16px;
   --half: calc(var(--size) / 2);
   aspect-ratio: 1;
+  height: 100%;
   position: relative;
   flex: 0 0 auto;
   border: 1px solid #000;

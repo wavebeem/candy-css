@@ -7,7 +7,7 @@
     monospace;
   --site-font-sans: system-ui, sans-serif;
   font-family: var(--site-font-sans);
-  color-scheme: light dark;
+  color-scheme: light;
 }
 
 body {
