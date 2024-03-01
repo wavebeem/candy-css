@@ -1,9 +1,5 @@
 # candy.css
 
-## candy.css IS A WORK IN PROGRESS
-
-> Please check back later!
-
 Go to [candy.wavebeem.com](https://candy.wavebeem.com) for examples, documentation, and usage.
 
 ## Development
