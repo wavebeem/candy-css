@@ -1,7 +1,7 @@
 {
   "name": "candy.css",
-  "version": "0.6.0",
-  "description": "A CSS library inspired by the Game Boy Color, for making 2-bit (4 color) interfaces",
+  "version": "0.1.0",
+  "description": "A shiny CSS library for making Web 2.0 inspired website.",
   "browser": "dist/candy.css",
   "files": [
     "dist/candy.css",
