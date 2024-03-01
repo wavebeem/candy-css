@@ -1,7 +1,13 @@
 {
-  "name": "@wavebeem/candy-css",
+  "name": "candy-css",
   "version": "0.1.0",
   "description": "A shiny CSS library for making Web 2.0 inspired websites.",
+  "author": "Sage Fennel <sage@wavebeem.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wavebeem/candy-css/issues"
+  },
+  "homepage": "https://github.com/wavebeem/candy-css#readme",
   "browser": "dist/candy.css",
   "files": [
     "dist/candy.css",
@@ -30,16 +36,14 @@
     "ui",
     "ui library"
   ],
-  "author": "Sage Fennel <sage@wavebeem.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/wavebeem/candy-css/issues"
-  },
-  "homepage": "https://github.com/wavebeem/candy-css#readme",
   "devDependencies": {
     "npm-check": "^6.0.1",
     "prettier": "^3.2.5",
     "serve": "^14.2.1",
     "shelljs": "^0.8.5"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
