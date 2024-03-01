@@ -31,6 +31,17 @@ function cleanCSSPropertyValue(value) {
   return value.trim();
 }
 
+function stringMatchesPattern(string, pattern) {
+  if (pattern.endsWith("*")) {
+    return string.startsWith(pattern.slice(0, -1));
+  }
+  return string === pattern;
+}
+
+function stringSplit(string) {
+  return string.trim().split(/\s+/);
+}
+
 const candyRoot = document.querySelector(".candy-root");
 const baseCustomProperties = {};
 const candyRootStyle = getComputedStyle(candyRoot);
@@ -87,10 +98,10 @@ customElements.define("inject-example", InjectExample);
 
 class CustomPropertiesEditor extends HTMLElement {
   connectedCallback() {
-    const properties = (this.dataset.properties || "")
-      .trim()
-      .split(/\s+/)
-      .filter((x) => x);
+    const patterns = stringSplit(this.dataset.properties || "");
+    const properties = Object.keys(baseCustomProperties).filter((key) =>
+      patterns.some((pattern) => stringMatchesPattern(key, pattern)),
+    );
     // TODO: Don't alter class list in a custom element
     this.classList.add("candy-card", "site-property-editor");
     const title = document.createElement("h3");

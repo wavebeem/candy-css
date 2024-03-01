@@ -21,7 +21,7 @@
 
   /* Radio buttons & checkboxes */
   --candy-choice-item-radius: 2px;
-  --candy-choice-item-size: 1.5em;
+  --candy-choice-item-size: 1.5rem;
   --candy-choice-gap: 0.5rem;
   --candy-choice-padding-vertical: 0.5rem;
   --candy-choice-padding-horizontal: 0.5rem;
@@ -68,6 +68,10 @@
   /* Legends */
   --candy-legend-padding-horizontal: 0.5rem;
   --candy-legend-padding-vertical: 0rem;
+
+  /* Dividers */
+  --candy-divider-margin-horizontal: 0rem;
+  --candy-divider-margin-vertical: 0.5rem;
 
   /* Textures */
   --candy-texture-striped-size: 8px;
@@ -196,7 +200,7 @@
 .candy-auto :where(input[type="checkbox"]):checked,
 .candy-checkbox:checked {
   --_candy-checkbox-blur: 0.5px;
-  --_candy-checkbox-size: 0.125em;
+  --_candy-checkbox-size: 0.125rem;
   --_candy-checkbox-start: calc(50% - 0.5 * var(--_candy-checkbox-size));
   --_candy-checkbox-end: calc(
     var(--_candy-checkbox-start) + var(--_candy-checkbox-size)
@@ -481,8 +485,10 @@
 .candy-link:focus-visible {
   text-decoration-line: none;
   outline: 2px solid var(--candy-color-accent-background1);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 1px var(--candy-color-background1);
+  outline-offset: 1px;
+  box-shadow:
+    0 0 0 1px var(--candy-color-background1),
+    0 0 0 4px var(--candy-color-background1);
 }
 
 /* Input / Text Area */
@@ -655,8 +661,8 @@
   background: var(--candy-color-background3);
   color: var(--candy-color-text2);
   border: 1px solid var(--candy-color-border2);
-  padding: var(--candy-card-padding-vertical)
-    var(--candy-card-padding-horizontal);
+  padding: var(--candy-well-padding-vertical)
+    var(--candy-well-padding-horizontal);
   box-shadow: var(--candy-shadow-inset);
   border-radius: var(--candy-well-radius);
 }
@@ -680,6 +686,8 @@
   box-sizing: border-box;
   border: 0;
   border-top: 1px solid var(--candy-color-border3);
+  margin: var(--candy-divider-margin-vertical)
+    var(--candy-divider-margin-horizontal);
 }
 
 .candy-auto :where(pre),
@@ -698,7 +706,9 @@
 .candy-focus:focus-visible {
   outline: 3px solid var(--candy-color-accent-background1);
   outline-offset: -1px;
-  box-shadow: 0 0 0 3px var(--candy-color-background1);
+  box-shadow:
+    inset 0 0 0 1px var(--candy-color-background1),
+    0 0 0 3px var(--candy-color-background1);
 }
 
 /* Textures */

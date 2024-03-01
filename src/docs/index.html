@@ -50,7 +50,7 @@
           <h1>Documentation</h1>
         </div>
         <section>
-          <h2>Introduction</h2>
+          <h2 id="introduction">Introduction</h2>
           <p>
             This page demonstrates some of the ways candy.css can be used, as
             well as code for its examples.
@@ -71,22 +71,7 @@
           <details>
             <summary class="candy-button">Edit CSS custom properties</summary>
             <custom-properties-editor
-              data-properties="
-              --candy-color-background1
-              --candy-color-background2
-              --candy-color-background3
-              --candy-color-background4
-              --candy-color-text1
-              --candy-color-text2
-              --candy-color-border1
-              --candy-color-border2
-              --candy-color-border3
-              --candy-color-accent1
-              --candy-color-accent2
-              --candy-color-shadow1
-              --candy-shadow-outset
-              --candy-shadow-inset
-            "
+              data-properties="--candy-color-* --candy-shadow-*"
             ></custom-properties-editor>
           </details>
         </section>
@@ -94,11 +79,7 @@
         <section>
           <h2 id="buttons">Buttons</h2>
           <inject-example
-            data-properties="
-              --candy-button-padding-horizontal
-              --candy-button-padding-vertical
-              --candy-button-radius
-            "
+            data-properties="--candy-button-*"
             data-example="buttons"
           ></inject-example>
         </section>
@@ -106,11 +87,7 @@
         <section>
           <h2 id="inputs">Text inputs</h2>
           <inject-example
-            data-properties="
-              --candy-input-padding-horizontal
-              --candy-input-padding-vertical
-              --candy-input-radius
-            "
+            data-properties="--candy-input-*"
             data-example="inputs"
           ></inject-example>
         </section>
@@ -118,11 +95,7 @@
         <section>
           <h2 id="selects">Selects</h2>
           <inject-example
-            data-properties="
-              --candy-select-padding-horizontal
-              --candy-select-padding-vertical
-              --candy-select-radius
-            "
+            data-properties="--candy-select-*"
             data-example="select"
           ></inject-example>
         </section>
@@ -141,16 +114,16 @@
             that instead, but using a <code>label</code> wrapper is easier to
             implement and provides a larger clickable area.
           </p>
-          <inject-example data-example="choice"></inject-example>
+          <inject-example
+            data-properties="--candy-choice-* --candy-checkbox-* --candy-radio-*"
+            data-example="choice"
+          ></inject-example>
         </section>
 
         <section>
           <h2 id="tables">Tables</h2>
           <inject-example
-            data-properties="
-              --candy-table-padding-horizontal
-              --candy-table-padding-vertical
-            "
+            data-properties="--candy-table-*"
             data-example="tableBasic"
           ></inject-example>
         </section>
@@ -192,11 +165,7 @@
             wells appear sunken.
           </p>
           <inject-example
-            data-properties="
-              --candy-well-padding-horizontal
-              --candy-well-padding-vertical
-              --candy-well-radius
-            "
+            data-properties="--candy-well-*"
             data-example="well"
           ></inject-example>
         </section>
@@ -216,13 +185,7 @@
             especially useful when grouping checkboxes or radio buttons.
           </p>
           <inject-example
-            data-properties="
-              --candy-fieldset-padding-horizontal
-              --candy-fieldset-padding-vertical
-              --candy-fieldset-radius
-              --candy-legend-padding-horizontal
-              --candy-legend-padding-vertical
-            "
+            data-properties="--candy-fieldset-* --candy-legend-*"
             data-example="fieldsetLegend"
           ></inject-example>
         </section>
@@ -244,9 +207,7 @@
             be applied to nav bars, sidebars, or content areas.
           </p>
           <inject-example
-            data-properties="
-              --candy-texture-striped-size
-            "
+            data-properties="--candy-texture-*"
             data-example="textures"
           ></inject-example>
           <p>
@@ -283,7 +244,10 @@
 
         <section>
           <h2 id="divider">Dividers</h2>
-          <inject-example data-example="divider"></inject-example>
+          <inject-example
+            data-properties="--candy-divider-*"
+            data-example="divider"
+          ></inject-example>
         </section>
 
         <section>
@@ -293,11 +257,7 @@
             blocks.
           </p>
           <inject-example
-            data-properties="
-              --candy-code-padding-horizontal
-              --candy-code-padding-vertical
-              --candy-code-radius
-            "
+            data-properties="--candy-code-*"
             data-example="code"
           ></inject-example>
         </section>
@@ -305,10 +265,7 @@
         <section>
           <h2 id="text">Text styles</h2>
           <inject-example
-            data-properties="
-              --candy-link-radius
-              --candy-link-underline
-            "
+            data-properties="--candy-link-*"
             data-example="text"
           ></inject-example>
         </section>
@@ -681,7 +638,8 @@ function sayHello() {
 
     <template id="template-scrollbars">
       <div
-        class="candy-scrollbar candy-well"
+        tabindex="0"
+        class="candy-scrollbar candy-well candy-focus"
         style="overflow-y: scroll; max-height: 300px"
       >
         <p style="margin-top: 0">
@@ -752,7 +710,10 @@ function sayHello() {
         you want a responsive table, then the scroll code should be on the
         parent element along with <code>candy-box</code>
       </p>
-      <div class="candy-box site-table-responsive site-table-music">
+      <div
+        tabindex="0"
+        class="candy-box candy-focus site-table-responsive site-table-music"
+      >
         <table class="candy-table" style="width: 100%">
           <thead>
             <tr>
@@ -920,7 +881,7 @@ function sayHello() {
     </template>
 
     <template id="template-tableRowHeaders">
-      <div class="candy-box site-table-responsive">
+      <div tabindex="0" class="candy-box candy-focus site-table-responsive">
         <table class="candy-table">
           <thead>
             <tr>
@@ -955,7 +916,7 @@ function sayHello() {
     </template>
 
     <template id="template-tableTfoot">
-      <div class="candy-box site-table-responsive">
+      <div tabindex="0" class="candy-box candy-focus site-table-responsive">
         <table class="candy-table">
           <thead>
             <tr>
