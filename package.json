@@ -1,6 +1,6 @@
 {
   "name": "candy-css",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A shiny CSS library for making Web 2.0 inspired websites.",
   "browser": "dist/candy.css",
   "files": [
