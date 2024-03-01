@@ -78,6 +78,15 @@
 
         <section>
           <h2 id="buttons">Buttons</h2>
+          <p>
+            The class <code>candy-button</code> can turn any element into a
+            button visually. Intended for <code>button</code> tags, it will work
+            on <code>a</code> tags too.
+          </p>
+          <p>
+            Primary buttons use the class <code>candy-primary</code> in addition
+            to <code>candy-button</code>.
+          </p>
           <inject-example
             data-properties="--candy-button-*"
             data-example="buttons"
@@ -86,14 +95,23 @@
 
         <section>
           <h2 id="inputs">Text inputs</h2>
+          <p>
+            The <code>candy-input</code> class should be used for text inputs
+            and text area elements. The <code>candy-field</code> class should be
+            used for wrapping input with a label.
+          </p>
           <inject-example
-            data-properties="--candy-input-*"
+            data-properties="--candy-field-* --candy-input-*"
             data-example="inputs"
           ></inject-example>
         </section>
 
         <section>
           <h2 id="selects">Selects</h2>
+          <p>
+            The class <code>candy-select</code> should be put on
+            <code>select</code> elements.
+          </p>
           <inject-example
             data-properties="--candy-select-*"
             data-example="select"
@@ -172,6 +190,10 @@
 
         <section>
           <h2 id="box">Boxes</h2>
+          <p>
+            Boxes are used to draw borders around items. Tables in particular
+            require the use of <code>candy-box</code> in order to have a border.
+          </p>
           <inject-example
             data-properties=""
             data-example="box"
@@ -204,18 +226,20 @@
           <h2 id="textures">Textures</h2>
           <p>
             Textures are meant to be used in your own containers. Textures can
-            be applied to nav bars, sidebars, or content areas.
+            be applied to nav bars, sidebars, or content areas. Use the class
+            <code>candy-texture-</code> followed by the texture name in
+            lowercase.
           </p>
-          <inject-example
-            data-properties="--candy-texture-*"
-            data-example="textures"
-          ></inject-example>
           <p>
             The striped texture is best reserved for highly decorative elements,
             like the main nav bar on a page, or a page hero element. You can
             also nest a box inside a container using the stripe texture in order
             to make the content more readable.
           </p>
+          <inject-example
+            data-properties="--candy-texture-*"
+            data-example="textures"
+          ></inject-example>
         </section>
 
         <section>
@@ -346,10 +370,6 @@ Preformatted text goes here.
     </template>
 
     <template id="template-buttons">
-      <p>
-        Primary buttons use the class <code>candy-primary</code> in addition to
-        <code>candy-button</code>.
-      </p>
       <div class="site-flex-column site-gap">
         <div class="site-flex-row-wrap">
           <button type="button" class="candy-button candy-primary">
@@ -520,36 +540,36 @@ Preformatted text goes here.
     <template id="template-inputs"
       ><div class="site-flex-column site-gap">
         <div class="site-columns-auto site-gap">
-          <label class="site-flex-column site-gap-xs">
+          <label class="candy-field">
             <div>Name</div>
             <input class="candy-input" value="Text" />
           </label>
-          <label class="site-flex-column site-gap-xs">
+          <label class="candy-field">
             <div>Name</div>
             <input class="candy-input" placeholder="Placeholder" />
           </label>
-          <label class="site-flex-column site-gap-xs">
+          <label class="candy-field">
             <div>Name</div>
             <input class="candy-input" id="field-name" />
           </label>
         </div>
         <div class="site-columns-auto site-gap">
-          <label class="site-flex-column site-gap-xs">
+          <label class="candy-field">
             <div>Name</div>
             <input disabled class="candy-input" value="Text" />
           </label>
-          <label class="site-flex-column site-gap-xs">
+          <label class="candy-field">
             <div>Name</div>
             <input disabled class="candy-input" placeholder="Placeholder" />
           </label>
-          <label class="site-flex-column site-gap-xs">
+          <label class="candy-field">
             <div>Name</div>
             <input disabled class="candy-input" id="field-name" />
           </label>
         </div>
         <br />
         <div class="site-columns-auto">
-          <label class="site-flex-column site-gap-xs">
+          <label class="candy-field">
             <div>Description</div>
             <textarea
               rows="4"
@@ -560,7 +580,7 @@ Preformatted text goes here.
 A &lt;textarea&gt; is used for multi-line text input.</textarea
             >
           </label>
-          <label class="site-flex-column site-gap-xs">
+          <label class="candy-field">
             <div>Description</div>
             <textarea
               rows="4"
@@ -570,7 +590,7 @@ A &lt;textarea&gt; is used for multi-line text input.</textarea
               placeholder="Placeholder for a mulit-line text input."
             ></textarea>
           </label>
-          <label class="site-flex-column site-gap-xs">
+          <label class="candy-field">
             <div>Description</div>
             <textarea
               rows="4"
@@ -581,7 +601,7 @@ A &lt;textarea&gt; is used for multi-line text input.</textarea
           </label>
         </div>
         <div class="site-columns-auto">
-          <label class="site-flex-column site-gap-xs">
+          <label class="candy-field">
             <div>Description</div>
             <textarea
               disabled
@@ -593,7 +613,7 @@ A &lt;textarea&gt; is used for multi-line text input.</textarea
 A &lt;textarea&gt; is used for multi-line text input.</textarea
             >
           </label>
-          <label class="site-flex-column site-gap-xs">
+          <label class="candy-field">
             <div>Description</div>
             <textarea
               disabled
@@ -604,7 +624,7 @@ A &lt;textarea&gt; is used for multi-line text input.</textarea
               placeholder="Placeholder for a mulit-line text input."
             ></textarea>
           </label>
-          <label class="site-flex-column site-gap-xs">
+          <label class="candy-field">
             <div>Description</div>
             <textarea
               disabled

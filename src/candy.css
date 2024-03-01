@@ -36,6 +36,7 @@
   --candy-select-radius: 4px;
 
   /* Inputs */
+  --candy-field-gap: 0.25rem;
   --candy-input-padding-vertical: 0.5rem;
   --candy-input-padding-horizontal: 0.5rem;
   --candy-input-radius: 2px;
@@ -441,6 +442,12 @@
 }
 
 /* Input / Text Area */
+
+.candy-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--candy-field-gap);
+}
 
 .candy-input {
   box-sizing: border-box;
