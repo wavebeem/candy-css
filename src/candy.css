@@ -98,7 +98,10 @@
   user-select: none;
 }
 
-.candy-choice > :where(:is(.candy-radio, .candy-checkbox):disabled + *) {
+.candy-choice
+  > :where(
+    :is(.candy-radio, .candy-checkbox):is(:disabled, [aria-disabled="true"]) + *
+  ) {
   color: var(--candy-color-border1);
 }
 
@@ -158,21 +161,27 @@
   box-shadow: inset 0 2px 2px var(--candy-color-shadow1);
 }
 
-.candy-auto :where(input[type="checkbox"], input[type="radio"]):focus-visible,
-.candy-checkbox:focus-visible,
-.candy-radio:focus-visible {
-  box-shadow: none;
-  outline: 3px solid var(--candy-color-accent-background1);
-  outline-offset: -1px;
-}
-
-.candy-auto :where(input[type="checkbox"], input[type="radio"]):disabled,
-.candy-checkbox:disabled,
-.candy-radio:disabled {
+.candy-auto
+  :where(input[type="checkbox"], input[type="radio"]):is(
+    :disabled,
+    [aria-disabled="true"]
+  ),
+.candy-checkbox:is(:disabled, [aria-disabled="true"]),
+.candy-radio:is(:disabled, [aria-disabled="true"]) {
   background: var(--candy-color-background4);
   color: var(--candy-color-border3);
   border-color: var(--candy-color-border3);
   box-shadow: none;
+}
+
+.candy-auto :where(input[type="checkbox"], input[type="radio"]):focus-visible,
+.candy-checkbox:focus-visible,
+.candy-radio:focus-visible {
+  box-shadow:
+    inset 0 0 0 1px var(--candy-color-background1),
+    0 0 0 3px var(--candy-color-background1);
+  outline-offset: -1px;
+  outline: 3px solid var(--candy-color-accent-background1);
 }
 
 .candy-auto :where(input[type="checkbox"], input[type="radio"]):checked,
@@ -242,12 +251,28 @@
 }
 
 .candy-auto
-  :where(input[type="checkbox"], input[type="radio"]):checked:disabled,
-.candy-checkbox:checked:disabled,
-.candy-radio:checked:disabled {
+  :where(input[type="checkbox"], input[type="radio"]):checked:is(
+    :disabled,
+    [aria-disabled="true"]
+  ),
+.candy-checkbox:checked:is(:disabled, [aria-disabled="true"]),
+.candy-radio:checked:is(:disabled, [aria-disabled="true"]) {
   --_candy-color-filled-background: var(--candy-color-background4);
   --_candy-color-filled-fill: var(--candy-color-border2);
   --_candy-color-filled-border: var(--candy-color-border3);
+}
+
+.candy-auto
+  :where(input[type="checkbox"], input[type="radio"]):checked:is(
+    :disabled,
+    [aria-disabled="true"]
+  ):focus-visible,
+.candy-checkbox:checked:is(:disabled, [aria-disabled="true"]):focus-visible,
+.candy-radio:checked:is(:disabled, [aria-disabled="true"]):focus-visible {
+  box-shadow:
+    inset 0 0 0 1px var(--candy-color-background1),
+    inset 0 0 0 6px var(--candy-color-background4),
+    0 0 0 3px var(--candy-color-background1);
 }
 
 /* Table */
@@ -341,6 +366,21 @@
     input[type="button"],
     input[type="submit"],
     input[type="color"]
+  ):is(:disabled, [aria-disabled="true"]),
+.candy-button:is(:disabled, [aria-disabled="true"]) {
+  background: var(--candy-color-background4);
+  transform: none;
+  box-shadow: none;
+  color: var(--candy-color-border1);
+  border-color: var(--candy-color-border3);
+}
+
+.candy-auto
+  :where(
+    button,
+    input[type="button"],
+    input[type="submit"],
+    input[type="color"]
   ):focus-visible,
 .candy-button:focus-visible {
   outline: 3px solid var(--candy-color-accent-background1);
@@ -350,26 +390,13 @@
     0 0 0 3px var(--candy-color-background1);
 }
 
-.candy-auto
-  :where(
-    button,
-    input[type="button"],
-    input[type="submit"],
-    input[type="color"]
-  ):disabled,
-.candy-button:disabled {
-  background: var(--candy-color-background4);
-  transform: none;
-  box-shadow: none;
-  color: var(--candy-color-border1);
-  border-color: var(--candy-color-border3);
-}
-
 .candy-button.candy-primary {
   font-weight: bold;
 }
 
-.candy-button.candy-primary:where(:not(:disabled)) {
+.candy-button.candy-primary:where(
+    :not(:is(:disabled, [aria-disabled="true"]))
+  ) {
   --_candy-button-text: var(--candy-color-accent-text1);
   --_candy-button-background1: var(--candy-color-accent-background1);
   --_candy-button-background2: var(--candy-color-accent-background2);
@@ -439,23 +466,14 @@
   border-radius: var(--candy-select-radius);
 }
 
-.candy-auto :where(select):focus-visible,
-.candy-select:focus-visible {
-  outline: 3px solid var(--candy-color-accent-background1);
-  outline-offset: -1px;
-  box-shadow:
-    inset 0 0 0 1px var(--candy-color-background1),
-    0 0 0 3px var(--candy-color-background1);
-}
-
 .candy-auto :where(select):-moz-focusring,
 .candy-select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 var(--candy-color-text2);
 }
 
-.candy-auto :where(select):disabled,
-.candy-select:disabled {
+.candy-auto :where(select):is(:disabled, [aria-disabled="true"]),
+.candy-select:is(:disabled, [aria-disabled="true"]) {
   background: var(--_candy-select-arrow);
   --_candy-select-handle-fg: var(--candy-color-border1);
   --_candy-select-handle-bg: var(--candy-color-background4);
@@ -463,6 +481,15 @@
   border-color: var(--candy-color-border3);
   border-style: solid;
   box-shadow: none;
+}
+
+.candy-auto :where(select):focus-visible,
+.candy-select:focus-visible {
+  outline: 3px solid var(--candy-color-accent-background1);
+  outline-offset: -1px;
+  box-shadow:
+    inset 0 0 0 1px var(--candy-color-background1),
+    0 0 0 3px var(--candy-color-background1);
 }
 
 /* Text styles */
@@ -527,13 +554,12 @@
     input[type="number"],
     input[type="password"],
     textarea
-  ):focus-visible,
-.candy-input:focus-visible {
-  outline: 3px solid var(--candy-color-accent-background1);
-  outline-offset: -1px;
-  box-shadow:
-    inset 0 0 0 1px var(--candy-color-background1),
-    0 0 0 3px var(--candy-color-background1);
+  ):is(:disabled, [aria-disabled="true"]),
+.candy-input:is(:disabled, [aria-disabled="true"]) {
+  background: var(--candy-color-background4);
+  box-shadow: none;
+  color: var(--candy-color-border1);
+  border-color: var(--candy-color-border3);
 }
 
 .candy-auto
@@ -547,12 +573,13 @@
     input[type="number"],
     input[type="password"],
     textarea
-  ):disabled,
-.candy-input:disabled {
-  background: var(--candy-color-background4);
-  box-shadow: none;
-  color: var(--candy-color-border1);
-  border-color: var(--candy-color-border3);
+  ):focus-visible,
+.candy-input:focus-visible {
+  outline: 3px solid var(--candy-color-accent-background1);
+  outline-offset: -1px;
+  box-shadow:
+    inset 0 0 0 1px var(--candy-color-background1),
+    0 0 0 3px var(--candy-color-background1);
 }
 
 .candy-auto
@@ -640,7 +667,7 @@
     .candy-radio,
     .candy-checkbox,
     .candy-select
-  ):is(:active):where(:not(:disabled)) {
+  ):is(:active):where(:not(:is(:disabled, [aria-disabled="true"]))) {
   filter: brightness(0.9);
 }
 
