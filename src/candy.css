@@ -391,8 +391,7 @@
 .candy-select {
   --_candy-select-blur: 0.5px;
   --_candy-select-handle-angle: 45deg;
-  /* 6px assuming 1rem = 16px */
-  --_candy-select-handle-size: 0.375rem;
+  --_candy-select-handle-size: 6px;
   --_candy-select-handle-width: var(--_candy-select-handle-size);
   --_candy-select-handle-height: var(--_candy-select-handle-size);
   --_candy-select-handle-fg: var(--candy-color-text1);
