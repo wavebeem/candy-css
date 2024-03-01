@@ -348,8 +348,7 @@ class SiteThemeEditor extends HTMLElement {
   }
 
   #generateCode() {
-    let code = ".candy-auto, \n";
-    code += ".candy-root {\n";
+    let code = ".candy-root {\n";
     for (const [key, value] of Object.entries(this.theme)) {
       code += `  ${key}: ${value};\n`;
     }

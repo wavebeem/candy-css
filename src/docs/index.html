@@ -264,9 +264,49 @@
 
         <section>
           <h2 id="text">Text styles</h2>
+          <p>
+            The class <code>candy-link</code> can be used for styling anchor
+            tags. The class <code>candy-bright</code> can be used to apply the
+            brighter text color to an element.
+          </p>
+          <p>
+            The class <code>candy-prose</code> can be used as a wrapper which
+            will cause many HTML elements to automatically receive certain
+            styles:
+          </p>
+          <ul>
+            <li>
+              <p>
+                <code>h1</code>, <code>h2</code>, <code>h3</code>,
+                <code>h4</code>, <code>h5</code>, <code>h6</code>,
+                <code>b</code>, <code>i</code>, <code>em</code>,
+                <code>strong</code>, and <code>code</code> tags not directly
+                inside of <code>pre</code> tags will all behave as if they have
+                the class <code>candy-bright</code> applied to them.
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>a</code> tags will behave as if they have the class
+                <code>candy-link</code> applied to them.
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>hr</code> tags will behave as if they have the class
+                <code>candy-divider</code> applied to them.
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>pre</code> tags will behave as if they have the class
+                <code>candy-code</code> applied to them.
+              </p>
+            </li>
+          </ul>
           <inject-example
             data-properties="--candy-link-*"
-            data-example="text"
+            data-example="prose"
           ></inject-example>
         </section>
 
@@ -278,27 +318,31 @@
       </div>
     </main>
 
-    <template id="template-text">
+    <template id="template-prose">
       <p>
         This is an
         <a href="#" class="candy-link">example link</a>
-        within a sentence.
+        within a <span class="candy-bright">sentence</span>.
       </p>
-      <p>
-        Lorem ipsum dolor sit amet,
-        <a href="#" class="candy-link">consectetur</a> adipiscing elit. Nunc
-        finibus est ac velit faucibus volutpat. Nullam aliquet sollicitudin
-        accumsan. Nulla pretium et
-        <a href="#" class="candy-link">augue vel scelerisque</a>. Donec sit amet
-        semper sapien, at facilisis velit. Quisque vitae egestas justo,
-        facilisis vulputate felis.
-        <a href="#" class="candy-link">Phasellus</a> sit amet rhoncus nisi.
-        Nullam quis dignissim tellus, vitae
-        <a href="#" class="candy-link">tincidunt ex</a>. Maecenas
-        <i class="candy-bright">tempus</i> mi arcu, at gravida orci lobortis
-        sed. In laoreet blandit eros non <b class="candy-bright">fermentum</b>.
-        Donec iaculis varius viverra.
-      </p>
+      <div class="candy-prose">
+        <p>
+          Lorem ipsum dolor sit amet,
+          <a href="#">consectetur</a> adipiscing elit. Nunc finibus est ac velit
+          faucibus volutpat. Nullam aliquet sollicitudin accumsan. Nulla pretium
+          et <a href="#">augue vel scelerisque</a>. Donec sit amet semper
+          sapien, at facilisis velit. <em>Quisque</em> vitae egestas justo,
+          facilisis vulputate felis. <a href="#">Phasellus</a> sit amet rhoncus
+          nisi. Nullam quis dignissim tellus, vitae
+          <a href="#">tincidunt ex</a>. Maecenas <i>tempus</i> mi arcu, at
+          <strong>gravida</strong> orci lobortis sed. In laoreet blandit eros
+          non <b>fermentum</b>. Donec iaculis varius viverra.
+        </p>
+        <hr />
+        <pre>
+Preformatted text goes here.
+</pre
+        >
+      </div>
     </template>
 
     <template id="template-buttons">
