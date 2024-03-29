@@ -1,3 +1,16 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Medium.woff2") format("woff2");
+  font-weight: 600 700;
+  font-display: swap;
+}
+
 :root {
   --site-sidebar-width: calc(300px + 2rem);
   box-sizing: border-box;
@@ -5,7 +18,7 @@
   line-height: 1.5;
   --site-font-monospace: "JetBrains Mono", "Cascadia Code", "Menlo", "Consolas",
     monospace;
-  --site-font-sans: system-ui, sans-serif;
+  --site-font-sans: "Roboto", system-ui, sans-serif;
   font-family: var(--site-font-sans);
   color-scheme: light;
 }
@@ -122,6 +135,7 @@ summary.candy-button {
 .toc-link {
   font-weight: bold;
   color: var(--candy-color-accent-background1);
+  list-style-type: disclosure-closed;
 }
 
 .toc-link:hover {
@@ -129,8 +143,9 @@ summary.candy-button {
 }
 
 .toc-link::before {
-  content: "→ ";
-  color: var(--candy-color-accent-border);
+  content: "✦";
+  color: var(--candy-color-border2);
+  margin-right: 0.5rem;
 }
 
 @media (min-width: 900px) {
