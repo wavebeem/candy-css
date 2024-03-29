@@ -41,12 +41,12 @@
   /* Buttons */
   --candy-button-padding-vertical: 0.5rem;
   --candy-button-padding-horizontal: 1rem;
-  --candy-button-radius: 4px;
+  --candy-button-radius: 9999px;
 
   /* Selects */
   --candy-select-padding-vertical: 0.5rem;
   --candy-select-padding-horizontal: 1rem;
-  --candy-select-radius: 4px;
+  --candy-select-radius: 6px;
 
   /* Inputs */
   --candy-field-gap: 0.25rem;
@@ -87,7 +87,7 @@
   --candy-divider-margin-vertical: 0.5rem;
 
   /* Textures */
-  --candy-texture-striped-size: 8px;
+  --candy-texture-striped-size: 2px;
 
   /* Links */
   --candy-link-radius: 2px;

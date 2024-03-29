@@ -134,23 +134,18 @@ customElements.define("custom-properties-editor", CustomPropertiesEditor);
 
 class SiteToc extends HTMLElement {
   connectedCallback() {
-    const div = document.createElement("div");
-    div.className = "candy-texture-paper candy-card";
-    // TODO: Don't alter class list in a custom element
-    this.classList.add("site-toc", "candy-texture-striped");
     for (const h2 of document.querySelectorAll("h2")) {
       const a = document.createElement("a");
       a.href = `#${h2.id}`;
       a.textContent = h2.textContent;
-      a.className = "candy-link";
-      div.append(a);
+      a.className = "candy-button toc-link";
+      this.append(a);
       h2.innerHTML = html`<a
         href="#${h2.id}"
         class="candy-link site-link-header"
         >${h2.innerHTML}</a
       >`;
     }
-    this.append(div);
   }
 }
 

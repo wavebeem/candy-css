@@ -34,7 +34,7 @@
     />
   </head>
   <body>
-    <header class="site-header candy-texture-convex">
+    <header class="site-header candy-texture-striped">
       <div>
         <img src="/favicon-192.png" alt="" width="32" height="32" />
         <b>candy.css</b>
@@ -43,7 +43,7 @@
     </header>
 
     <main class="site-main docs-container">
-      <site-toc class="docs-sidebar site-toc candy-texture-striped"></site-toc>
+      <site-toc class="docs-sidebar site-toc"></site-toc>
 
       <div class="docs-content">
         <div class="content">
@@ -375,19 +375,124 @@ Preformatted text goes here.
           <button type="button" class="candy-button candy-primary">
             Primary
           </button>
-          <button type="button" class="candy-button">Save</button>
-          <button type="button" class="candy-button">Delete</button>
-          <button type="button" class="candy-button">&minus;</button>
-          <button type="button" class="candy-button">+</button>
+          <button type="button" class="candy-button">Button</button>
+          <button type="button" class="candy-button">&starf;</button>
         </div>
         <div class="site-flex-row-wrap">
           <button type="button" class="candy-button candy-primary" disabled>
             Primary
           </button>
-          <button type="button" class="candy-button" disabled>Save</button>
-          <button type="button" class="candy-button" disabled>Delete</button>
-          <button type="button" class="candy-button" disabled>+</button>
-          <button type="button" class="candy-button" disabled>&minus;</button>
+          <button type="button" class="candy-button" disabled>Button</button>
+          <button type="button" class="candy-button" disabled>&starf;</button>
+        </div>
+
+        <hr class="candy-divider" />
+
+        <div><b>Buttons with textures</b></div>
+
+        <div class="site-columns-auto-fit grid-min-0">
+          <button type="button" class="candy-button candy-texture-glossy">
+            Glossy
+          </button>
+          <button type="button" class="candy-button candy-texture-glossy">
+            Glossy
+          </button>
+          <button type="button" class="candy-button candy-texture-glossy">
+            Glossy
+          </button>
+          <button type="button" class="candy-button candy-texture-glossy">
+            Glossy
+          </button>
+        </div>
+
+        <div class="site-columns-auto-fit grid-min-0">
+          <button type="button" class="candy-button candy-texture-convex">
+            Convex
+          </button>
+          <button type="button" class="candy-button candy-texture-convex">
+            Convex
+          </button>
+          <button type="button" class="candy-button candy-texture-convex">
+            Convex
+          </button>
+          <button type="button" class="candy-button candy-texture-convex">
+            Convex
+          </button>
+        </div>
+
+        <div class="site-columns-auto-fit grid-min-0">
+          <button type="button" class="candy-button candy-texture-concave">
+            Concave
+          </button>
+          <button type="button" class="candy-button candy-texture-concave">
+            Concave
+          </button>
+          <button type="button" class="candy-button candy-texture-concave">
+            Concave
+          </button>
+          <button type="button" class="candy-button candy-texture-concave">
+            Concave
+          </button>
+        </div>
+
+        <div class="site-columns-auto-fit grid-min-0">
+          <button type="button" class="candy-button candy-texture-striped">
+            Striped
+          </button>
+          <button type="button" class="candy-button candy-texture-striped">
+            Striped
+          </button>
+          <button type="button" class="candy-button candy-texture-striped">
+            Striped
+          </button>
+          <button type="button" class="candy-button candy-texture-striped">
+            Striped
+          </button>
+        </div>
+
+        <div class="site-columns-auto-fit grid-min-0">
+          <button type="button" class="candy-button candy-texture-smooth">
+            Smooth
+          </button>
+          <button type="button" class="candy-button candy-texture-smooth">
+            Smooth
+          </button>
+          <button type="button" class="candy-button candy-texture-smooth">
+            Smooth
+          </button>
+          <button type="button" class="candy-button candy-texture-smooth">
+            Smooth
+          </button>
+        </div>
+
+        <div class="site-columns-auto-fit grid-min-0">
+          <button type="button" class="candy-button candy-texture-paper">
+            Paper
+          </button>
+          <button type="button" class="candy-button candy-texture-paper">
+            Paper
+          </button>
+          <button type="button" class="candy-button candy-texture-paper">
+            Paper
+          </button>
+          <button type="button" class="candy-button candy-texture-paper">
+            Paper
+          </button>
+        </div>
+
+        <div class="site-columns-auto-fit grid-min-0">
+          <button type="button" class="candy-button candy-texture-default">
+            Default
+          </button>
+          <button type="button" class="candy-button candy-texture-default">
+            Default
+          </button>
+          <button type="button" class="candy-button candy-texture-default">
+            Default
+          </button>
+          <button type="button" class="candy-button candy-texture-default">
+            Default
+          </button>
         </div>
       </div>
     </template>
@@ -1068,20 +1173,42 @@ function sayHello() {
       <div class="site-flex-column site-gap">
         <div class="site-columns-auto">
           <div class="candy-card">
-            This is a candy-card. It has a border and comfortable padding to
-            frame your content.
+            This is a candy card with a smooth texture.
           </div>
           <div class="candy-card">
-            This is a candy-card. It has a border and comfortable padding to
-            frame your content.
+            This is a candy card with a smooth texture.
           </div>
-          <div class="candy-card">
-            This is a candy-card. It has a border and comfortable padding to
-            frame your content.
+        </div>
+        <div class="site-columns-auto">
+          <div class="candy-card candy-texture-concave">
+            This is a candy card with a concave texture.
           </div>
-          <div class="candy-card">
-            This is a candy-card. It has a border and comfortable padding to
-            frame your content.
+          <div class="candy-card candy-texture-concave">
+            This is a candy card with a concave texture.
+          </div>
+        </div>
+        <div class="site-columns-auto">
+          <div class="candy-card candy-texture-convex">
+            This is a candy card with a convex texture.
+          </div>
+          <div class="candy-card candy-texture-convex">
+            This is a candy card with a convex texture.
+          </div>
+        </div>
+        <div class="site-columns-auto">
+          <div class="candy-card candy-texture-paper">
+            This is a candy card with a paper texture.
+          </div>
+          <div class="candy-card candy-texture-paper">
+            This is a candy card with a paper texture.
+          </div>
+        </div>
+        <div class="site-columns-auto">
+          <div class="candy-card candy-texture-striped">
+            This is a candy card with a striped texture.
+          </div>
+          <div class="candy-card candy-texture-striped">
+            This is a candy card with a striped texture.
           </div>
         </div>
       </div>
@@ -1091,24 +1218,46 @@ function sayHello() {
       <div class="site-flex-column site-gap">
         <div class="site-columns-auto">
           <div class="candy-well">
-            This is a candy-well. It has a border and comfortable padding to
-            frame your content.
+            This is a candy well with a smooth texture.
           </div>
           <div class="candy-well">
-            This is a candy-well. It has a border and comfortable padding to
-            frame your content.
-          </div>
-          <div class="candy-well">
-            This is a candy-well. It has a border and comfortable padding to
-            frame your content.
-          </div>
-          <div class="candy-well">
-            This is a candy-well. It has a border and comfortable padding to
-            frame your content.
+            This is a candy well with a smooth texture.
           </div>
         </div>
-      </div>
-    </template>
+        <div class="site-columns-auto">
+          <div class="candy-well candy-texture-concave">
+            This is a candy well with a concave texture.
+          </div>
+          <div class="candy-well candy-texture-concave">
+            This is a candy well with a concave texture.
+          </div>
+        </div>
+        <div class="site-columns-auto">
+          <div class="candy-well candy-texture-convex">
+            This is a candy well with a convex texture.
+          </div>
+          <div class="candy-well candy-texture-convex">
+            This is a candy well with a convex texture.
+          </div>
+        </div>
+        <div class="site-columns-auto">
+          <div class="candy-well candy-texture-paper">
+            This is a candy well with a paper texture.
+          </div>
+          <div class="candy-well candy-texture-paper">
+            This is a candy well with a paper texture.
+          </div>
+        </div>
+        <div class="site-columns-auto">
+          <div class="candy-well candy-texture-striped">
+            This is a candy well with a striped texture.
+          </div>
+          <div class="candy-well candy-texture-striped">
+            This is a candy well with a striped texture.
+          </div>
+        </div>
+      </div></template
+    >
 
     <template id="template-box">
       <div class="site-flex-column site-gap">

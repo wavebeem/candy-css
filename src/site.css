@@ -1,5 +1,5 @@
 :root {
-  --site-sidebar-width: 300px;
+  --site-sidebar-width: calc(300px + 2rem);
   box-sizing: border-box;
   padding: 0;
   line-height: 1.5;
@@ -8,6 +8,12 @@
   --site-font-sans: system-ui, sans-serif;
   font-family: var(--site-font-sans);
   color-scheme: light;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -108,10 +114,23 @@ summary.candy-button {
 }
 
 .site-toc {
-  box-shadow: inset 0 -2px 2px 0 var(--candy-color-shadow1);
   padding: 1rem;
   border-bottom: 1px solid var(--candy-color-border2);
   overflow: auto;
+}
+
+.toc-link {
+  font-weight: bold;
+  color: var(--candy-color-accent-background1);
+}
+
+.toc-link:hover {
+  text-decoration-line: none;
+}
+
+.toc-link::before {
+  content: "→ ";
+  color: var(--candy-color-accent-border);
 }
 
 @media (min-width: 900px) {
@@ -134,7 +153,6 @@ summary.candy-button {
   .site-toc {
     border: 0;
     border-right: 1px solid var(--candy-color-border2);
-    box-shadow: inset -2px 0 2px 0 var(--candy-color-shadow1);
   }
 
   .site-header {
@@ -202,6 +220,10 @@ textarea {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--grid-min), 1fr));
   gap: var(--gap);
+}
+
+.grid-min-0 {
+  --grid-min: 0;
 }
 
 .site-theme-grid {
@@ -336,8 +358,7 @@ site-copyright {
   text-decoration-line: none;
 }
 
-.site-nav-menu a:hover,
-.site-toc a:hover {
+.site-nav-menu a:hover {
   text-decoration-line: underline;
 }
 
