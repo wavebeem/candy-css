@@ -417,6 +417,10 @@ site-copyright {
 }
 
 @media (min-width: 500px) {
+  .site-header {
+    flex-direction: row;
+  }
+
   .site-nav-menu {
     display: flex;
     flex-direction: row;
