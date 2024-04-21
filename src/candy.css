@@ -19,7 +19,7 @@
   --candy-shadow-inset: inset 0 2px 4px var(--candy-color-shadow1);
 
   /* Radio buttons & checkboxes */
-  --candy-choice-item-radius: 2px;
+  --candy-choice-item-radius: 0px;
   --candy-choice-item-size: 1.5rem;
   --candy-choice-gap: 0.5rem;
   --candy-choice-padding-vertical: 0.5rem;
@@ -74,7 +74,7 @@
   --candy-divider-margin-vertical: 0.5rem;
 
   /* Textures */
-  --candy-texture-striped-size: 2px;
+  --candy-texture-striped-size: 3px;
 
   /* Links */
   --candy-link-radius: 2px;

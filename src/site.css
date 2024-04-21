@@ -1,3 +1,16 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Medium.woff2") format("woff2");
+  font-weight: 600 700;
+  font-display: swap;
+}
+
 :root {
   --site-sidebar-width: calc(300px + 2rem);
   box-sizing: border-box;
@@ -5,7 +18,7 @@
   line-height: 1.5;
   --site-font-monospace: "JetBrains Mono", "Cascadia Code", "Menlo", "Consolas",
     monospace;
-  --site-font-sans: system-ui, sans-serif;
+  --site-font-sans: "Roboto", system-ui, sans-serif;
   font-family: var(--site-font-sans);
   color-scheme: light;
 }
@@ -101,6 +114,8 @@ summary.candy-button {
 }
 
 .site-header {
+  line-height: 1;
+  font-size: 1.25rem;
   padding: 1rem;
   border-bottom: 1px solid var(--candy-color-border1);
   display: flex;
@@ -122,6 +137,7 @@ summary.candy-button {
 .toc-link {
   font-weight: bold;
   color: var(--candy-color-accent-background1);
+  list-style-type: disclosure-closed;
 }
 
 .toc-link:hover {
@@ -129,8 +145,9 @@ summary.candy-button {
 }
 
 .toc-link::before {
-  content: "→ ";
-  color: var(--candy-color-accent-border);
+  content: "✦";
+  color: var(--candy-color-border2);
+  margin-right: 0.5rem;
 }
 
 @media (min-width: 900px) {
@@ -153,10 +170,6 @@ summary.candy-button {
   .site-toc {
     border: 0;
     border-right: 1px solid var(--candy-color-border2);
-  }
-
-  .site-header {
-    flex-direction: row;
   }
 }
 
@@ -262,8 +275,12 @@ textarea {
 }
 
 .site-nav-menu {
+  font-weight: bold;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 1rem;
   padding: 0;
   margin: 0;
@@ -272,6 +289,14 @@ textarea {
 
 .site-nav-menu a {
   display: block;
+}
+
+.site-nav-menu a,
+.site-header b {
+  background: var(--candy-color-background2);
+  border-radius: 9999px;
+  padding: 0.125rem 0.5rem;
+  box-shadow: 0 0 4px 0 var(--candy-color-background2);
 }
 
 .site-flex-row {
@@ -381,12 +406,6 @@ site-copyright {
     grid-template-columns: max-content minmax(0, 1fr);
   }
 
-  .site-nav-menu {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-  }
-
   .site-toc > * {
     display: flex;
     flex-direction: column;
@@ -394,6 +413,18 @@ site-copyright {
 
   .site-nav-menu a {
     display: inline;
+  }
+}
+
+@media (min-width: 500px) {
+  .site-header {
+    flex-direction: row;
+  }
+
+  .site-nav-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
   }
 }
 

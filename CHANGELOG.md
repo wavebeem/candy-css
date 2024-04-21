@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.3.0
+
+- `--candy-choice-item-radius` now defaults to `0px`
+
+- `--candy-texture-striped-size` now defaults to `3px`, reducing potential blur issues at different screen sizes
+
 ## v0.2.0
 
 - `--candy-texture-striped-size` now defaults to `2px`, making text much easier to read on the background
