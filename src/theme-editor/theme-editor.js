@@ -1,12 +1,8 @@
 import { $, $elem } from "../index.js";
+import Color from "../lib/color.js";
 
 const nbsp = "\u00a0";
 const middot = "\u00b7";
-
-const { chroma } = globalThis;
-if (!chroma) {
-  throw new Error("Chroma.js is required for this module to work.");
-}
 
 function trimColorName(colorName) {
   return colorName.replace(/^--candy-color-/, "");
@@ -66,7 +62,7 @@ function getContrast(fg, bg) {
   try {
     fg = normalizeCssColor(fg);
     bg = normalizeCssColor(bg);
-    return chroma.contrast(fg, bg);
+    return Color.contrast(fg, bg, "WCAG21");
   } catch (err) {
     console.error(err);
     return 0;
